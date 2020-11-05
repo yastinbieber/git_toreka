@@ -1,0 +1,23 @@
+<tbody>
+  <tr>
+    <td class="text-left"><%= advicediary.date %></td>
+    <td class="text-left"><%= advicediary.advicemenu.menu %></td>
+    <td class="text-center"><%= advicediary.weight %>kg</td>  
+    <td class="text-center"><%= advicediary.reps %>reps</td>
+    <td class="text-center"><%= advicediary.weightsecond %>kg</td>  
+    <td class="text-center"><%= advicediary.repssecond %>reps</td>
+    <td class="text-center"><%= advicediary.weightthird %>kg</td>  
+    <td class="text-center"><%= advicediary.repsthird %>reps</td>
+    <td class="td-actions text-right">
+        <%= link_to advicediary_path(advicediary), class: "btn btn-success" do %>
+            <i class="material-icons">speaker_notes</i>
+        <% end %>
+        <%= link_to edit_advicediary_path(advicediary), class: "btn btn-info" do %>
+          <i class="material-icons">edit</i>
+        <% end %>
+        <%= link_to advicediary_path(advicediary), method: :delete, remote: true, class: "btn btn-danger" do %>
+            <i class="material-icons">close</i>
+        <% end %>
+    </td>
+  </tr>
+</tbody>

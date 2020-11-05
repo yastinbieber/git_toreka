@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Toreka</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <!--     Fonts and icons     -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+
+    <!-- Material Dashboard CSS -->
+    <link rel="stylesheet" href="/assets//material-dashboard.css">
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+    
+  </head>
+
+  <body>
+    <!--<p class="notice"><%= notice %></p>-->
+    <!--<p class="alert"><%= alert %></p>-->
+    
+    <div class="wrapper ">
+      <% if user_signed_in? %>
+      <div class="sidebar" data-color="purple" data-background-color="white" data-image="">
+        <div class="logo">
+          <a href="" class="simple-text logo-normal">
+            toreka
+          </a>
+        </div>
+        <div class="sidebar-wrapper">
+          <div class="sidebar-header">
+            <div class="user-pic">
+              <% if current_user.image.attached? %>
+                <%= image_tag current_user.image, class: "img-responsive img-rounded" %>
+              <% else %>
+                <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+              <% end %>
+            </div>
+            <div class="user-info">
+              <span class="user-name">
+                <%= current_user.username %>
+              </span>
+            </div>
+          </div>
+          <ul class="nav">
+            <% unless current_user.plan == 'free' %>
+            <li class="nav-item ">
+              <%= link_to dashboards_path, class: "nav-link" do %>
+                <i class="material-icons">dashboard</i>
+                <p>ダッシュボード</p>
+              <% end %>
+            </li>
+            <% end %>
+            <li class="nav-item ">
+              <%= link_to user_path(current_user), class: "nav-link" do %>
+                <i class="material-icons">person</i>
+                <p>プロフィール</p>
+              <% end %>
+            </li>
+            <% unless current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
+            <li class="nav-item ">
+              <%= link_to "/workoutdiaries/", class: "nav-link" do %>
+                <i class="material-icons">fitness_center</i>
+                <p>トレーニング管理・記録</p>
+              <% end %>
+            </li>
+            <% end %>
+            <% unless current_user.plan == 'free' %>
+            <li class="nav-item ">
+              <%= link_to "/fooddiaries/", class: "nav-link" do %>
+                <i class="material-icons">local_dining</i>
+                <p>食事管理・記録</p>
+              <% end %>
+            </li>
+            <li class="nav-item ">
+              <%= link_to "/weightchanges", class: "nav-link" do %>
+                <i class="material-icons">library_books</i>
+                <p>体重管理・記録</p>
+              <% end %>
+            </li>
+            <% end %>
+            <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
+            <li class="nav-item ">
+              <%= link_to "/advicediaries/", class: "nav-link" do %>
+                <i class="material-icons">content_paste</i>
+                <p>トレーニングアドバイス</p>
+              <% end %>
+            </li>
+            <% end %>
+            <li class="nav-item ">
+              <%= link_to "/settings", class: 'nav-link' do %>
+                <i class="material-icons">settings</i>
+                <p>設定</p>
+              <% end %>
+            </li>
+            <li class="nav-item active-pro ">
+              <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+                <i class="material-icons">unarchive</i>
+                <p>LogOut</p>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="main-panel">
+        <div class="content">
+            <%= yield %>
+        </div>
+        <footer class="footer">
+          <div class="container-fluid">
+            <nav class="float-left">
+              <ul>
+                <li>
+                  <a href="https://www.creative-tim.com">
+                    PRODUCED BY BALUX
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div class="copyright float-right">
+              &copy;
+              <script>
+                document.write(new Date().getFullYear())
+              </script>, made with <i class="material-icons">favorite</i> by
+              <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+            </div>
+            <!-- your footer here -->
+          </div>
+        </footer>
+      </div>
+      <% else %>
+      <div class="d-none d-lg-block">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="/mainpages">Toreka</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  プラン
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="/mainpages/plan_comparison">プランを比較</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/mainpages/freeplan">フリープラン</a>
+                  <a class="dropdown-item" href="/mainpages/basicplan">ベーシックプラン</a>
+                  <a class="dropdown-item" href="/mainpages/premiumplan">プレミアムプラン</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Fanction</a>
+              </li>
+            </ul>
+            <span class="navbar-text">
+              <%= link_to "ログイン ", new_user_session_path, class: "btn btn-outline-success" %>
+              <%= link_to "無料新規登録", new_user_registration_path, class: "btn btn-success" %>
+            </span>
+          </div>
+        </div>
+      </nav>
+      </div>
+      
+      <div class="d-lg-none">
+        <div class="header "></div>
+          <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+          <label for="openSidebarMenu" class="sidebarIconToggle">
+            <div class="spinner diagonal part-1"></div>
+            <div class="spinner horizontal"></div>
+            <div class="spinner diagonal part-2"></div>
+          </label>
+          <div id="sidebarMenu">
+            <ul class="sidebarMenuInner">
+              <!--<li>Jelena Jovanovic <span>Web Developer</span></li>-->
+              <li><a href="/users/sign_up">新規登録</a></li>
+              <li><a href="/users/sign_in">ログイン</a></li>
+              <li><a href="/mainpages/plan_comparison">プランを比較する</a></li>
+              <li><a href="/mainpages/freeplan">フリープラン</a></li>
+              <li><a href="/mainpages/basicplan">ベーシックプラン</a></li>
+              <li><a href="/mainpages/premiumplan">プレミアムプラン</a></li>
+            </ul>
+          </div>
+        </div>
+      <!--メイン-->
+      <div class="content">
+        <%= yield %>
+        <footer class="footer">
+          <div class="container-fluid">
+            <nav class="float-left">
+              <ul>
+                <li>
+                  <a href="https://www.creative-tim.com">
+                    PRODUCED BY BALUX
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div class="copyright float-right">
+              &copy;
+              <script>
+                document.write(new Date().getFullYear())
+              </script>, made with <i class="material-icons">favorite</i> by
+              <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+            </div>
+          </div>
+        </footer>
+      </div>
+      <% end %>
+    </div>
+    
+    <!--   Core JS Files   -->
+    <script src="/assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="/assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    
+    <!--  Google Maps Plugin    -->
+    <!--<script src="https:/js/maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>-->
+    
+    <!-- Chartist JS -->
+    <script src="/assets/js/plugins/chartist.min.js"></script>
+    
+    <!--  Notifications Plugin    -->
+    <script src="/assets/js/plugins/bootstrap-notify.js"></script>
+    
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="/assets/js/material-dashboard.min.js?v=2.1.0" type="text/javascript"></script>
+
+  </body>
+</html>
+

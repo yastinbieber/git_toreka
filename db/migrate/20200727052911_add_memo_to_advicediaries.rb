@@ -1,0 +1,5 @@
+class AddMemoToAdvicediaries < ActiveRecord::Migration[5.2]
+  def change
+    add_column :advicediaries, :memo, :text
+  end
+end

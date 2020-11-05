@@ -1,0 +1,74 @@
+<div class="container-fluid">
+  <!--PC-->
+  <div class="d-none d-lg-block">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-6 mx-auto text-center">
+      <div class="card mx-auto text-left">
+        <h2 class="card-header">アカウントを作成</h2>
+        <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="form-group has-success">
+            <%= f.label :email, class: "bmd-label-floating" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
+          <div class="form-group has-success">
+            <%= f.label :password, class: "bmd-label-floating" %>
+            <% if @minimum_password_length %>
+            <br><em>(<%= @minimum_password_length %> 文字以上)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          </div>
+          <div class="form-group has-success">
+            <%= f.label :パスワードをもう一度入力, class: "bmd-label-floating" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          </div>
+          <small><%= link_to '利用規約', termsofservice_mainpages_path, target: "_blank" %>、及び<%= link_to '個人情報の取り扱い', personalinformation_mainpages_path, target: "_blank" %>に関する要項をご確認のうえ同意いただける場合は「同意して登録」ボタンをクリックしてください。</small><br><br>
+            <%= f.submit "同意して登録する", class: "btn btn-success btn-raised" %>
+        <% end %>
+        <%= render "devise/shared/links" %>
+        </div>
+      </div>
+      <div class="container text-left">
+        <small class="text-muted">※登録ボタン押下後は認証メールが送信されますのでご確認いただきログインしてください（迷惑メールフォルダに入っている場合があります）</small><br><br>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--スマホ-->
+  <div class="d-lg-none">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-6 mx-auto text-center mt-5 pt-5">
+      <div class="card mx-auto text-left">
+        <h2 class="card-header">アカウントを作成</h2>
+        <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="form-group has-success">
+            <%= f.label :email, class: "bmd-label-floating" %><br />
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+          </div>
+          <div class="form-group has-success">
+            <%= f.label :password, class: "bmd-label-floating" %>
+            <% if @minimum_password_length %>
+            <br><em>(<%= @minimum_password_length %> 文字以上)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          </div>
+          <div class="form-group has-success">
+            <%= f.label :パスワードをもう一度入力, class: "bmd-label-floating" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          </div>
+          <small><%= link_to '利用規約', termsofservice_mainpages_path, target: "_blank" %>、及び<%= link_to '個人情報の取り扱い', personalinformation_mainpages_path, target: "_blank" %>に関する要項をご確認のうえ同意いただける場合は「同意して登録」ボタンをクリックしてください。</small><br><br>
+            <%= f.submit "同意して登録する", class: "btn btn-success btn-raised" %>
+        <% end %>
+        <%= render "devise/shared/links" %>
+        </div>
+      </div>
+      <div class="container text-left">
+        <small class="text-muted">※登録ボタン押下後は認証メールが送信されますのでご確認いただきログインしてください（迷惑メールフォルダに入っている場合があります）</small><br><br>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

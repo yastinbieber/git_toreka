@@ -1,0 +1,441 @@
+<!--PC-->
+<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <a class="navbar-brand" href="javascript:;">PremiumPlan</a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+      <span class="navbar-toggler-icon icon-bar"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons">notifications</i>
+            <span class="notification">✓</span>
+            <p class="d-lg-none d-md-block">
+              Some Actions
+            </p>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <!--freeプラン以外（有料プラン）で目標目的両方入力していない場合-->
+            <% if current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.blank? %>
+              <%= link_to "Bodymake目標／目的を入力", new_idealweight_path, class: "dropdown-item" %>
+            <!--freeプラン以外（有料プラン）で目標のみ未入力の場合（基本ないけど）-->
+            <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.blank? %>
+              <%= link_to "Bodymake目標を入力", new_useradvice_path, class: "dropdown-item" %>
+            <!--freeプラン以外（有料プラン）で目的のみ未入力の場合-->
+            <% elsif current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.present? %>
+              <%= link_to "Bodymake目的を入力", new_idealweight_path, class: "dropdown-item" %>
+            <!--freeプラン以外（有料プラン）で全て入力済みの場合-->
+            <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.present? %>
+              <%= link_to "通知はありません", "", class: "dropdown-item" %>
+            <!--freeプランの場合-->
+            <% elsif current_user.plan == 'free' %>
+              <%= link_to "通知はありません", "", class: "dropdown-item" %>
+            <% end %>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="material-icons">person</i>
+            <p class="d-lg-none d-md-block">
+              Account
+            </p>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+            <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Settings", "/settings", class: "dropdown-item" %>
+            <%= link_to "PlanChange?", plancheck_users_path(current_user), class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+	<% unless current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
+	<section class="free-first">
+		<div class="container">
+		<div class="row mx-auto text-center my-5">
+			<div class="col-md-6 col-sm-6 text-left"><br>
+				<h4 class="text-muted">Toreka PremiumPlan</h4>
+				<h1>何をすればいいかはTorekaが教えてくれます</h1>
+				<h3>Torekaプレミアムプランは初心者向けのプランです。<br>ボディメイクて何をすればいいの？という課題を解決してくれます。</h3><br>
+				<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+					<% if current_user.plan == 'free' && current_user.plan_id == 'pln_572790307dd04b525bdd0a155347' && current_user.status == 'canceled' %>
+						プレミアムプランを再開
+					<% end %>
+					<% if current_user.status != 'active' && current_user.plan != 'pln_572790307dd04b525bdd0a155347' && current_user.plan_id != 'pln_572790307dd04b525bdd0a155347' %>
+						※無料トライアル（14日間）
+					<% end %>
+					<% if current_user.status == 'active' && current_user.plan != 'pln_572790307dd04b525bdd0a155347' %>
+						※プレミアムプランへ変更
+					<% end %>
+				</button>
+				<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLongTitle">ご確認ください</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        <div class="text-center">
+						      <h3>プレミアムプランへ登録</h3><br>
+						      <p>プレミアムプランへ登録します。<%= link_to "こちら", "/purchases/termsofservice", target: "_blank" %>をご確認いただきご同意の上下記ボタンより登録を完了してください</p>
+						      <p class="text-rose">プレミアムプラン：月額980円</p>
+						      <small class="text-muted">※ボタン押下後即座に課金が実行されます。<br>トライアル期間中の場合終了タイミングで課金がされます</small>
+						      <br>
+						        <% #以下カード情報を表示 %>
+						        <%= "**** **** **** " + @default_card_information.last4 %>
+						        <% exp_month = @default_card_information.exp_month.to_s %>
+						        <% exp_year = @default_card_information.exp_year.to_s.slice(2,3) %>
+						        <%= exp_month + " / " + exp_year %>
+						      <br>
+						      <% if current_user.plan == 'free' && current_user.status != 'canceled' %>
+							      <%= form_tag(action: :premium_pay, method: :post) do %>
+							        <button data-disable-with="送信中..." class="btn btn-primary">同意してプレミアムプランを開始する</button>
+							        <br><small class="text-muted">※支払いは14日後に行われます</small>
+							      <% end %>
+						      <% end %>
+						      <% if current_user.status == "canceled" && current_user.plan_id == 'pln_572790307dd04b525bdd0a155347' %>
+							      <%= form_tag(action: :resume, method: :post) do %>
+							        <button data-disable-with="送信中..." class="btn btn-primary">同意してプレミアムプランを再開する</button>
+							        <!--<br><small class="text-muted">※支払いは14日後に行われます</small>-->
+							      <% end %>
+						      <% end %>
+							    <% if current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' && current_user.status != 'canceled' %>
+							      <%= form_tag(action: :update, method: :post) do %>
+							        <button data-disable-with="送信中..." class="btn btn-primary">同意してプレミアムプランにアップグレード</button>
+							        <!--<br><small class="text-muted">※支払いは14日後に行われます</small>-->
+							      <% end %>
+						      <% end %>
+						      <% if current_user.plan == 'free' && current_user.status == 'canceled' && current_user.plan_id == 'pln_c97be8359fee9eecf65b59eeed35' %>
+							      <%= form_tag(action: :update_upgrade, method: :post) do %>
+							        <button data-disable-with="送信中..." class="btn btn-primary">同意してプレミアムプランにアップグレード</button>
+							        <!--<br><small class="text-muted">※支払いは14日後に行われます</small>-->
+							      <% end %>
+						      <% end %>
+							  </div>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+			<!--PCのみ-->
+			<div class="d-none d-lg-block">
+				<div class="col-md-6 col-sm-6 text-right my-5">
+					<%= image_tag "all_mockup.png", class: "img-responsive img-rounded", width: "100%;" %>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+	<!--PC-->
+	<div class="d-none d-lg-block">
+		<section class="free-second">
+			<div class="container">
+				<div class="col-md-6 col-md-offset-3 mx-auto text-center my-5">
+					<h2 class="pt-5">あなたに必要なメニューを提案してくれます</h2><br>
+					<p class="text-left text-muted">目的に応じあなたにとって的確なトレーニングメニューを提案してくれます。言われた通りに取り組めば必ず目的を達成できます。</p>
+				</div>
+				<div class="col-md-6 col-lg-12 col-md-offset-3 mx-auto text-center">
+					<div class="row">
+						<div class="col-lg-4">
+							<%= image_tag "trainingaicon.png",width: "30%;", class: "my-4" %>
+							<h4>トレーニングを記録</h4>
+							<hr>
+							<p>その日行ったメニューを簡単に記録することが可能。振り返りも容易</p>
+						</div>
+						<div class="col-lg-4">
+							<%= image_tag "weight.png",width: "30%;", class: "my-4" %>
+							<h4>日々の体重変化を管理</h4>
+							<hr>
+							<p>ボディメイクにおいて体重は大切な指標。<br>簡単に管理することが可能</p>
+						</div>
+						<div class="col-lg-4">
+							<%= image_tag "meet.png",width: "27%;", class: "my-4" %>
+							<h4>食事内容をPFCに沿って管理</h4>
+							<hr>
+							<p>ボディメイクに大切なPFCバランスに沿って食事内容を管理することが可能</p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-4"><br>
+							<%= image_tag "bodymakeplann.png",width: "35%;", class: "my-4" %>
+							<h4>ボディメイクプランの設定</h4>
+							<hr>
+							<p>ボディメイクは期間を決めることで成功する確率をあげることが可能</p>
+						</div>
+						<div class="col-lg-4">
+							<%= image_tag "bodymakeplan.png",width: "30%;", class: "my-4" %>
+							<h4>目的に応じたトレーニングメニュー提案</h4>
+							<hr>
+							<p>ボディメイク目的とトレーニング可能頻度を入力するだけで的確なメニューを提案してくれます</p>
+						</div>
+						<div class="col-lg-4"><br>
+							<%= image_tag "video.png",width: "35%;", class: "my-4" %>
+							<h4>基礎トレーニングのHowto動画</h4>
+							<hr>
+							<p>メニューのやり方がわからなくなったら2〜3分にまとめられたHowto動画を見ることで解決できます</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="">
+			<div class="container">
+				<div class="row mx-auto text-center my-5">
+					<div class="col-md-6 col-sm-6 text-left">
+						<h2 class="my-5 text-success">余計な機能がなくシンプルな設計</h2>
+						<h4>無駄な機能がないため入力から閲覧までスムーズに行うことが可能です。<br>日々の煩わしいトレーニング記録をスムーズに実現させてくれます。</h4><br>
+					</div>
+					<div class="col-md-6 col-sm-6 text-right">
+						<%= image_tag "tr_mockup2.png", class: "img-responsive img-rounded", width: "70%;" %>
+					</div>
+				</div>
+				<div class="row mx-auto text-center">
+					<div class="col-md-6 col-sm-6 text-left">
+						<%= image_tag "tr_mockup7.png", class: "img-responsive img-rounded", width: "70%;" %>
+					</div>
+					<div class="col-md-6 col-sm-6 text-right">
+						<h2 class="text-left my-5 text-success">日付毎に管理し取り出しやすい</h2>
+						<h4 class="text-left">日付単位でトレーニングを管理するためいつでも振り返ることが可能です。<br>前回のトレーニング内容や重量などを簡単に振り返ることが可能です。</h4><br>
+					</div>
+				</div>
+				<div class="row mx-auto text-center my-5">
+					<div class="col-md-6 col-sm-6 text-left">
+						<h2 class="my-5 text-success">体重の変化を可視化する</h2>
+						<h4>毎日の体重の変化をわかりやすくチェックすることが可能です。<br>グラフでチェックすることで毎日の変化がわかりやすくなります。</h4><br>
+					</div>
+					<div class="col-md-6 col-sm-6 text-right">
+						<%= image_tag "wg_mockup.png", class: "img-responsive img-rounded", width: "120%;" %>
+					</div>
+				</div>
+				<div class="row mx-auto text-center">
+					<div class="col-md-6 col-sm-6 text-left">
+						<%= image_tag "fd_mockup.png", class: "img-responsive img-rounded", width: "100%;" %>
+					</div>
+					<div class="col-md-6 col-sm-6 text-right">
+						<h2 class="text-left my-5 text-success">PFCバランスベースで食事を管理する</h2>
+						<h4 class="text-left">PFCバランスの面倒な計算は一切しなくて大丈夫です。<br>いくつか質問に答えるだけで導き出してくれます。</h4><br>
+					</div>
+				</div>
+				<div class="row mx-auto text-center my-5">
+					<div class="col-md-6 col-sm-6 text-left">
+						<h2 class="my-5 text-success">ボディメイクプランを設定する</h2>
+						<h4>ただなんとなくボディメイクをしていても成功確率はあがりません。プランを設定し行っていくことで成功する確率をあげることが可能です。</h4><br>
+					</div>
+					<div class="col-md-6 col-sm-6 text-right">
+						<%= image_tag "db_mockup.png", class: "img-responsive img-rounded", width: "120%;" %>
+					</div>
+				</div>
+				<div class="row mx-auto text-center">
+					<div class="col-md-6 col-sm-6 text-left">
+						<%= image_tag "admock.png", class: "img-responsive img-rounded", width: "120%;" %>
+					</div>
+					<div class="col-md-6 col-sm-6 text-right">
+						<h2 class="text-left my-5 text-success">目的に応じたトレーニングメニューの提供</h2>
+						<h4 class="text-left">初心者の方でボディメイクて何をすればよいのかわからないと言う人もいるかと思います。そんな方向けのサービス。目的と頻度を入力するだけで何をすればよいのか導いてくれます。</h4><br>
+					</div>
+				</div>
+				<div class="row mx-auto text-center">
+					<div class="col-md-6 col-sm-6 text-left">
+						<h2 class="my-5 text-success">Howtoトレーニング動画</h2>
+						<h4>初心者の方は特にトレーニングの動作やマシンの使い方に迷うことがよくあります。そんなときこのHowto動画を見ていただければ簡単に解決できます。2〜3分の短い動画でどこでもわかりやすくチェックができます。</h4><br>
+					</div>
+					<div class="col-md-6 col-sm-6 text-left">
+						<%= image_tag "hv_mockup.png", class: "img-responsive img-rounded", width: "140%;" %>
+					</div>
+				</div>
+				<!--<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">-->
+				<!--	<div class="display-4">-->
+				<!--		<%= link_to "無料トライアル（14日間）", new_user_registration_path, class: "btn btn-lg btn-primary" %>-->
+				<!--	</div>-->
+				<!--</div>-->
+			</div>
+		</section>
+	</div>
+	<!--スマホ-->
+	<div class="d-lg-none">
+		<section class="free-second">
+			<div class="container">
+				<div class="col-md-6 col-md-offset-3 mx-auto text-center my-5">
+					<h3 class="pt-5 text-left">あなたに必要なメニューを提案してくれます</h3><br>
+					<p class="text-left text-muted">目的に応じあなたにとって的確なトレーニングメニューを提案してくれます。<br>言われた通りに取り組めば必ず目的を達成できます。</p>
+				</div>
+				<div class="col-md-6 col-lg-12 col-md-offset-3 mx-auto text-center">
+					<div class="row">
+						<div class="col-lg-4">
+							<%= image_tag "trainingaicon.png",width: "30%;", class: "my-4" %>
+							<h4>トレーニングを記録</h4>
+							<hr>
+							<p>その日行ったメニューを簡単に記録することが可能。振り返りも容易</p>
+						</div>
+						<div class="col-lg-4">
+							<%= image_tag "weight.png",width: "30%;", class: "my-4" %>
+							<h4>日々の体重変化を管理</h4>
+							<hr>
+							<p>ボディメイクにおいて体重は大切な指標。<br>簡単に管理することが可能</p>
+						</div>
+						<div class="col-lg-4">
+							<%= image_tag "meet.png",width: "27%;", class: "my-4" %>
+							<h4>食事内容をPFCに沿って管理</h4>
+							<hr>
+							<p>ボディメイクに大切なPFCバランスに沿って食事内容を管理することが可能</p>
+						</div>
+						<div class="col-lg-4">
+							<%= image_tag "bodymakeplann.png",width: "35%;", class: "my-4" %>
+							<h4>ボディメイクプランの設定</h4>
+							<hr>
+							<p>ボディメイクは期間を決めることで成功する確率をあげることが可能</p>
+						</div>
+						<div class="col-lg-4">
+							<%= image_tag "bodymakeplan.png",width: "30%;", class: "my-4" %>
+							<h4>目的に応じたトレーニングメニュー提案</h4>
+							<hr>
+							<p>ボディメイク目的とトレーニング可能頻度を入力するだけで的確なメニューを提案してくれます</p>
+						</div>
+						<div class="col-lg-4">
+							<%= image_tag "video.png",width: "35%;", class: "my-4" %>
+							<h4>基礎トレーニングのHowto動画</h4>
+							<hr>
+							<p>メニューのやり方がわからなくなったら2〜3分にまとめられたHowto動画を見ることで解決できます</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="">
+			<div class="container">
+				<div class="row mx-auto text-center my-5">
+					<div class="col-md-6 col-sm-6 text-left">
+						<h2 class="text-success">余計な機能がなくシンプルな設計</h2>
+						<h4>無駄な機能がないため入力から閲覧までスムーズに行うことが可能です。<br>日々の煩わしいトレーニング記録をスムーズに実現させてくれます。</h4><br>
+					</div>
+					<div class="col-md-6 col-sm-6 text-right">
+						<%= image_tag "tr_mockup2.png", class: "img-responsive img-rounded", width: "70%;" %>
+					</div>
+				</div>
+				<div class="row mx-auto text-center">
+					<div class="col-md-6 col-sm-6 text-left">
+						<h2 class="text-left text-success">日付毎に管理し取り出しやすい</h2>
+						<h4 class="text-left">日付単位でトレーニングを管理するためいつでも振り返ることが可能です。<br>前回のトレーニング内容や重量などを簡単に振り返ることが可能です。</h4><br>
+					</div>
+					<div class="col-md-6 col-sm-6 text-left">
+						<%= image_tag "tr_mockup7.png", class: "img-responsive img-rounded", width: "70%;" %>
+					</div>
+				</div>
+				<div class="row mx-auto text-center my-5">
+					<div class="col-md-6 col-sm-6 text-left">
+						<h2 class="text-success">体重の変化を可視化する</h2>
+						<h4>毎日の体重の変化をわかりやすくチェックすることが可能です。<br>グラフでチェックすることで毎日の変化がわかりやすくなります。</h4><br>
+					</div>
+					<div class="col-md-6 col-sm-6 text-left">
+						<%= image_tag "wg_mockup.png", class: "img-responsive img-rounded", width: "120%;" %>
+					</div>
+				</div>
+				<div class="row mx-auto text-center">
+					<div class="col-md-6 col-sm-6 text-left">
+						<h2 class="text-left text-success">PFCバランスベースで食事を管理する</h2>
+						<h4 class="text-left">PFCバランスの面倒な計算は一切しなくて大丈夫です。<br>いくつか質問に答えるだけで導き出してくれます。</h4><br>
+					</div>
+					<div class="col-md-6 col-sm-6 text-left">
+						<%= image_tag "fd_mockup.png", class: "img-responsive img-rounded", width: "100%;" %>
+					</div>
+				</div>
+				<div class="row mx-auto text-center my-5">
+					<div class="col-md-6 col-sm-6 text-left">
+						<h2 class="text-success">ボディメイクプランを設定する</h2>
+						<h4>ただなんとなくボディメイクをしていても成功確率はあがりません。プランを設定し行っていくことで成功する確率をあげることが可能です。</h4><br>
+					</div>
+					<div class="col-md-6 col-sm-6 text-left">
+						<%= image_tag "db_mockup.png", class: "img-responsive img-rounded", width: "120%;" %>
+					</div>
+				</div>
+				<div class="row mx-auto text-center">
+					<div class="col-md-6 col-sm-6 text-right">
+						<h2 class="text-left text-success">目的に応じたトレーニングメニューの提供</h2>
+						<h4 class="text-left">初心者の方でボディメイクて何をすればよいのかわからないと言う人もいるかと思います。そんな方向けのサービス。目的と頻度を入力するだけで何をすればよいのか導いてくれます。</h4><br>
+					</div>
+					<div class="col-md-6 col-sm-6 text-left">
+						<%= image_tag "admock.png", class: "img-responsive img-rounded", width: "120%;" %>
+					</div>
+				</div>
+				<div class="row mx-auto text-center">
+					<div class="col-md-6 col-sm-6 text-left">
+						<h2 class="text-success">Howtoトレーニング動画</h2>
+						<h4>初心者の方は特にトレーニングの動作やマシンの使い方に迷うことがよくあります。そんなときこのHowto動画を見ていただければ簡単に解決できます。2〜3分の短い動画でどこでもわかりやすくチェックができます。</h4><br>
+					</div>
+					<div class="col-md-6 col-sm-6 text-center">
+						<%= image_tag "hv_mockup.png", class: "img-responsive img-rounded", width: "150%;" %>
+					</div>
+				</div>
+				<!--<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">-->
+				<!--	<div class="display-4 my-5">-->
+				<!--		<%= link_to "無料トライアル（14日間）", new_user_registration_path, class: "btn btn-lg btn-primary" %>-->
+				<!--	</div>-->
+				<!--</div>-->
+			</div>
+		</section>
+	</div>
+	<% else %>
+	<!--共通-->
+	<div class="container">
+		<h3>現在のあなたのプランはプレミアムプランです</h3>
+	  <div class="row">
+	    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mx-auto text-center">
+	      <div class="card rounded-0 p-0 shadow-sm">
+	        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
+	        <div class="card-body ">
+            <button type="button" class="btn btn-md btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+						  プレミアムプランをやめフリープランへ
+						</button>
+						<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+						  <div class="modal-dialog" role="document">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <h5 class="modal-title" id="exampleModalLongTitle">ご確認ください</h5>
+						        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						      <div class="modal-body">
+						        <div class="text-center">
+									  	<p>プレミアムプランをやめフリープランへ変更の手続きとなります。<br>変更で問題なければ下記のボタンより変更ください。</p>
+									  </div>
+						      </div>
+						      <div class="modal-footer">
+						      	<%= form_tag(action: :cancel, method: :post) do %>
+									    <button data-disable-with="送信中..." class="btn btn-outline-primary">プレミアムプランをやめ無料プランへ</button>
+									  <% end %>
+						      </div>
+						    </div>
+						  </div>
+						</div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mx-auto text-center">
+	      <div class="card rounded-0 p-0 shadow-sm">
+	        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>
+	        <div class="card-body ">
+	          <p class="card-text">
+	          	<%= form_tag(action: :downdate, method: :post) do %>
+	            	<button data-disable-with="送信中..." class="btn btn-outline-primary">プレミアムプランをやめベーシックプランへ</button>
+	          	<% end %>
+	          </p>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<% end %>

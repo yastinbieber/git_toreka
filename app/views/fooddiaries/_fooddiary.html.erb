@@ -1,0 +1,19 @@
+<tbody>
+  <tr>
+    <td class="center"></td>
+    <td class="text-center"><%= fooddiary.fooddate.foodname %></td>
+    <td class="text-center"><%= fooddiary.gram %>g</td>
+    <td class="text-center"><%= fooddiary.kcal %>kcal</td>
+    <td class="text-center"><%= fooddiary.protein %>g</td>
+    <td class="text-center"><%= fooddiary.fat %>g</td>
+    <td class="text-center"><%= fooddiary.carbo %>g</td>
+    <td class="td-actions text-right">
+        <%= link_to edit_fooddiary_path(fooddiary), class: "btn btn-info" do %>
+          <i class="material-icons">edit</i>
+        <% end %>
+        <%= link_to fooddiary_path(fooddiary), method: :delete, remote: true, class: "btn btn-danger" do %>
+            <i class="material-icons">close</i>
+        <% end %>
+    </td>
+  </tr>
+</tbody>

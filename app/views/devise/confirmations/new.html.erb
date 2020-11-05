@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <!--PC-->
+  <div class="d-none d-lg-block">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-6 mx-auto text-center">
+      <div class="card mx-auto text-left">
+      <h3 class="card-header">確認メールを再送信する</h3>
+        <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+          <h4><%= render "devise/shared/error_messages", resource: resource %></h4>
+          <div class="form-group has-success">
+            <%= f.label :email, class: "bmd-label-floating" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control" %>
+          </div>
+          <div class="actions">
+            <%= f.submit "送信する", class: "btn btn-success btn-raised" %>
+          </div>
+        <% end %>
+        <br><%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--スマホ-->
+  <div class="d-lg-none">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-6 mx-auto text-center mt-5 pt-5">
+      <div class="card mx-auto text-left">
+      <!--<h2 class="card-header">Resend confirmation instructions</h2>-->
+        <div class="card-body">
+        <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+          <h4><%= render "devise/shared/error_messages", resource: resource %></h4>
+          <div class="form-group has-success">
+            <%= f.label :email, class: "bmd-label-floating" %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: "form-control" %>
+          </div>
+          <div class="actions">
+            <%= f.submit "送信する", class: "btn btn-success btn-raised" %>
+          </div>
+        <% end %>
+        <br><%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

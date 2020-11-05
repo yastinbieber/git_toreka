@@ -1,0 +1,2 @@
+module FooddatesHelper
+end

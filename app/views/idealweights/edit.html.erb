@@ -1,0 +1,136 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+    <div class="container-fluid">
+      <div class="navbar-wrapper">
+        <a class="navbar-brand" href="javascript:;">Idealweight</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">notifications</i>
+              <span class="notification">✓</span>
+              <p class="d-lg-none d-md-block">
+                Some Actions
+              </p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <!--freeプラン以外（有料プラン）で目標目的両方入力していない場合-->
+              <% if current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.blank? %>
+                <%= link_to "Bodymake目標／目的を入力", new_idealweight_path, class: "dropdown-item" %>
+              <!--freeプラン以外（有料プラン）で目標のみ未入力の場合（基本ないけど）-->
+              <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.blank? %>
+                <%= link_to "Bodymake目標を入力", new_useradvice_path, class: "dropdown-item" %>
+              <!--freeプラン以外（有料プラン）で目的のみ未入力の場合-->
+              <% elsif current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.present? %>
+                <%= link_to "Bodymake目的を入力", new_idealweight_path, class: "dropdown-item" %>
+              <!--freeプラン以外（有料プラン）で全て入力済みの場合-->
+              <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.present? %>
+                <%= link_to "通知はありません", "", class: "dropdown-item" %>
+              <!--freeプランの場合-->
+              <% elsif current_user.plan == 'free' %>
+                <%= link_to "通知はありません", "", class: "dropdown-item" %>
+              <% end %>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">person</i>
+              <p class="d-lg-none d-md-block">
+                Account
+              </p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+              <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Settings", "/settings", class: "dropdown-item" %>
+              <%= link_to "PlanChange?", plancheck_users_path(current_user), class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="card">
+    <div class="card-header card-header-success">
+      <h4 class="card-title">パーソナルな情報を入力していきましょう。</h4>
+      <p class="card-category">情報を入力することで1日あたりに必要な栄養素を割り出すことができます</p>
+    </div>
+    <div class="card-body">
+      <%= form_for @idealweight do |f| %>
+      <div class="row">
+        <div class="col-md-4">
+            <%= f.hidden_field :user_id, value: current_user.id %>
+          <div class="form-group">
+            <%= f.label :height／身長 %>
+            <%= f.number_field :height, placeholder: "height", class: 'form-control' %><br>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :weight／現在の体重 %>
+            <%= f.number_field :weight, placeholder: "weight", class: 'form-control' %><br>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <%= f.label :targetweight／目標体重 %>
+            <%= f.number_field :targetweight, placeholder: "targetweight", class: 'form-control' %><br>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <%= f.label :exerciselevel／運動量レベル %><br>
+            <%= f.radio_button :exerciselevel, "1.2" %> 運動はほとんどしていない<br>
+            <%= f.radio_button :exerciselevel, "1.375" %> 1週間に1，2回軽い運動をする<br>
+            <%= f.radio_button :exerciselevel, "1.55" %> 1週間に2，3回筋トレをする<br>
+            <%= f.radio_button :exerciselevel, "1.725" %> 1週間に4～6回は結構激しい筋トレをする<br>
+            <%= f.radio_button :exerciselevel, "1.9" %> ほぼ毎日かなり激しい筋トレをする<br>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <%= f.label :ボディメイク開始日, class: "bmd-label-floating" %>
+          <%= f.date_field :start_day, class: 'form-control' %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.label :ボディメイク終了日, class: "bmd-label-floating" %>
+          <%= f.date_field :last_day, class: 'form-control' %>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        入力完了！
+      </button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">※入力時の注意</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <small class="text-muted">短期で一気に行うボディメイクは危険が伴いますのでおすすめできません.<br>1ヶ月あたり最大でも5kgまでの増減幅に抑えましょう.<br><br>当サービスでは健康を第一としたボディメイクを提供しています.<br><br></small>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">再度入力し直す</button>
+              <%= f.submit "そのまま送信する", class: "btn btn-raised btn-success", data: { disable_with: '送信中...' } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

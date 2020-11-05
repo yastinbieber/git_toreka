@@ -1,0 +1,125 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+    <div class="container-fluid">
+      <div class="navbar-wrapper">
+        <a class="navbar-brand" href="javascript:;">CardRegistration</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">notifications</i>
+              <span class="notification">✓</span>
+              <p class="d-lg-none d-md-block">
+                Some Actions
+              </p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <!--freeプラン以外（有料プラン）で目標目的両方入力していない場合-->
+              <% if current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.blank? %>
+                <%= link_to "Bodymake目標／目的を入力", new_idealweight_path, class: "dropdown-item" %>
+              <!--freeプラン以外（有料プラン）で目標のみ未入力の場合（基本ないけど）-->
+              <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.blank? %>
+                <%= link_to "Bodymake目標を入力", new_useradvice_path, class: "dropdown-item" %>
+              <!--freeプラン以外（有料プラン）で目的のみ未入力の場合-->
+              <% elsif current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.present? %>
+                <%= link_to "Bodymake目的を入力", new_idealweight_path, class: "dropdown-item" %>
+              <!--freeプラン以外（有料プラン）で全て入力済みの場合-->
+              <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.present? %>
+                <%= link_to "通知はありません", "", class: "dropdown-item" %>
+              <!--freeプランの場合-->
+              <% elsif current_user.plan == 'free' %>
+                <%= link_to "通知はありません", "", class: "dropdown-item" %>
+              <% end %>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">person</i>
+              <p class="d-lg-none d-md-block">
+                Account
+              </p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+              <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Settings", "/settings", class: "dropdown-item" %>
+              <%= link_to "PlanChange?", plancheck_users_path(current_user), class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="col-md-6 col-md-offset-6 mx-auto text-center">
+    <div class="card mx-auto text-left">
+      <div class="container">
+      
+        <h3>カード情報入力</h3>
+        <hr>
+        <%= form_tag(pay_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do %>
+          <div class="form-group">
+            <label class="text-left">カード番号</label>
+            <span class="required">必須</span>
+            <br/>
+            <%= text_field_tag "number", "", class: "form-control", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number" %>
+          </div>
+          <div class="form-group">
+            <label>有効期限</label>
+            <span class="required">必須</span>
+            <br/>
+            <select class="card-valid col-4 text-center" id="exp_month" name="exp_month" type="text">
+              <option>--</option>
+              <option value="1">01</option>
+              <option value="2">02</option>
+              <option value="3">03</option>
+              <option value="4">04</option>
+              <option value="5">05</option>
+              <option value="6">06</option>
+              <option value="7">07</option>
+              <option value="8">08</option>
+              <option value="9">09</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+            </select>
+            <span class="col-1">月／</span>
+            <select class="card-valid col-4 text-center" id="exp_year" name="exp_year" type="text">
+              <option>--</option>
+              <option value="2019">19</option>
+              <option value="2020">20</option>
+              <option value="2021">21</option>
+              <option value="2022">22</option>
+              <option value="2023">23</option>
+              <option value="2024">24</option>
+              <option value="2025">25</option>
+              <option value="2026">26</option>
+              <option value="2027">27</option>
+              <option value="2028">28</option>
+              <option value="2029">29</option>
+            </select>
+            <span class="col-1">年</span>
+          </div>
+          <div class="form-group text-left">
+            <label>セキュリティコード</label>
+            <span class="required">必須</span>
+            <br/>
+            <%= text_field_tag "cvc", "", class: "form-control", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc" %>
+          </div>
+          <div class="form-group">
+            <div id="card_token"></div>
+            <%= submit_tag "追加する", id: "token_submit", class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      
+    </div>
+    </div>
+  </div>
+</div>

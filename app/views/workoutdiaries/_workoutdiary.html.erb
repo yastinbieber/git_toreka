@@ -1,0 +1,24 @@
+<tbody>
+  <tr>
+    <td class="text-left"><%= workoutdiary.date %></td>
+    <td class="text-left"><%= workoutdiary.workoutdate.menu %></td>
+    <td class="text-center"><%= workoutdiary.settype %></td>
+    <td class="text-center"><%= workoutdiary.weight %>kg</td>
+    <td class="text-center"><%= workoutdiary.reps %>reps</td>
+    <td class="text-center"><%= workoutdiary.weightsecond %>kg</td>
+    <td class="text-center"><%= workoutdiary.repssecond %>reps</td>
+    <td class="text-center"><%= workoutdiary.weightthird %>kg</td>
+    <td class="text-center"><%= workoutdiary.repsthird %>reps</td>
+    <td class="td-actions text-right">
+        <%= link_to workoutdiary_path(workoutdiary), class: "btn btn-success" do %>
+            <i class="material-icons">speaker_notes</i>
+        <% end %>
+        <%= link_to "/workoutdiaries/#{workoutdiary.id}/edit", class: "btn btn-info" do %>
+          <i class="material-icons">edit</i>
+        <% end %>
+        <%= link_to workoutdiary_path(workoutdiary), method: :delete, remote: true,  class: "btn btn-danger" do %>
+            <i class="material-icons">close</i>
+        <% end %>
+    </td>
+  </tr>
+</tbody>

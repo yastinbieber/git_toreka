@@ -1,0 +1,148 @@
+<div class="container">
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+    <div class="container-fluid">
+      <div class="navbar-wrapper">
+        <a class="navbar-brand" href="javascript:;">Fooddiary</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">notifications</i>
+              <span class="notification">✓</span>
+              <p class="d-lg-none d-md-block">
+                Some Actions
+              </p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <!--freeプラン以外（有料プラン）で目標目的両方入力していない場合-->
+              <% if current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.blank? %>
+                <%= link_to "Bodymake目標／目的を入力", new_idealweight_path, class: "dropdown-item" %>
+              <!--freeプラン以外（有料プラン）で目標のみ未入力の場合（基本ないけど）-->
+              <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.blank? %>
+                <%= link_to "Bodymake目標を入力", new_useradvice_path, class: "dropdown-item" %>
+              <!--freeプラン以外（有料プラン）で目的のみ未入力の場合-->
+              <% elsif current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.present? %>
+                <%= link_to "Bodymake目的を入力", new_idealweight_path, class: "dropdown-item" %>
+              <!--freeプラン以外（有料プラン）で全て入力済みの場合-->
+              <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.present? %>
+                <%= link_to "通知はありません", "", class: "dropdown-item" %>
+              <!--freeプランの場合-->
+              <% elsif current_user.plan == 'free' %>
+                <%= link_to "通知はありません", "", class: "dropdown-item" %>
+              <% end %>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">person</i>
+              <p class="d-lg-none d-md-block">
+                Account
+              </p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+              <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Settings", "/settings", class: "dropdown-item" %>
+              <%= link_to "PlanChange?", plancheck_users_path(current_user), class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!--PCデバイスの場合-->
+  <!--<div class="d-none d-lg-block">-->
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="card-header card-header-tabs card-header-success">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <h4 class="nav-tabs-title">
+                  <i class="material-icons">trending_down</i> 食べた食事内容を入力する
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" style="table-layout:fixed;">
+                <thead class="thead-light">
+                  <tr>
+                    <th style="width:150px;"><small>日付</small></th>
+                    <th style="width:150px;"><small>食品名</small></th>
+                    <th style="width:150px;"><small>グラム数</small></th>
+                    <th style="width:150px;"><small>タイミング</small></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= form_for @fooddiary do |f| %>
+                  <tr>
+                    <td><%= f.date_field :date, placeholder: 'date', class: 'form-control' %></td>
+                    <td><%= f.autocomplete_field :foodname, autocomplete_fooddate_foodname_fooddiaries_path, id_element: '#fooddiary_fooddate_id', placeholder: '食品名を入力してください', class: 'form-control' %></td>
+                    <td><%= f.number_field :gram, placeholder: "gram", class: 'form-control' %></td>
+                    <td><%= f.select :timing, [['朝食'], ['昼食'], ['夕食'], ['間食']], {}, class: "form-control" %></td>
+                    <%= f.hidden_field :fooddate_id %>
+                    <%= f.hidden_field :user_id, value: current_user.id %>
+                    <%= f.hidden_field :idealweight_id, value: current_user.idealweight.id %>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <thead>
+              <tr>
+                <td><%= f.submit "登録", class: "btn btn-raised btn-primary" %></td>
+              </tr>
+            </thead>
+              <% end %>
+          </div>
+        </div>
+        <div class="container">
+          <small class="text-muted">※食べた食品が検索にかからない場合<%= link_to 'こちら', '/fooddates/new', class: "" %>からご登録ください</small>
+        </div>
+      </div>
+    </div>
+  <!--</div>-->
+  <!--スマホの場合-->
+  <!--<div class="d-lg-none">-->
+  <!--  <div class="row">-->
+  <!--    <div class="col-md-12">-->
+  <!--      <div class="card card-nav-tabs">-->
+  <!--        <div class="card-header card-header-tabs card-header-success">-->
+  <!--          <div class="nav-tabs-navigation">-->
+  <!--            <div class="nav-tabs-wrapper">-->
+  <!--              <h4 class="nav-tabs-title">-->
+  <!--                <i class="material-icons">trending_down</i> 食べた食事内容を入力する-->
+  <!--              </h4>-->
+  <!--            </div>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--        <div class="card-body">-->
+            <!--<%= form_for @fooddiary do |f| %>-->
+            <!--  <%= f.label :食品名 %>-->
+            <!--  <%= f.autocomplete_field :foodname, autocomplete_fooddate_foodname_fooddiaries_path, id_element: '#fooddiary_fooddate_id', class: 'form-control' %><br>-->
+            <!--  <%= f.label :グラム数（g） %>-->
+            <!--  <%= f.number_field :gram, placeholder: "gram", class: 'form-control' %><br>-->
+            <!--  <%= f.label :タイミング %>-->
+            <!--  <%= f.select :timing, [['朝食'], ['昼食'], ['夕食'], ['間食']], {}, class: "form-control" %><br>-->
+            <!--  <%= f.hidden_field :fooddate_id %>-->
+            <!--  <%= f.hidden_field :user_id, value: current_user.id %>-->
+            <!--  <%= f.hidden_field :idealweight_id, value: current_user.idealweight.id %>-->
+            <!--  <%= f.submit "登録する", class: "btn btn-raised btn-primary" %>-->
+            <!--<% end %>-->
+  <!--          <small class="text-muted">※食べた食品が検索にかからない場合<%= link_to 'こちら', '/fooddates/new', class: "" %>からご登録ください</small>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
+</div>

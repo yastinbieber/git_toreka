@@ -1,0 +1,2 @@
+module AdvicemenusHelper
+end

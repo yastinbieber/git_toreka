@@ -1,0 +1,233 @@
+
+	<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+    <div class="container-fluid">
+      <div class="navbar-wrapper">
+        <a class="navbar-brand" href="javascript:;">Planを比較</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">notifications</i>
+              <span class="notification">✓</span>
+              <p class="d-lg-none d-md-block">
+                Some Actions
+              </p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <!--freeプラン以外（有料プラン）で目標目的両方入力していない場合-->
+              <% if current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.blank? %>
+                <%= link_to "Bodymake目標／目的を入力", new_idealweight_path, class: "dropdown-item" %>
+              <!--freeプラン以外（有料プラン）で目標のみ未入力の場合（基本ないけど）-->
+              <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.blank? %>
+                <%= link_to "Bodymake目標を入力", new_useradvice_path, class: "dropdown-item" %>
+              <!--freeプラン以外（有料プラン）で目的のみ未入力の場合-->
+              <% elsif current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.present? %>
+                <%= link_to "Bodymake目的を入力", new_idealweight_path, class: "dropdown-item" %>
+              <!--freeプラン以外（有料プラン）で全て入力済みの場合-->
+              <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.present? %>
+                <%= link_to "通知はありません", "", class: "dropdown-item" %>
+              <!--freeプランの場合-->
+              <% elsif current_user.plan == 'free' %>
+                <%= link_to "通知はありません", "", class: "dropdown-item" %>
+              <% end %>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="material-icons">person</i>
+              <p class="d-lg-none d-md-block">
+                Account
+              </p>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+              <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Settings", "/settings", class: "dropdown-item" %>
+              <%= link_to "PlanChange?", plancheck_users_path(current_user), class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="firsts">
+  	<div class="row">
+			<div class="col-md-6 col-md-offset-3 mx-auto text-center my-5">
+				<br><br><br><br><h1 class="text-white"><strong>ボディメイクを確実に成功させる</strong></h1>
+				<p class="text-muted">より細かく管理をしボディメイクを成功させよう</p>
+				<% if current_user.status != 'active' %>
+					<a href="#1"><button class="btn btn-primary btn-lg">14日トライアルを試す</button></a>
+				<% else %>
+					<a href="#1"><button class="btn btn-primary btn-lg">プラン比較をする</button></a>
+				<% end %>
+			</div>
+		</div>
+  </section>
+  <section class="second">
+  	<div class="row">
+  		<div class="col-md-8 col-md-offset-2 mx-auto text-center my-5"><br><br><br><br>
+		  	<h4 class="text-muted ">
+		  		Torekaでは誰でもボディメイクを成功する事ができるよう<br>「簡単に」そして「わかりやすい」プラットフォームを提供しています<br><br>
+		  		『これまでジムが続かなかった人』『何をすれば良いかわからなかった人』<br>『ベストな管理サービスが見つからなかった人』<br>
+		  		それぞれの悩みを解決できるプランを取り揃えております<br><br>
+		  		ボディメイクに近道はありませんが、正しい道は存在します<br><br>
+		  		Torekaで身体も人生も変えましょう<br>
+		  		最大限サポートさせていただきます<br>
+		  	</h4>
+  		</div>
+  	</div>
+  </section>
+  <section class="thirds">
+  	<div id="1">
+		<div class="container">
+			<div class="col-md-10 col-md-offset-1 mx-auto text-center my-5">
+				<br><h2 class="text-black pt-5">あなたに合うプランがきっと見つかる</h2><br>
+			</div>
+			<div class="row">
+	      <div class="col-lg-4 col-md-4 col-sm-6">
+					<div class="card ">
+						<h3 class="card-header card-header-primary text-left">Free</h3>
+						<div class="card-body">
+							<br>
+							<h1 class="card-title pricing-card-title">0円
+							<small class="text-muted">/ 月</small>
+							</h1>
+							<ul class="list-unstyled mt-3 mb-4 text-left">
+								<li>トレーニングのみ管理したい方向け</li>
+							</ul>
+							<% if current_user.plan == 'free' %>
+								現在のプラン
+							<% elsif current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' %>
+								<%= link_to "無料プランへ変更する", "/purchases/basicplan", class: "btn btn-lg btn-block btn-outline-success" %>
+							<% elsif current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
+								<%= link_to "無料プランへ変更する", "/purchases/premiumplan", class: "btn btn-lg btn-block btn-outline-success" %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<div class="card">
+						<h3 class="card-header card-header-primary text-left">Basic</h3>
+						<div class="card-body">
+							<br>
+							<h1 class="card-title pricing-card-title">480円
+							<small class="text-muted">/ 月</small>
+							</h1>
+							<ul class="list-unstyled mt-3 mb-4 text-left">
+								<li>トレーニング・食事の管理をしたい方向け</li>
+							</ul>
+							<% if current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' && current_user.plan_id == 'pln_c97be8359fee9eecf65b59eeed35' %>
+								現在のプラン
+							<% end %>
+							<% if current_user.plan == 'free' && current_user.plan_id == 'pln_c97be8359fee9eecf65b59eeed35' && current_user.status == 'canceled' %>
+								<%= link_to "ベーシックプランを再開", "/purchases/basicplan", class: "btn btn-lg btn-block btn-outline-success" %>
+							<% end %>
+							<% if current_user.status != 'active' && current_user.plan != 'pln_c97be8359fee9eecf65b59eeed35' && current_user.plan_id != 'pln_c97be8359fee9eecf65b59eeed35' %>
+								<%= link_to "※無料トライアル（14日間）", "/purchases/basicplan", class: "btn btn-lg btn-block btn-outline-success" %>
+							<% end %>
+							<% if current_user.status == 'active' && current_user.plan != 'pln_c97be8359fee9eecf65b59eeed35' %>
+								<%= link_to "※ベーシックプランへ変更", "/purchases/basicplan", class: "btn btn-lg btn-block btn-outline-success" %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-6">
+					<div class="card">
+						<h3 class="card-header card-header-primary text-left">Premium</h3>
+						<div class="card-body">
+							<br>
+							<h1 class="card-title pricing-card-title">980円
+							<small class="text-muted">/ 月</small>
+							</h1>
+							<ul class="list-unstyled mt-3 mb-4 text-left">
+								<li>ボディメイク初心者向け。手厚いプラン</li>
+							</ul>
+							<% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' && current_user.plan_id == 'pln_572790307dd04b525bdd0a155347' %>
+								現在のプラン
+							<% end %>
+							<% if current_user.plan == 'free' && current_user.plan_id == 'pln_572790307dd04b525bdd0a155347' && current_user.status == 'canceled' %>
+								<%= link_to "プレミアムプランを再開", "/purchases/premiumplan", class: "btn btn-lg btn-block btn-outline-success" %>
+							<% end %>
+							<% if current_user.status != 'active' && current_user.plan != 'pln_572790307dd04b525bdd0a155347' && current_user.plan_id != 'pln_572790307dd04b525bdd0a155347' %>
+								<%= link_to "※無料トライアル（14日間）", "/purchases/premiumplan", class: "btn btn-lg btn-block btn-outline-success" %>
+							<% end %>
+							<% if current_user.status == 'active' && current_user.plan != 'pln_572790307dd04b525bdd0a155347' %>
+								<%= link_to "※プレミアムプランへ変更", "/purchases/premiumplan", class: "btn btn-lg btn-block btn-outline-success" %>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<small>※無料トライアル・・・無料トライアルとはアカウント登録後最初の有料登録時（ベーシックプラン・プレミアムプラン問わず）より算出されます。プラン変更時にトライアル期間が初期化するわけではございませんのでご了承ください。また場合によっては無料トライアルと記載があっても経過日によって有料対象となる場合がございます。</small>
+			</div><br><br>
+			<div class="row">
+		    <div class="col-md-12">
+					<div class="card card-nav-tabs">
+						<h4 class="card-header card-header-primary">プラン比較</h4>
+						<div class="card-body">
+							<div class="table-responsive">
+							<table class="table">
+								<thead>
+									<tr class="table-active">
+										<th class="text-left">機能</th>
+										<th class="text-left">Free</th>
+										<th class="text-center">Basic</th>
+										<th class="text-center">Premium</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="text-left">毎日のトレーニング記録・管理</td>
+										<td class="text-left"><i class="material-icons">lens</i></td>
+										<td class="text-center"><i class="material-icons">lens</i></td>
+										<td class="text-center"><i class="material-icons">lens</i></td>
+									</tr>
+									<tr>
+										<td class="text-left">体重の変化を記録・管理</td>
+										<td class="text-left"><i class="material-icons">clear</i></td>
+										<td class="text-center"><i class="material-icons">lens</i></td>
+										<td class="text-center"><i class="material-icons">lens</i></td>
+									</tr>
+									<tr>
+										<td class="text-left">PFCバランスに沿った食事の記録・管理</td>
+										<td class="text-left"><i class="material-icons">clear</i></td>
+										<td class="text-center"><i class="material-icons">lens</i></td>
+										<td class="text-center"><i class="material-icons">lens</i></td>
+									</tr>
+									<tr>
+										<td class="text-left">ボディメイクプランの提案</td>
+										<td class="text-left"><i class="material-icons">clear</i></td>
+										<td class="text-center"><i class="material-icons">clear</i></td>
+										<td class="text-center"><i class="material-icons">lens</i></td>
+									</tr>
+									<tr>
+										<td class="text-left">目的に応じたトレーニングメニューの提案</td>
+										<td class="text-left"><i class="material-icons">clear</i></td>
+										<td class="text-center"><i class="material-icons">clear</i></td>
+										<td class="text-center"><i class="material-icons">lens</i></td>
+									</tr>
+									<tr>
+										<td class="text-left">トレーニングメニューHowto動画</td>
+										<td class="text-left"><i class="material-icons">clear</i></td>
+										<td class="text-center"><i class="material-icons">clear</i></td>
+										<td class="text-center"><i class="material-icons">lens</i></td>
+									</tr>
+								</tbody>
+							</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
