@@ -10,7 +10,12 @@ require "csv"
 #   Fooddate.create(foodname: row[1], gram: row[2], kcal: row[3], protein: row[4], fat: row[5], carbo: row[6], inputgram: row[9], memo: row[10])
 # end
 
-workoutdates_csv = CSV.readlines("db/workoutdates.csv")
-workoutdates_csv.each do |row|
-  Workoutdate.create(menu: row[1], part: row[2])
+# workoutdates_csv = CSV.readlines("db/workoutdates.csv")
+# workoutdates_csv.each do |row|
+#   Workoutdate.create(menu: row[1], part: row[2])
+# end
+
+howtovideos_csv = CSV.readlines("db/howtovideos.csv")
+howtovideos_csv.each do |row|
+  Howtovideo.create(target: row[1], menu: row[2], url: row[3] )
 end
