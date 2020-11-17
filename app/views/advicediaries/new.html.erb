@@ -58,70 +58,40 @@
       </div>
     </div>
   </nav>
+ 
+  <h4 class="text-muted">Today's menu</h4>
+  <hr>
   <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-6 mx-auto text-center">
-      <div class="card rounded-0 p-0 shadow-sm" >
-        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;", height: "300rem;" %>
-        <div class="card-body text-left">
-          <h5 class="card-title">Today's menu</h5>
-          <table class="table table-sm">
-            <thead class="thead-light">
-              <tr>
-                <th class="text-left"><small>メニュー</small></th>
-                <th class="text-right"><small>最低回数</small></th>
-                <th class="text-right"><small>最高回数</small></th>
-                <th class="text-right"><small>セット数</small></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @advicemenus.each do |advicemenu| %>
-                <tr>
-                  <td class="text-left"><%= advicemenu.menu %></td>
-                  <td class="text-right"><%= advicemenu.minimam_reps %>回</td>
-                  <td class="text-right"><%= advicemenu.max_reps %>回</td>
-                  <td class="text-right"><%= advicemenu.sets %>s</td>
-                </tr>
-              <% end %>
-            </tbody>
-          </table>
-          <p class="card-text">
-            <small class="text-muted">※マシンの空き状況に応じて選定してください.<br>トレーニング動画及び同じ役割のトレーニングを知りたい方は下記より確認してください.</small>
-          </p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-            トレーニング動画
-          </button>
-          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Check!</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>新しいタブが開きます</p>
-                  <small>知りたい動画をチェックしてみてください</small><br>
-                  <small>2~3分の短い動画でトレーニングのやり方を知ることができます</small>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <%= link_to "トレーニング動画", "/howtovideos/", class: 'btn btn-raised btn-rose', target: "_blank" %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  <% @advicemenus.each do |advicemenu| %>
+	<div class="col-md-3 col-lg-3">
+    <div class="card rounded-0 p-0 shadow-sm">
+      <div class="card-body">
+      	<div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="<%= advicemenu.url %>" allowfullscreen></iframe>
+				</div>
+        <h5 class="card-title pt-3"><%= advicemenu.menu %></h5><br>
+        <h6 class="card-subtitle mb-2 text-muted">回数目安：<%= advicemenu.minimam_reps %>回-<%= advicemenu.max_reps %>回</h6>
+        <h6 class="card-subtitle mb-2 text-muted">セット数目安：<%= advicemenu.sets %>セット</h6>
       </div>
     </div>
   </div>
+  <% end %>
+  <div class="container">
+    <small class="text-muted">マシンの空き状況に応じて選定してください.<br>全てのトレーニング動画を見たい方は<%= link_to "こちら", "/howtovideos/", class: '', target: "_blank" %></small>
+  </div>
+  </div>
   
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header card-header-success">
-          <h4 class="card-title ">トレーニングを記録する</h4>
-          <p class="card-category"> Please enter the training you actually did.</p>
+        <div class="card-header card-header-tabs card-header-primary">
+          <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+              <h4 class="nav-tabs-title">
+                <i class="material-icons">trending_down</i> トレーニングを記録する
+              </h4>
+            </div>
+          </div>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -162,13 +132,16 @@
           </div>
           <thead>
             <tr>
-              <td><%= fb.submit "登録する", class: "btn btn-raised btn-success" %></td>
+              <td><%= fb.submit "登録する", class: "btn btn-raised btn-primary" %></td>
             </tr>
           </thead>
             <% end %>
-            <br><small class="text-muted">※マシンがポンド表記の場合（1lb (ポンド) = 0.45kg）／左記参考にしていただきながらキログラム表記で登録ください<br>
-            100lbの場合 = 100lb × 0.45 => 約45kg</small>
         </div>
+      </div>
+      <div class="container">
+        <small class="text-muted">※マシンがポンド表記の場合（1lb (ポンド) = 0.45kg）／左記参考にしていただきながらキログラム表記で登録ください<br>
+          100lbの場合 = 100lb × 0.45 => 約45kg
+        </small>
       </div>
     </div>
   </div>

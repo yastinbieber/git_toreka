@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_02_114447) do
+ActiveRecord::Schema.define(version: 2020_11_17_023856) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_11_02_114447) do
     t.string "group"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "url"
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -77,10 +78,10 @@ ActiveRecord::Schema.define(version: 2020_11_02_114447) do
     t.float "protein"
     t.float "fat"
     t.float "carbo"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "inputgram"
     t.text "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "fooddiaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -109,7 +110,6 @@ ActiveRecord::Schema.define(version: 2020_11_02_114447) do
 
   create_table "idealweights", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "fooddiary_id"
     t.float "height"
     t.float "weight"
     t.float "targetweight"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 2020_11_02_114447) do
     t.float "minusweight_day"
     t.string "email"
     t.integer "card_id"
+    t.integer "fooddiary_id"
   end
 
   create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -174,12 +175,12 @@ ActiveRecord::Schema.define(version: 2020_11_02_114447) do
     t.text "text"
     t.string "sex"
     t.integer "age"
-    t.string "customer_id"
     t.string "subscription_id"
     t.string "status"
     t.string "plan", default: "free"
     t.string "plan_id"
     t.integer "trial_end"
+    t.string "customer_id"
     t.datetime "trial_end_day"
     t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true

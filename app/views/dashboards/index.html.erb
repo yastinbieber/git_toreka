@@ -138,7 +138,7 @@
               <% if @weightchange_today.present? %>
                 <h3 class="card-title"><%= @weightchange_today.todayweight %> <small>Kg</small></h3>
               <% else %>
-                <h3 class="card-title"><%= link_to "本日の体重を記録する", new_weightchange_path, class: "btn btn-primary" %></h3>
+                <h3 class="card-title"><%= link_to "本日の体重を記録する", new_weightchange_path, class: "btn btn-danger" %></h3>
               <% end %>
             </div>
             <div class="card-footer">
@@ -278,7 +278,7 @@
                   <% if @weightchange_today.present? %>
                   <h3 class="card-title"><%= @weightchange_today.todayweight %> <small>Kg</small></h3>
                   <% else %>
-                  <h3 class="card-title"><%= link_to "本日の体重を記録する", new_weightchange_path, class: "btn btn-primary" %></h3>
+                  <h3 class="card-title"><%= link_to "本日の体重を記録する", new_weightchange_path, class: "btn btn-danger" %></h3>
                   <% end %>
                 </div>
                 <div class="card-footer">
@@ -352,7 +352,7 @@
               <% if @weightchange_today.present? %>
                 <h3 class="card-title"><%= @weightchange_today.todayweight %> <small>Kg</small></h3>
               <% else %>
-                <h3 class="card-title"><%= link_to "本日の体重を記録する", new_weightchange_path, class: "btn btn-primary" %></h3>
+                <h3 class="card-title"><%= link_to "本日の体重を記録する", new_weightchange_path, class: "btn btn-danger" %></h3>
               <% end %>
             </div>
             <div class="card-footer">
@@ -422,7 +422,7 @@
                   <% if @weightchange_today.present? %>
                   <h3 class="card-title"><%= @weightchange_today.todayweight %> <small>Kg</small></h3>
                   <% else %>
-                  <h3 class="card-title"><%= link_to "本日の体重を記録する", new_weightchange_path, class: "btn btn-primary" %></h3>
+                  <h3 class="card-title"><%= link_to "本日の体重を記録する", new_weightchange_path, class: "btn btn-danger" %></h3>
                   <% end %>
                 </div>
                 <div class="card-footer">
@@ -834,7 +834,7 @@
                       </td>
                       <td>Did you enter today's meal?</td>
                       <td class="td-actions text-right">
-                        <%= link_to new_fooddiary_path, title: "New Task", class: "btn btn-primary btn-link btn-sm" do %>
+                        <%= link_to fooddiaries_path, title: "New Task", class: "btn btn-primary btn-link btn-sm" do %>
                           <i class="material-icons">edit</i>
                         <% end %>
                         <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
@@ -856,8 +856,15 @@
                       <td>Did you enter your training today?</td>
                       <td class="td-actions text-right">
                         <!--プレミアム会員は下記リンクへ。ベーシック会員はworkoutdiaryのリンクへ飛ばすようにする-->
-                        <%= link_to new_advicediary_path, title: "New Task", class: "btn btn-primary btn-link btn-sm" do %>
-                          <i class="material-icons">edit</i>
+                        <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' && current_user.idealweight.present? && current_user.useradvice.present? %>
+                          <%= link_to advicediaries_path, title: "New Task", class: "btn btn-primary btn-link btn-sm" do %>
+                            <i class="material-icons">edit</i>
+                          <% end %>
+                        <!--以外-->
+                        <% else %>
+                          <%= link_to workoutdiaries_path, title: "New Task", class: "btn btn-primary btn-link btn-sm" do %>
+                            <i class="material-icons">edit</i>
+                          <% end %>
                         <% end %>
                         <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
                           <i class="material-icons">close</i>

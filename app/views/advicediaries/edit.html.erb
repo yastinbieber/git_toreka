@@ -62,9 +62,14 @@
   <div class="row">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header card-header-success">
-          <h4 class="card-title ">Let's TrainingRecord</h4>
-          <p class="card-category"> Please enter the training you actually did.</p>
+        <div class="card-header card-header-tabs card-header-primary">
+          <div class="nav-tabs-navigation">
+            <div class="nav-tabs-wrapper">
+              <h4 class="nav-tabs-title">
+                <i class="material-icons">trending_down</i> トレーニングを記録する
+              </h4>
+            </div>
+          </div>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -101,8 +106,6 @@
               </tbody>
             </table>
           </div>
-          <small class="text-muted">※マシンがポンド表記の場合（1lb (ポンド) = 0.45kg）／左記参考にしていただきながらキログラム表記で登録ください<br>
-            100lbの場合 = 100lb × 0.45 => 約45kg</small><br>
           <thead>
             <tr>
               <td><%= f.submit "変更する", class: "btn btn-raised btn-primary" %></td>
@@ -110,6 +113,11 @@
           </thead>
             <% end %>
         </div>
+      </div>
+      <div class="container">
+        <small class="text-muted">※マシンがポンド表記の場合（1lb (ポンド) = 0.45kg）／左記参考にしていただきながらキログラム表記で登録ください<br>
+          100lbの場合 = 100lb × 0.45 => 約45kg
+        </small>
       </div>
     </div>
   </div>

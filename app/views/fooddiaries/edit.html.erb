@@ -64,7 +64,7 @@
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="card">
-          <div class="card-header card-header-tabs card-header-success">
+          <div class="card-header card-header-tabs card-header-rose">
             <div class="nav-tabs-navigation">
               <div class="nav-tabs-wrapper">
                 <h4 class="nav-tabs-title">
@@ -100,7 +100,7 @@
             </div>
             <thead>
               <tr>
-                <td><%= f.submit "登録", class: "btn btn-raised btn-primary" %></td>
+                <td><%= f.submit "登録", class: "btn btn-raised btn-rose" %></td>
               </tr>
             </thead>
               <% end %>
@@ -111,38 +111,4 @@
         </div>
       </div>
     </div>
-  <!--</div>-->
-  <!--スマホの場合-->
-  <!--<div class="d-lg-none">-->
-  <!--  <div class="row">-->
-  <!--    <div class="col-md-12">-->
-  <!--      <div class="card card-nav-tabs">-->
-  <!--        <div class="card-header card-header-tabs card-header-success">-->
-  <!--          <div class="nav-tabs-navigation">-->
-  <!--            <div class="nav-tabs-wrapper">-->
-  <!--              <h4 class="nav-tabs-title">-->
-  <!--                <i class="material-icons">trending_down</i> 食べた食事内容を入力する-->
-  <!--              </h4>-->
-  <!--            </div>-->
-  <!--          </div>-->
-  <!--        </div>-->
-  <!--        <div class="card-body">-->
-  <!--          <%= form_for @fooddiary do |f| %>-->
-  <!--            <%= f.label :食品名 %>-->
-  <!--            <%= f.autocomplete_field :foodname, autocomplete_fooddate_foodname_fooddiaries_path, id_element: '#fooddiary_fooddate_id', class: 'form-control' %><br>-->
-  <!--            <%= f.label :グラム数（g） %>-->
-  <!--            <%= f.number_field :gram, placeholder: "gram", class: 'form-control' %><br>-->
-  <!--            <%= f.label :タイミング %>-->
-  <!--            <%= f.select :timing, [['朝食'], ['昼食'], ['夕食'], ['間食']], {}, class: "form-control" %><br>-->
-  <!--            <%= f.hidden_field :fooddate_id %>-->
-  <!--            <%= f.hidden_field :user_id, value: current_user.id %>-->
-  <!--            <%= f.hidden_field :idealweight_id, value: current_user.idealweight.id %>-->
-  <!--            <%= f.submit "登録する", class: "btn btn-raised btn-primary" %>-->
-  <!--          <% end %>-->
-  <!--          <small class="text-muted">※食べた食品が検索にかからない場合<%= link_to 'こちら', '/fooddates/new', class: "" %>からご登録ください</small>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--  </div>-->
-  <!--</div>-->
 </div>

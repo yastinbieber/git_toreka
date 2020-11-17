@@ -76,14 +76,22 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card card-nav-tabs">
-          <h4 class="card-header card-header-success">本日の体重を入力しよう</h4>
+          <div class="card-header card-header-tabs card-header-primary">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <h4 class="nav-tabs-title">
+                  <i class="material-icons">trending_down</i> 本日の体重を入力しよう
+                </h4>
+              </div>
+            </div>
+          </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" style="table-layout:fixed;">
                 <thead class="thead-light">
                   <tr>
                     <th><small>日付</small></th>
-                    <th><small>体重</small></th>
+                    <th><small>体重(Kg)</small></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -96,7 +104,7 @@
               </table>
               <thead>
                 <tr>
-                  <td><%= f.submit "登録する", class: "btn btn-raised btn-success" %></td>
+                  <td><%= f.submit "登録する", class: "btn btn-raised btn-primary" %></td>
                 </tr>
               </thead>
                 <% end %>
@@ -111,7 +119,15 @@
     <div class="row">
       <div class="col-md-12">
         <div class="card card-nav-tabs">
-          <h4 class="card-header card-header-success">本日の体重を入力しよう</h4>
+          <div class="card-header card-header-tabs card-header-primary">
+            <div class="nav-tabs-navigation">
+              <div class="nav-tabs-wrapper">
+                <h4 class="nav-tabs-title">
+                  <i class="material-icons">trending_down</i> 本日の体重を入力する
+                </h4>
+              </div>
+            </div>
+          </div>
           <div class="card-body">
             <%= form_for @weightchange do |f| %>
               <%= f.label :測定日 %>

@@ -74,7 +74,7 @@
         <div class="nav-tabs-navigation">
           <div class="nav-tabs-wrapper">
             <h4 class="nav-tabs-title">
-              <i class="material-icons">find_in_page</i> Search...
+              <i class="material-icons">find_in_page</i> 検索
             </h4>
           </div>
         </div>
@@ -97,7 +97,7 @@
             <%= f.collection_select :workoutdate_id, Workoutdate.all, :id, :menu, selected: @search_params[:workoutdate_id], class: 'form-control', include_blank: t('helpers.select.トレーニング名で検索') %>
           </div>
         </div>
-            <%= f.submit "検索", class: "btn btn-raised btn-primary" %>
+            <%= f.submit "検索", class: "btn btn-raised btn-default" %>
         <% end %>
         <small class="text-muted">特定の1日のみを検索されたい場合は（始め）と（終わり）両方に同日を入力ください
         <br>何も入力がない場合は本日行ったトレーニングが下記に反映されます</small>
@@ -108,11 +108,11 @@
   
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="card card-nav-tabs">
-      <div class="card-header card-header-tabs card-header-info">
+      <div class="card-header card-header-tabs card-header-primary">
         <div class="nav-tabs-navigation">
           <div class="nav-tabs-wrapper">
             <h4 class="nav-tabs-title">
-              <i class="material-icons">event_availablet</i>Training Record...
+              <i class="material-icons">event_availablet</i>トレーニング記録
             </h4>
           </div>
         </div>
