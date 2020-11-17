@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   
-  acts_as_paranoid
+  # 論理削除にすると同じアドレスで再登録できなくなるから一旦USERは物理削除で
+  # acts_as_paranoid
          
   has_one_attached :image
   has_many :workoutdiaries, dependent: :destroy
