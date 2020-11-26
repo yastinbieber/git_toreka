@@ -95,8 +95,7 @@ Rails.application.configure do
   
   config.public_file_server.enabled = true
   
-  config.assets.compile = true
-  config.serve_static_assets = true
+  
   
   # config.action_mailer.default_url_options = { host: 'https://toreka.herokuapp.com'}
   config.action_mailer.default_url_options = { :host => 'example.com' }
@@ -111,4 +110,8 @@ Rails.application.configure do
     :password => "wjrpfkveqfbtvtds", #2段階認証したアカウントで発行したアプリパスワード
     :authentication => 'login'
   }
+  
+  config.assets.compile = true
+  config.serve_static_assets = true
+  
 end
