@@ -98,5 +98,6 @@ Rails.application.configure do
   config.assets.compile = true
   config.serve_static_assets = true
   
-  config.action_mailer.default_url_options = { host: 'https://toreka.herokuapp.com'}
+  # config.action_mailer.default_url_options = { host: 'https://toreka.herokuapp.com'}
+  config.action_mailer.default_url_options = { :host => 'example.com' }
 end
