@@ -100,4 +100,15 @@ Rails.application.configure do
   
   # config.action_mailer.default_url_options = { host: 'https://toreka.herokuapp.com'}
   config.action_mailer.default_url_options = { :host => 'example.com' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'smtp.gmail.com',
+    :user_name => "toreka.bodymake@gmail.com", #先ほど作成した送信用gmailアドレス
+    :password => "wjrpfkveqfbtvtds", #2段階認証したアカウントで発行したアプリパスワード
+    :authentication => 'login'
+  }
 end
