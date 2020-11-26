@@ -28,7 +28,8 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  # config.assets.compile = false
+  config.assets.compile = false
+  config.serve_static_assets = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
@@ -95,6 +96,17 @@ Rails.application.configure do
   
   config.public_file_server.enabled = true
   
-  config.assets.compile = true
-  config.serve_static_assets = true
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'example.com' }
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :enable_starttls_auto => true,
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => 'smtp.gmail.com',
+    :user_name => "toreka.bodymake@gmail.com", #先ほど作成した送信用gmailアドレス
+    :password => "wjrpfkveqfbtvtds", #2段階認証したアカウントで発行したアプリパスワード
+    :authentication => 'login'
+  }
+  
 end
