@@ -4,58 +4,7 @@
       <div class="navbar-wrapper">
         <a class="navbar-brand" href="javascript:;">AdviceDiary</a>
       </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="navbar-toggler-icon icon-bar"></span>
-        <span class="navbar-toggler-icon icon-bar"></span>
-        <span class="navbar-toggler-icon icon-bar"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="material-icons">notifications</i>
-              <span class="notification">✓</span>
-              <p class="d-lg-none d-md-block">
-                Some Actions
-              </p>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-              <!--freeプラン以外（有料プラン）で目標目的両方入力していない場合-->
-              <% if current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.blank? %>
-                <%= link_to "Bodymake目標／目的を入力", new_idealweight_path, class: "dropdown-item" %>
-              <!--freeプラン以外（有料プラン）で目標のみ未入力の場合（基本ないけど）-->
-              <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.blank? %>
-                <%= link_to "Bodymake目標を入力", new_useradvice_path, class: "dropdown-item" %>
-              <!--freeプラン以外（有料プラン）で目的のみ未入力の場合-->
-              <% elsif current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.present? %>
-                <%= link_to "Bodymake目的を入力", new_idealweight_path, class: "dropdown-item" %>
-              <!--freeプラン以外（有料プラン）で全て入力済みの場合-->
-              <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.present? %>
-                <%= link_to "通知はありません", "", class: "dropdown-item" %>
-              <!--freeプランの場合-->
-              <% elsif current_user.plan == 'free' %>
-                <%= link_to "通知はありません", "", class: "dropdown-item" %>
-              <% end %>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="material-icons">person</i>
-              <p class="d-lg-none d-md-block">
-                Account
-              </p>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-              <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Settings", "/settings", class: "dropdown-item" %>
-              <%= link_to "PlanChange?", plancheck_users_path(current_user), class: "dropdown-item" %>
-              <div class="dropdown-divider"></div>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
-            </div>
-          </li>
-        </ul>
-      </div>
+      <%= render 'users/users' %>
     </div>
   </nav>
  
