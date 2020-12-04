@@ -19,7 +19,7 @@
           <% end %>
         </div>
         <div class="card-body">
-          <h4 class="card-title"><%= current_user.username %> さんへのメニュープラン <small>(<%= current_user.useradvice.purpose %> プラン × 週<%= current_user.useradvice.frequency %>日)</small></h4>
+          <h4 class="card-title"><%= current_user.username %> さんへのメニュープラン <br><small>(<%= current_user.useradvice.purpose %> プラン × 週<%= current_user.useradvice.frequency %>日)</small></h4>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
             Check!
           </button>
@@ -63,7 +63,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "A\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "A\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -80,7 +80,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "B\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "B\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -94,7 +94,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "C\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "C\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -111,7 +111,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "D\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "D\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -125,7 +125,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "E\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "E\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "F\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "F\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "G\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "G\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -170,7 +170,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "H\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "H\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -184,7 +184,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "I\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "I\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -198,7 +198,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "J\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "J\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -215,7 +215,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "K\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "K\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -229,7 +229,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "L\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "L\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -243,7 +243,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "M\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "M\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -257,7 +257,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "N\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "N\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -271,7 +271,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "O\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "O\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -288,7 +288,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "P\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "P\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -305,7 +305,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "Q\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "Q\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -319,7 +319,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "R\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "R\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -336,7 +336,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "S\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "S\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -350,7 +350,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "T\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "T\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -364,7 +364,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "U\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "U\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -381,7 +381,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "V\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "V\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -395,7 +395,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "W\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "W\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -409,7 +409,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "X\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "X\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -423,7 +423,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "Y\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "Y\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -440,7 +440,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "Z\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "Z\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -454,7 +454,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "AA\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "AA\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -468,7 +468,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "AB\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "AB\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -482,7 +482,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "AC\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "AC\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -496,7 +496,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "選択する", new_advicediary_path(group: "AD\r"), class: 'btn btn-success' %>
+            <%= link_to "選択する", new_advicediary_path(group: "AD\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -513,7 +513,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AE\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AE\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -530,7 +530,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AF\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AF\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -544,7 +544,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AG\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AG\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -561,7 +561,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AH\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AH\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -575,7 +575,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AI\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AI\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -589,7 +589,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AJ\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AJ\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -606,7 +606,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AH\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AH\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -620,7 +620,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AI\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AI\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -634,7 +634,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AJ\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AJ\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -651,7 +651,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AH\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AH\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -665,7 +665,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AI\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AI\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -679,7 +679,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AJ\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AJ\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -696,7 +696,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AK\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AK\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -713,7 +713,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AL\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AL\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -727,7 +727,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AM\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AM\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -744,7 +744,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AN\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AN\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -758,7 +758,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AO\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AO\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -772,7 +772,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AP\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AP\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -789,7 +789,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AQ\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AQ\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -803,7 +803,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AR\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AR\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -817,7 +817,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AS\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AS\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -831,7 +831,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AT\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AT\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -848,7 +848,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AQ\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AQ\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -862,7 +862,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AR\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AR\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -876,7 +876,7 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AS\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AS\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
@@ -890,987 +890,10 @@
               ■<%= advicemenu.menu %><br>
               <% end %>
             </p>
-            <%= link_to "チョイスする", new_advicediary_path(group: "AT\r"), class: 'btn btn-success' %>
+            <%= link_to "チョイスする", new_advicediary_path(group: "AT\r"), class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
     </div>
   <% end %>
-  <!--</div>-->
-  <!--スマホの場合-->
-  <!--<div class="d-lg-none">-->
-  <!--  <small class="text-muted">スクロールして本日のメニューを選択ください</small>-->
-  <!--<% if current_user.useradvice.purpose == "ダイエット" && current_user.useradvice.frequency == 1 %>-->
-  <!--  <div class="row">-->
-  <!--    <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--    <div class="card-body text-left">-->
-  <!--      <h5 class="card-title">--メニューA--</h5>-->
-  <!--      <p class="card-text">-->
-  <!--        <% @advicemenu_a.each do |advicemenu| %>-->
-  <!--        ■<%= advicemenu.menu %><br>-->
-  <!--        <% end %>-->
-  <!--      </p>-->
-  <!--      <%= link_to "選択する", new_advicediary_path(group: "A\r"), class: 'btn btn-success' %>-->
-  <!--    </div>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "ダイエット" && current_user.useradvice.frequency == 2 %>-->
-  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_b.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "B\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_c.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "C\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--  <% elsif current_user.useradvice.purpose == "ダイエット" && current_user.useradvice.frequency == 3 %>-->
-  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_d.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "D\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_e.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "E\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューC--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_f.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "F\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "ダイエット" && current_user.useradvice.frequency == 4 %>-->
-  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_g.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "G\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_h.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "H\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューC--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_i.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "I\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_4.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューD--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_j.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "J\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "ダイエット" && current_user.useradvice.frequency == 5 %>-->
-  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_k.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "K\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_l.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "L\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューC--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_m.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "M\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_4.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューD--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_n.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "N\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_5.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューE--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_o.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "O\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "筋力UP" && current_user.useradvice.frequency == 1 %>-->
-  <!--  <div class="row">-->
-  <!--    <%= image_tag "ozo_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--    <div class="card-body text-left">-->
-  <!--      <h5 class="card-title">メニューA</h5>-->
-  <!--      <p class="card-text">-->
-  <!--        <% @advicemenu_p.each do |advicemenu| %>-->
-  <!--        ■<%= advicemenu.menu %><br>-->
-  <!--        <% end %>-->
-  <!--      </p>-->
-  <!--      <%= link_to "選択する", new_advicediary_path(group: "P\r"), class: 'btn btn-success' %>-->
-  <!--    </div>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "筋力UP" && current_user.useradvice.frequency == 2 %>-->
-  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_q.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "Q\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_r.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "R\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "筋力UP" && current_user.useradvice.frequency == 3 %>-->
-  <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_s.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "S\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_t.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "T\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューC--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_u.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "U\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "筋力UP" && current_user.useradvice.frequency == 4 %>-->
-  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_v.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "V\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_w.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "W\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューC--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_x.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "X\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_4.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューD--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_y.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "Y\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "筋力UP" && current_user.useradvice.frequency == 5 %>-->
-  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_z.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "Z\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_aa.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AA\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューC--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ab.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AB\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_4.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューD--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ac.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AC\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_5.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューE--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ad.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AD\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-    
-  <!--  <% elsif current_user.useradvice.purpose == "美尻" && current_user.useradvice.frequency == 1 %>-->
-  <!--  <div class="row">-->
-  <!--    <%= image_tag "ozo_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--    <div class="card-body text-left">-->
-  <!--      <h5 class="card-title">メニューA</h5>-->
-  <!--      <p class="card-text">-->
-  <!--        <% @advicemenu_ae.each do |advicemenu| %>-->
-  <!--        ■<%= advicemenu.menu %><br>-->
-  <!--        <% end %>-->
-  <!--      </p>-->
-  <!--      <%= link_to "選択する", new_advicediary_path(group: "AE\r"), class: 'btn btn-success' %>-->
-  <!--    </div>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "美尻" && current_user.useradvice.frequency == 2 %>-->
-  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_af.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AF\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ag.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AG\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "美尻" && current_user.useradvice.frequency == 3 %>-->
-  <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ah.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AH\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ai.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AI\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューC--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_aj.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AJ\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "美尻" && current_user.useradvice.frequency == 4 %>-->
-  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ah.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AH\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ai.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AI\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューC--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_aj.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AJ\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "美尻" && current_user.useradvice.frequency == 5 %>-->
-  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ah.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AH\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ai.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AI\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューC--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_aj.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AJ\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  
-  
-  <!--<% elsif current_user.useradvice.purpose == "美女コース" && current_user.useradvice.frequency == 1 %>-->
-  <!--  <div class="row">-->
-  <!--    <%= image_tag "ozo_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--    <div class="card-body text-left">-->
-  <!--      <h5 class="card-title">--メニューA--</h5>-->
-  <!--      <p class="card-text">-->
-  <!--        <% @advicemenu_ak.each do |advicemenu| %>-->
-  <!--        ■<%= advicemenu.menu %><br>-->
-  <!--        <% end %>-->
-  <!--      </p>-->
-  <!--      <%= link_to "選択する", new_advicediary_path(group: "AK\r"), class: 'btn btn-success' %>-->
-  <!--    </div>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "美女コース" && current_user.useradvice.frequency == 2 %>-->
-  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_al.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AL\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_am.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AM\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "美女コース" && current_user.useradvice.frequency == 3 %>-->
-  <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_an.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AN\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ao.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AO\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューC--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ap.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AP\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "美女コース" && current_user.useradvice.frequency == 4 %>-->
-  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_aq.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AQ\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ar.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AR\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューC--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_as.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AS\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューD--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_at.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AT\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--<% elsif current_user.useradvice.purpose == "美女コース" && current_user.useradvice.frequency == 5 %>-->
-  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
-  <!--    <ol class="carousel-indicators">-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>-->
-  <!--      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>-->
-  <!--    </ol>-->
-  <!--    <div class="carousel-inner">-->
-  <!--      <div class="carousel-item active">-->
-  <!--        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューA--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_aq.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AQ\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_2.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューB--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_ar.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AR\r"), class: 'btn btn-success' %><br>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューC--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_as.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AS\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--      <div class="carousel-item">-->
-  <!--        <%= image_tag "oji_3.png", class: "card-img-top", width: "50%;" %>-->
-  <!--        <div class="card-body text-left">-->
-  <!--          <h5 class="card-title">--メニューD--</h5>-->
-  <!--          <p class="card-text">-->
-  <!--            <% @advicemenu_at.each do |advicemenu| %>-->
-  <!--            ■<%= advicemenu.menu %><br>-->
-  <!--            <% end %>-->
-  <!--          </p>-->
-  <!--          <%= link_to "選択する", new_advicediary_path(group: "AT\r"), class: 'btn btn-success' %>-->
-  <!--        </div>-->
-  <!--      </div>-->
-  <!--    </div>-->
-  <!--    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">-->
-  <!--      <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Previous</span>-->
-  <!--    </a>-->
-  <!--    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">-->
-  <!--      <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
-  <!--      <span class="sr-only">Next</span>-->
-  <!--    </a>-->
-  <!--  </div>-->
-  <!--<% end %>-->
-  <!--</div>-->
 </div>

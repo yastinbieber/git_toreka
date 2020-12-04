@@ -29,10 +29,10 @@
 			  <div class="card-body">
           <p class="text-muted">クレジットカード登録</p>
           <% if current_user.cards.present? %>
-            <%= link_to "登録済み", "/cards/new", class: "btn btn-rose btn-sm" %>
+            <%= link_to "登録済み", "/cards/new", class: "btn btn-default btn-sm" %>
             <br><small class="text-muted">カードの有効期限等は上記よりご確認ください</small>
           <% else %>
-            <%= link_to "未登録", "/cards/new", class: "btn btn-danger btn-sm" %>
+            <%= link_to "未登録", "/cards/new", class: "btn btn-default btn-sm" %>
             <br><small class="text-muted">cardをご登録ください</small>
           <% end %>
         </div>

@@ -29,7 +29,7 @@
             <div class="card-icon">
               <i class="material-icons">chrome_reader_mode</i>
             </div>
-            <p class="card-category">Your Bodymake Plan／ボディメイクプラン</p>
+            <p class="card-category">ボディメイクプラン</p>
             <h3 class="card-title"><%= current_user.useradvice.purpose %> <small>コース</small></h3>
           </div>
           <div class="card-footer">
@@ -46,7 +46,7 @@
             <div class="card-icon">
               <i class="material-icons">date_range</i>
             </div>
-            <p class="card-category">Bodymake Period／ボディメイク期間</p>
+            <p class="card-category">ボディメイク期間</p>
             <h3 class="card-title"><%= current_user.what_day %> <small>日目</small> ／ <%= current_user.idealweight.period %> <small>日間</small></h3>
             <small class="text-info"><%= current_user.idealweight.start_day %> 〜 <%= current_user.idealweight.last_day %></small>
           </div>
@@ -63,7 +63,7 @@
             <div class="card-icon">
               <i class="material-icons">today</i>
             </div>
-            <p class="card-category">Workout Frequency／トレーニング頻度</p>
+            <p class="card-category">トレーニング頻度</p>
             <h3 class="card-title"><small>週 </small><%= current_user.useradvice.frequency %> <small>日</small></h3>
           </div>
           <div class="card-footer">
@@ -92,7 +92,7 @@
               <div class="card-icon">
                 <i class="material-icons">chrome_reader_mode</i>
               </div>
-              <p class="card-category">Your Bodymake Plan／ボディメイクプラン</p>
+              <p class="card-category">ボディメイクプラン</p>
               <h3 class="card-title"><%= current_user.useradvice.purpose %> <small>コース</small></h3>
             </div>
             <div class="card-footer">
@@ -109,7 +109,7 @@
               <div class="card-icon">
                 <i class="material-icons">date_range</i>
               </div>
-              <p class="card-category">Bodymake Period／ボディメイク期間</p>
+              <p class="card-category">ボディメイク期間</p>
               <h3 class="card-title"><%= current_user.what_day %> <small>日目</small> ／ <%= current_user.idealweight.period %> <small>日間</small></h3>
               <small class="text-info"><%= current_user.idealweight.start_day %> 〜 <%= current_user.idealweight.last_day %></small>
             </div>
@@ -126,7 +126,7 @@
               <div class="card-icon">
                 <i class="material-icons">today</i>
               </div>
-              <p class="card-category">Workout Frequency／トレーニング頻度</p>
+              <p class="card-category">トレーニング頻度</p>
               <h3 class="card-title"><small>週 </small><%= current_user.useradvice.frequency %> <small>日</small></h3>
             </div>
             <div class="card-footer">
@@ -190,7 +190,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div class="card card-nav-tabs">
-        <div class="card-header card-header-tabs card-header-success">
+        <div class="card-header card-header-tabs card-header-primary">
           <div class="nav-tabs-navigation">
             <div class="nav-tabs-wrapper">
               <h4 class="nav-tabs-title">
@@ -240,7 +240,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mx-auto text-center">
       <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
-      <%= link_to "Start!", "/idealweights/new", class: "btn btn-raised btn-success" %>
+      <%= link_to "Start!", "/idealweights/new", class: "btn btn-raised btn-primary" %>
     </div>
   </div>
   <% elsif current_user.idealweight.blank? && current_user.useradvice.present? %>
@@ -250,7 +250,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mx-auto text-center">
       <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
-      <%= link_to "Start!", "/idealweights/new", class: "btn btn-raised btn-success" %>
+      <%= link_to "Start!", "/idealweights/new", class: "btn btn-raised btn-primary" %>
     </div>
   </div>
   <% elsif current_user.idealweight.present? && current_user.useradvice.blank? %>
@@ -260,7 +260,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mx-auto text-center">
       <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
-      <%= link_to "Start!", "/useradvices/new", class: "btn btn-raised btn-success" %>
+      <%= link_to "Start!", "/useradvices/new", class: "btn btn-raised btn-primary" %>
     </div>
   </div>
   <% end %>

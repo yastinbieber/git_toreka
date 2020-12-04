@@ -24,18 +24,18 @@
             <%= current_user.text %>
           </p>
           <% if current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' %>
-            <%= link_to "ベーシックプラン", plancheck_users_path(current_user), class: "btn btn-rose btn-round" %>
+            <%= link_to "ベーシックプラン", plancheck_users_path(current_user), class: "btn btn-default btn-round" %>
           <% elsif current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
-            <%= link_to "プレミアムプラン", plancheck_users_path(current_user), class: "btn btn-rose btn-round" %>
+            <%= link_to "プレミアムプラン", plancheck_users_path(current_user), class: "btn btn-default btn-round" %>
           <% else %>
-            <%= link_to "フリープラン", plancheck_users_path(current_user), class: "btn btn-rose btn-round" %>
+            <%= link_to "フリープラン", plancheck_users_path(current_user), class: "btn btn-default btn-round" %>
           <% end %>  
         </div>
       </div>
     </div>
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header card-header-success">
+        <div class="card-header card-header-primary">
           <h4 class="card-title">My Profile</h4>
           <p class="card-category">Complete your profile!</p>
         </div>
