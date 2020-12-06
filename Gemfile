@@ -79,6 +79,3 @@ gem 'therubyracer'
 gem "font-awesome-rails"
 gem 'payjp'
 
-group :production do
-  gem 'rails_12factor'
-end
