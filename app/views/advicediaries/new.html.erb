@@ -9,21 +9,24 @@
   </nav>
  
   <h4 class="text-muted">Today's menu</h4>
-  <hr>
   <div class="row">
   <% @advicemenus.each do |advicemenu| %>
-	<div class="col-md-3 col-lg-3">
-    <div class="card rounded-0 p-0 shadow-sm">
-      <div class="card-body">
-      	<div class="embed-responsive embed-responsive-16by9">
-				  <iframe class="embed-responsive-item" src="<%= advicemenu.url %>" allowfullscreen></iframe>
-				</div>
-        <h5 class="card-title pt-3"><%= advicemenu.menu %></h5><br>
-        <h6 class="card-subtitle mb-2 text-muted">回数目安：<%= advicemenu.minimam_reps %>回-<%= advicemenu.max_reps %>回</h6>
-        <h6 class="card-subtitle mb-2 text-muted">セット数目安：<%= advicemenu.sets %>セット</h6>
+	<div class="col-md-3">
+      <div class="card card-blog">
+        <div class="card-header card-header-image">
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="<%= advicemenu.url %>" allowfullscreen></iframe>
+          </div>
+        </div>
+        <div class="card-body">
+          <h6 class="card-category text-info"><%= advicemenu.menu %></h6>
+          <div class="card-description">
+            <h6 class="card-subtitle mb-2 text-muted">回数目安：<%= advicemenu.minimam_reps %>回-<%= advicemenu.max_reps %>回</h6>
+            <h6 class="card-subtitle mb-2 text-muted">セット数目安：<%= advicemenu.sets %>セット</h6>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
   <% end %>
   <div class="container">
     <small class="text-muted">マシンの空き状況に応じて選定してください.<br>全てのトレーニング動画を見たい方は<%= link_to "こちら", "/howtovideos/", class: '', target: "_blank" %></small>
@@ -32,20 +35,17 @@
   
   <div class="row mt-5">
     <div class="col-md-12">
-      <div class="card">
-        <div class="card-header card-header-tabs card-header-primary">
-          <div class="nav-tabs-navigation">
-            <div class="nav-tabs-wrapper">
-              <h4 class="nav-tabs-title">
-                <i class="material-icons">trending_down</i> トレーニングを記録する
-              </h4>
-            </div>
+      <div class="card mx-auto text-left">
+        <div class="card-header card-header-icon card-header-primary">
+          <div class="card-icon">
+            <i class="material-icons">trending_down</i>
           </div>
+          <h4 class="card-title ">トレーニングを記録する</h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" style="table-layout:fixed;">
-              <thead class="thead-light">
+            <table class="table">
+              <thead class=" text-primary">
                 <tr>
                   <th style="width:150px;"><small>日付</small></th>
                   <th style="width:200px;"><small>メニュー</small></th>
