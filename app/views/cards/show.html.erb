@@ -8,50 +8,46 @@
       <%= render 'users/users' %>
     </div>
   </nav>
-  <div class="col-md-8 col-md-offset-2 mx-auto text-center ">
-    <div class="card">
-      <div class="card-header card-header-success text-left">
-        <h4 class="card-title">クレジットカード情報</h4>
-        <p class="card-category">Check my card.</p>
-      </div>
-      <div class="card-body text-left">
-        <form>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="bmd-label-floating">クレジットカード番号</label>
-              <h5 class="form-control"><%= "**** **** **** " + @default_card_information.last4 %></h5>
+  <div class="row">
+    <div class="col-md-8 ml-auto mr-auto">
+      <div class="card card-blog">
+        <div class="card-header card-header-image">
+          <a href="#pablo">
+            <img class="img" src="https://images.unsplash.com/photo-1511439817358-bee8e21790b5?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" rel="nofollow">
+            <div class="card-title">
+                クレジットカード情報
             </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="bmd-label-floating">カード有効期限</label>
-              <% exp_month = @default_card_information.exp_month.to_s %>
-              <% exp_year = @default_card_information.exp_year.to_s.slice(2,3) %>
-              <h5 class="form-control"><%= exp_month + " / " + exp_year %></h5>
-            </div>
-          </div>
+          </a>
         </div>
-        <%= form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm", data: {confirm: "削除が完了しました"}) do %>
-          <input name="card_id" type="hidden">
-          <button class="btn btn-outline-danger">登録カードを削除する</button>
-        <% end %>
-        </form>
+        <div class="card-body text-left">
+          <form>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">クレジットカード番号</label>
+                <h5 class="form-control"><%= "**** **** **** " + @default_card_information.last4 %></h5>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">カード有効期限</label>
+                <% exp_month = @default_card_information.exp_month.to_s %>
+                <% exp_year = @default_card_information.exp_year.to_s.slice(2,3) %>
+                <h5 class="form-control"><%= exp_month + " / " + exp_year %></h5>
+              </div>
+            </div>
+          </div>
+          <%= form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm", data: {confirm: "削除が完了しました"}) do %>
+            <input name="card_id" type="hidden">
+            <button class="btn btn-outline-danger">登録カードを削除する</button>
+          <% end %>
+          </form>
+          <%= link_to "プランを確認・変更する", plancheck_users_path(current_user), class: "btn btn-success" %>
+          <%= link_to "マイページへ戻る", user_path(current_user), class: "btn btn-primary" %>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-md-8 col-md-offset-2 mx-auto text-center ">
-    <div class="card mx-auto py-5">
-      <div class="text-center">
-        <%= link_to "プランを確認・変更する", plancheck_users_path(current_user), class: "btn btn-success" %>
-        <%= link_to "マイページへ戻る", user_path(current_user), class: "btn btn-primary" %>
-      </div>
-    </div>
-  </div>
-  
-  
-  
 </div>
-
 
 

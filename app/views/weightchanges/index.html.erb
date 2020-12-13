@@ -18,7 +18,7 @@
           <%= link_to "記録する", new_weightchange_path, class: 'btn btn-primary' %>
         </div>
       </div>
-    <div class="black-background" id="js-black-bg"></div>
+      <div class="black-background" id="js-black-bg"></div>
     </div>
     <% end %>
   <div class="d-none d-lg-block">
@@ -164,15 +164,12 @@
     
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="card card-nav-tabs">
-        <div class="card-header card-header-tabs card-header-primary">
-          <div class="nav-tabs-navigation">
-            <div class="nav-tabs-wrapper">
-              <h4 class="nav-tabs-title">
-                <i class="material-icons">event_available</i> 検索
-              </h4>
-            </div>
+      <div class="card">
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">event_available</i>
           </div>
+          <h4 class="card-title">Search</h4>
         </div>
         <div class="card-body">
           <%= form_with(scope: :search, url: weightchanges_path, method: :get, local: true) do |f| %>
@@ -221,15 +218,12 @@
   </div><br>
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="card card-nav-tabs">
-        <div class="card-header card-header-tabs card-header-primary">
-          <div class="nav-tabs-navigation">
-            <div class="nav-tabs-wrapper">
-              <h4 class="nav-tabs-title">
-                <i class="material-icons">trending_down</i> 体重記録
-              </h4>
-            </div>
+      <div class="card">
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">trending_down</i>
           </div>
+          <h4 class="card-title">体重記録</h4>
         </div>
         <div class="d-none d-lg-block">
         <div class="card-body">
@@ -304,5 +298,68 @@
     </div>
   </div>
   <% end %>
+</div>
+
+目標体重
+<%= current_user.idealweight.targetweight %>
+現在の体重
+<%= @weightchange.todayweight %>
+乖離
+<%= current_user.idealweight.weight - current_user.idealweight.targetweight %>
+最新の体重
+<%= @weightchange.todayweight %>
+
+<div class="row">
+  <div class="col-md-4 col-sm-12 col-xs-12 ml-auto mr-auto">
+    <div class="card ">
+      <div class="card-header card-header-primary">
+        <div class="nav-tabs-navigation">
+          <div class="nav-tabs-wrapper">
+            <ul class="nav nav-tabs" data-tabs="tabs">
+              <li class="nav-item">
+                <a class="nav-link active" href="#home" data-toggle="tab">体重</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#updates" data-toggle="tab">Updates</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#history" data-toggle="tab">History</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card-body ">
+        <div class="tab-content text-center">
+          <div class="tab-pane active" id="home">
+            <div class="row">
+              <div class="col-xs-6 ml-auto mr-auto">
+                <div class="card text-white bg-primary text-center px-3">
+                  <h3 class="text-center"><%= @weightchange.todayweight %> Kg</h3>
+                  <small >目標値</small>
+                  <h4 class=""><%= current_user.idealweight.targetweight %> Kg</h4>
+                </div>
+              </div>
+               <div class="col-xs-6 ml-auto mr-auto">
+                <div class="text-center mt-5 pt-2">
+                  <p class="text-muted ">あと</p>
+                  <h3 class=""><%= current_user.idealweight.weight - current_user.idealweight.targetweight %> Kg</h3>
+                </div>
+              </div>
+            </div>
+            <% if @weightchange_today.blank? %>
+              <%= link_to "今日の体重を記録", new_weightchange_path, class: 'btn btn-danger btn-sm' %>
+            <% end %>
+          </div>
+          <div class="tab-pane" id="updates">
+            <p> I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. </p>
+          </div>
+          <div class="tab-pane" id="history">
+            <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 

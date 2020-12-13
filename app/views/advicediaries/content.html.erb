@@ -8,30 +8,95 @@
     </div>
   </nav>
   
-  <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
-  <div class="col-md-12">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card card-profile ml-auto mr-auto" style="max-width: 360px">
+        <div class="card-header card-header-image">
+          <% if current_user.image.attached? %>
+            <%= image_tag current_user.image, class: "img" %>
+          <% else %>
+            <img class="img" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+          <% end %>
+        </div>
+        <div class="card-body ">
+          <h4 class="card-title"><%= current_user.username %></h4>
+          <h6 class="card-category text-gray"><%= current_user.text %></h6>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
+      <div class="card">
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">assignment</i>
+          </div>
+          <h4 class="card-title">ボディメイク目標</h4>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">BodymakePurpose／ボディメイク目的</label>
+                  <h5 class="form-control"><%= current_user.useradvice.purpose %></h5>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">BodymakeFrequency／ボディメイク頻度</label>
+                  <h5 class="form-control">週<%= current_user.useradvice.frequency %>日</h5>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Bodymake／ボディメイク期間</label>
+                  <h5 class="form-control"><%= current_user.idealweight.period %>日</h5>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Exerciselevel／運動量レベル</label>
+                  <h5 class="form-control"><%= current_user.idealweight.exerciselevel %></h5>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">TargetWeight／目標体重</label>
+                  <h5 class="form-control"><%= current_user.idealweight.targetweight %>kg</h5>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">GAP／乖離</label>
+                  <% if current_user.useradvice.purpose == "筋力UP" %>
+                  <h5 class="form-control">+ <%= current_user.idealweight.targetweight - current_user.idealweight.weight %>kg</h5>
+                  <% else %>
+                  <h5 class="form-control"><%= current_user.idealweight.minusweight %>kg</h5>
+                  <% end %>
+                </div>
+              </div>
+          </form>
+        </div>
+        <%= link_to "確認完了", dashboards_path, class: 'btn btn-primary' %>
+        <%= link_to "編集する①", useradvice_path(current_user.useradvice), class: 'btn btn-default' %>
+        <%= link_to "編集する②", idealweight_path(current_user.idealweight), class: 'btn btn-default' %>
+      </div>
+    </div>
+    <% elsif current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' %>
     <div class="card">
-      <div class="card-header card-header-primary">
-        <h4 class="card-title"><%= current_user.username %>のボディメイク目標</h4>
+      <div class="card-header card-header-primary card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">assignment</i>
+        </div>
+        <h4 class="card-title">食事目標</h4>
       </div>
       <div class="card-body">
         <form>
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label class="bmd-label-floating">BodymakePurpose／ボディメイク目的</label>
-                <h5 class="form-control"><%= current_user.useradvice.purpose %></h5>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="bmd-label-floating">BodymakeFrequency／ボディメイク頻度</label>
-                <h5 class="form-control">週<%= current_user.useradvice.frequency %>日</h5>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="bmd-label-floating">Bodymake／ボディメイク期間</label>
+                <label class="bmd-label-floating">Fooddiaryperiod／食事管理期間</label>
                 <h5 class="form-control"><%= current_user.idealweight.period %>日</h5>
               </div>
             </div>
@@ -41,6 +106,8 @@
                 <h5 class="form-control"><%= current_user.idealweight.exerciselevel %></h5>
               </div>
             </div>
+          </div>
+          <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <label class="bmd-label-floating">TargetWeight／目標体重</label>
@@ -49,63 +116,18 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label class="bmd-label-floating">GAP／乖離</label>
-                <% if current_user.useradvice.purpose == "筋力UP" %>
-                <h5 class="form-control">+ <%= current_user.idealweight.targetweight - current_user.idealweight.weight %>kg</h5>
-                <% else %>
+                <label class="bmd-label-floating">Gap／乖離</label>
                 <h5 class="form-control"><%= current_user.idealweight.minusweight %>kg</h5>
-                <% end %>
               </div>
             </div>
+          </div>
         </form>
+        <%= link_to "確認完了", fooddiaries_path, class: 'btn btn-danger' %>
+        <%= link_to "編集する", idealweight_path(current_user.idealweight), class: 'btn btn-success' %>
       </div>
-      <%= link_to "確認完了", dashboards_path, class: 'btn btn-primary' %>
-      <%= link_to "編集する①", useradvice_path(current_user.useradvice), class: 'btn btn-default' %>
-      <%= link_to "編集する②", idealweight_path(current_user.idealweight), class: 'btn btn-default' %>
     </div>
+    <% end %>
   </div>
-  <% elsif current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' %>
-  <div class="card">
-    <div class="card-header card-header-primary">
-      <h4 class="card-title"><%= current_user.username %>の食事目標</h4>
-    </div>
-    <div class="card-body">
-      <form>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="bmd-label-floating">Fooddiaryperiod／食事管理期間</label>
-              <h5 class="form-control"><%= current_user.idealweight.period %>日</h5>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="bmd-label-floating">Exerciselevel／運動量レベル</label>
-              <h5 class="form-control"><%= current_user.idealweight.exerciselevel %></h5>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="bmd-label-floating">TargetWeight／目標体重</label>
-              <h5 class="form-control"><%= current_user.idealweight.targetweight %>kg</h5>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label class="bmd-label-floating">Gap／乖離</label>
-              <h5 class="form-control"><%= current_user.idealweight.minusweight %>kg</h5>
-            </div>
-          </div>
-        </div>
-      </form>
-      <%= link_to "確認完了", fooddiaries_path, class: 'btn btn-danger' %>
-      <%= link_to "編集する", idealweight_path(current_user.idealweight), class: 'btn btn-success' %>
-    </div>
+  
   </div>
-  <% end %>
 </div>
-
-
-

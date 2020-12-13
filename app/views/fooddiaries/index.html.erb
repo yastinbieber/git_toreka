@@ -25,73 +25,89 @@
       </div>
     <% end %>
     
-    <!--PC-->
+  <!--PC-->
   <div class="d-none d-lg-block">
     <div class="row">
-      <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="col-md-3 ml-auto mr-auto">
         <div class="card card-stats">
           <div class="card-header card-header-warning card-header-icon">
             <div class="card-icon">
               <i class="material-icons">food_bank</i>
             </div>
-            <p class="card-category">Kcal／カロリー</p>
-            <h3 class="card-title"><%= @fooddiary_sum_kcal %>／<%= current_user.idealweight.kcalintake.to_i %> <small>KCAL</small></h3>
+            <p class="card-category">カロリー</p>
           </div>
-          <div class="card-footer">
-            <div class="stats">
-              <i class="material-icons text-danger">warning</i>
-              <a>残り：<%= current_user.idealweight.kcalintake - @fooddiary_sum_kcal %>kcal</a>
+          <div class="card-body">
+            <div class="progress-container">
+              <small class="text-right">残り</small>
+              <h5 class="text-right"><%= current_user.idealweight.kcalintake.to_i - @fooddiary_sum_kcal %><small class="text-muted"> kcal</small></h5>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_kcal*100 / current_user.idealweight.kcalintake.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+              <p class="text-right"><%= @fooddiary_sum_kcal %>／<%= current_user.idealweight.kcalintake.to_i %><small class="text-muted"> kcal</small></p>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="col-md-3 ml-auto mr-auto">
         <div class="card card-stats">
           <div class="card-header card-header-success card-header-icon">
             <div class="card-icon">
               <i class="material-icons">android</i>
             </div>
-            <p class="card-category">Protein／タンパク質</p>
-            <h3 class="card-title"><%= @fooddiary_sum_protein %>／<%= current_user.idealweight.intakeproteingram.to_i %> <small>G</small></h3>
+            <p class="card-category">タンパク質(P)</p>
           </div>
-          <div class="card-footer">
-            <div class="stats">
-              <i class="material-icons text-danger">warning</i>
-              <a>残り：<%= current_user.idealweight.intakeproteingram - @fooddiary_sum_protein %>g</a>
+          <div class="card-body">
+            <div class="progress-container">
+              <small class="text-right">残り</small>
+              <h5 class="text-right"><%= current_user.idealweight.intakeproteingram.to_i - @fooddiary_sum_protein %><small class="text-muted"> g</small></h5>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_protein*100 / current_user.idealweight.intakeproteingram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+              <p class="text-right"><%= @fooddiary_sum_protein %>／<%= current_user.idealweight.intakeproteingram.to_i %><small class="text-muted"> g</small></p>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="col-md-3 ml-auto mr-auto">
         <div class="card card-stats">
           <div class="card-header card-header-danger card-header-icon">
             <div class="card-icon">
               <i class="material-icons">local_pizza</i>
             </div>
-            <p class="card-category">Fat／脂質</p>
-            <h3 class="card-title"><%= @fooddiary_sum_fat %>／<%= current_user.idealweight.intakefatgram.to_i %> <small>G</small></h3>
+            <p class="card-category">脂質(F)</p>
           </div>
-          <div class="card-footer">
-            <div class="stats">
-              <i class="material-icons text-danger">warning</i>
-              <a>残り：<%= current_user.idealweight.intakefatgram - @fooddiary_sum_fat %>g</a>
+          <div class="card-body">
+            <div class="progress-container">
+              <small class="text-right">残り</small>
+              <h5 class="text-right"><%= current_user.idealweight.intakefatgram.to_i - @fooddiary_sum_fat %><small class="text-muted"> g</small></h5>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_fat*100 / current_user.idealweight.intakefatgram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+              <p class="text-right"><%= @fooddiary_sum_fat %>／<%= current_user.idealweight.intakefatgram.to_i %><small class="text-muted"> g</small></p>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-6">
+      <div class="col-md-3 ml-auto mr-auto">
         <div class="card card-stats">
           <div class="card-header card-header-info card-header-icon">
             <div class="card-icon">
               <i class="material-icons">rice_bowl</i>
             </div>
-            <p class="card-category">Carbo／炭水化物</p>
-            <h3 class="card-title"><%= @fooddiary_sum_carbo %>／<%= current_user.idealweight.intakecarbogram.to_i %> <small>G</small></h3>
+            <p class="card-category">炭水化物(C)</p>
           </div>
-          <div class="card-footer">
-            <div class="stats">
-              <i class="material-icons text-danger">warning</i>
-              <a>残り：<%= current_user.idealweight.intakecarbogram - @fooddiary_sum_carbo %> g</a>
+          <div class="card-body">
+            <div class="progress-container">
+              <small class="text-right">残り</small>
+              <h5 class="text-right"><%= current_user.idealweight.intakecarbogram.to_i - @fooddiary_sum_carbo %><small class="text-muted"> g</small></h5>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_carbo*100 / current_user.idealweight.intakecarbogram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                </div>
+              </div>
+              <p class="text-right"><%= @fooddiary_sum_carbo %>／<%= current_user.idealweight.intakecarbogram.to_i %><small class="text-muted"> g</small></p>
             </div>
           </div>
         </div>
@@ -100,92 +116,56 @@
   </div>
   <!--スマホ-->
   <div class="d-lg-none">
-    <h5 class="text-muted">本日の食事管理情報</h5>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="card card-stats">
-            <div class="card-header card-header-warning card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">food_bank</i>
-              </div>
-              <p class="card-category">Kcal／カロリー</p>
-              <h3 class="card-title"><%= @fooddiary_sum_kcal %>／<%= current_user.idealweight.kcalintake.to_i %> <small>KCAL</small></h3>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-danger">warning</i>
-                <a>残り：<%= current_user.idealweight.kcalintake - @fooddiary_sum_kcal %>kcal</a>
-              </div>
-            </div>
+    <div class="row">
+      <div class="col-md-6 ml-auto mr-auto">
+        <div class="card">
+          <div class="card-header text-center">
+            <h5>PFCバランス</h5>
           </div>
-        </div>
-        <div class="carousel-item">
-          <div class="card card-stats">
-            <div class="card-header card-header-success card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">android</i>
+          <div class="card-body">
+            <div class="progress-container">
+              <span class="progress-badge"><small>カロリー</small></span>
+              <small class="pull-right">残り</small>
+              <h5 class="text-right"><%= current_user.idealweight.kcalintake.to_i - @fooddiary_sum_kcal %><small class="text-muted"> kcal</small></h5>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_kcal*100 / current_user.idealweight.kcalintake.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                </div>
               </div>
-              <p class="card-category">Protein／タンパク質</p>
-              <h3 class="card-title"><%= @fooddiary_sum_protein %>／<%= current_user.idealweight.intakeproteingram.to_i %> <small>G</small></h3>
+              <p class="text-right"><%= @fooddiary_sum_kcal %>／<%= current_user.idealweight.kcalintake.to_i %><small class="text-muted"> kcal</small></p>
             </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-danger">warning</i>
-                <a>残り：<%= current_user.idealweight.intakeproteingram - @fooddiary_sum_protein %>g</a>
+            <div class="progress-container">
+              <span class="progress-badge"><small>タンパク質（P）</small></span>
+              <small class="pull-right">残り</small>
+              <h5 class="text-right"><%= current_user.idealweight.intakeproteingram.to_i - @fooddiary_sum_protein %><small class="text-muted"> g</small></h5>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_protein*100 / current_user.idealweight.intakeproteingram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                </div>
               </div>
+              <p class="text-right"><%= @fooddiary_sum_protein %>／<%= current_user.idealweight.intakeproteingram.to_i %><small class="text-muted"> g</small></p>
             </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="card card-stats">
-            <div class="card-header card-header-danger card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">local_pizza</i>
+            <div class="progress-container">
+              <span class="progress-badge"><small>脂質（F）</small></span>
+              <small class="pull-right">残り</small>
+              <h5 class="text-right"><%= current_user.idealweight.intakefatgram.to_i - @fooddiary_sum_fat %><small class="text-muted"> g</small></h5>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_fat*100 / current_user.idealweight.intakefatgram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                </div>
               </div>
-              <p class="card-category">Fat／脂質</p>
-              <h3 class="card-title"><%= @fooddiary_sum_fat %>／<%= current_user.idealweight.intakefatgram.to_i %> <small>G</small></h3>
+              <p class="text-right"><%= @fooddiary_sum_fat %>／<%= current_user.idealweight.intakefatgram.to_i %><small class="text-muted"> g</small></p>
             </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-danger">warning</i>
-                <a>残り：<%= current_user.idealweight.intakefatgram - @fooddiary_sum_fat %>g</a>
+            <div class="progress-container">
+              <span class="progress-badge"><small>炭水化物（C）</small></span>
+              <small class="pull-right">残り</small>
+              <h5 class="text-right"><%= current_user.idealweight.intakecarbogram.to_i - @fooddiary_sum_carbo %><small class="text-muted"> g</small></h5>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_carbo*100 / current_user.idealweight.intakecarbogram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="card card-stats">
-            <div class="card-header card-header-info card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">rice_bowl</i>
-              </div>
-              <p class="card-category">Carbo／炭水化物</p>
-              <h3 class="card-title"><%= @fooddiary_sum_carbo %>／<%= current_user.idealweight.intakecarbogram.to_i %> <small>G</small></h3>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-danger">warning</i>
-                <a>残り：<%= current_user.idealweight.intakecarbogram - @fooddiary_sum_carbo %> g</a>
-              </div>
+              <p class="text-right"><%= @fooddiary_sum_carbo %>／<%= current_user.idealweight.intakecarbogram.to_i %><small class="text-muted"> g</small></p>
             </div>
           </div>
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
   </div>
   <!--共通-->
@@ -199,15 +179,12 @@
   </div>
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-      <div class="card card-nav-tabs">
-        <div class="card-header card-header-tabs card-header-primary">
-          <div class="nav-tabs-navigation">
-            <div class="nav-tabs-wrapper">
-              <h4 class="nav-tabs-title">
-                <i class="material-icons">fastfood</i> Food List
-              </h4>
-            </div>
+      <div class="card">
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">fastfood</i>
           </div>
+          <h4 class="card-title">FoodList</h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -258,108 +235,108 @@
         </div>
       </div>
     </div>
-  </div><br>
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
-      <div class="card card-nav-tabs">
-        <div class="card-header card-header-tabs card-header-primary">
-          <div class="nav-tabs-navigation">
-            <div class="nav-tabs-wrapper">
-              <h4 class="nav-tabs-title">
-                <i class="material-icons">food_bank</i> Important
-              </h4>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th class="text-left"><small>合計値</small></th>
-                <th class="text-center"><small>カロリー</small></th>
-                <th class="text-center"><small>タンパク質（P）</small></th>
-                <th class="text-center"><small>脂質（F）</small></th>
-                <th class="text-center"><small>炭水化物（C）</small></th>
-              </tr>
-            </thead>
-            <tbody>
-              <td class="text-left"></td>
-              <td class="text-center"><%= @fooddiary_sum_kcal %>kcal</td>
-              <td class="text-center"><%= @fooddiary_sum_protein %>g</td>
-              <td class="text-center"><%= @fooddiary_sum_fat %>g</td>
-              <td class="text-center"><%= @fooddiary_sum_carbo %>g</td>
-            </tbody>
-            <thead>
-              <tr>
-              <th><small>目標値</small></th>  
-              <th></th><th></th><th></th><th></th>
-            </thead>
-            <tbody>
-              <td class="text-left"></td>
-              <td class="text-center"><%= current_user.idealweight.kcalintake.to_i %>kcal</td>
-              <td class="text-center"><%= current_user.idealweight.intakeproteingram.to_i %>g</td>
-              <td class="text-center"><%= current_user.idealweight.intakefatgram.to_i %>g</td>
-              <td class="text-center"><%= current_user.idealweight.intakecarbogram.to_i %>g</td>
-            </tbody>
-            <thead>
-              <tr>
-                <th><small>残りの値</small></th>
-                <th></th><th></th><th></th><th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <td class="text-left"></td>
-              <td class="text-center"><%= current_user.idealweight.kcalintake.to_i - @fooddiary_sum_kcal %>kcal</td>
-              <td class="text-center"><%= current_user.idealweight.intakeproteingram.to_i - @fooddiary_sum_protein %>g</td>
-              <td class="text-center"><%= current_user.idealweight.intakefatgram.to_i - @fooddiary_sum_fat %>g</td>
-              <td class="text-center"><%= current_user.idealweight.intakecarbogram.to_i - @fooddiary_sum_carbo %>g</td>
-            </tbody>
-          </table>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
-      <div class="card card-nav-tabs">
-        <div class="card-header card-header-tabs card-header-primary">
-          <div class="nav-tabs-navigation">
-            <div class="nav-tabs-wrapper">
-              <h4 class="nav-tabs-title">
-                <i class="material-icons">donut_small</i> Progress
-              </h4>
-            </div>
-          </div>
-        </div>
-        <div class="card-body">
-          <th>カロリー</th>
-          <div class="pull-right"><%= @fooddiary_sum_kcal %>kcal／<%= current_user.idealweight.kcalintake.to_i %>kcal</div>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_kcal*100 / current_user.idealweight.kcalintake.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
-            </div>
-          </div><br>
-          <th>タンパク質（P）</th>
-          <div class="pull-right"><%= @fooddiary_sum_protein %>g／<%= current_user.idealweight.intakeproteingram.to_i %>g</div>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_protein*100 / current_user.idealweight.intakeproteingram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
-            </div>
-          </div><br>
-          <th>脂質（F）</th>
-          <div class="pull-right"><%= @fooddiary_sum_fat %>g／<%= current_user.idealweight.intakefatgram.to_i %>g</div>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_fat*100 / current_user.idealweight.intakefatgram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
-            </div>
-          </div><br>
-          <th>炭水化物（C）</th>
-          <div class="pull-right"><%= @fooddiary_sum_carbo %>g／<%= current_user.idealweight.intakecarbogram.to_i %>g</div>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_carbo*100 / current_user.idealweight.intakecarbogram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
+  <!--<div class="row">-->
+  <!--  <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">-->
+  <!--    <div class="card card-nav-tabs">-->
+  <!--      <div class="card-header card-header-tabs card-header-primary">-->
+  <!--        <div class="nav-tabs-navigation">-->
+  <!--          <div class="nav-tabs-wrapper">-->
+  <!--            <h4 class="nav-tabs-title">-->
+  <!--              <i class="material-icons">food_bank</i> Important-->
+  <!--            </h4>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--      <div class="card-body">-->
+  <!--        <div class="table-responsive">-->
+  <!--        <table class="table table-striped">-->
+  <!--          <thead>-->
+  <!--            <tr>-->
+  <!--              <th class="text-left"><small>合計値</small></th>-->
+  <!--              <th class="text-center"><small>カロリー</small></th>-->
+  <!--              <th class="text-center"><small>タンパク質（P）</small></th>-->
+  <!--              <th class="text-center"><small>脂質（F）</small></th>-->
+  <!--              <th class="text-center"><small>炭水化物（C）</small></th>-->
+  <!--            </tr>-->
+  <!--          </thead>-->
+  <!--          <tbody>-->
+  <!--            <td class="text-left"></td>-->
+  <!--            <td class="text-center"><%= @fooddiary_sum_kcal %>kcal</td>-->
+  <!--            <td class="text-center"><%= @fooddiary_sum_protein %>g</td>-->
+  <!--            <td class="text-center"><%= @fooddiary_sum_fat %>g</td>-->
+  <!--            <td class="text-center"><%= @fooddiary_sum_carbo %>g</td>-->
+  <!--          </tbody>-->
+  <!--          <thead>-->
+  <!--            <tr>-->
+  <!--            <th><small>目標値</small></th>  -->
+  <!--            <th></th><th></th><th></th><th></th>-->
+  <!--          </thead>-->
+  <!--          <tbody>-->
+  <!--            <td class="text-left"></td>-->
+  <!--            <td class="text-center"><%= current_user.idealweight.kcalintake.to_i %>kcal</td>-->
+  <!--            <td class="text-center"><%= current_user.idealweight.intakeproteingram.to_i %>g</td>-->
+  <!--            <td class="text-center"><%= current_user.idealweight.intakefatgram.to_i %>g</td>-->
+  <!--            <td class="text-center"><%= current_user.idealweight.intakecarbogram.to_i %>g</td>-->
+  <!--          </tbody>-->
+  <!--          <thead>-->
+  <!--            <tr>-->
+  <!--              <th><small>残りの値</small></th>-->
+  <!--              <th></th><th></th><th></th><th></th>-->
+  <!--            </tr>-->
+  <!--          </thead>-->
+  <!--          <tbody>-->
+  <!--            <td class="text-left"></td>-->
+  <!--            <td class="text-center"><%= current_user.idealweight.kcalintake.to_i - @fooddiary_sum_kcal %>kcal</td>-->
+  <!--            <td class="text-center"><%= current_user.idealweight.intakeproteingram.to_i - @fooddiary_sum_protein %>g</td>-->
+  <!--            <td class="text-center"><%= current_user.idealweight.intakefatgram.to_i - @fooddiary_sum_fat %>g</td>-->
+  <!--            <td class="text-center"><%= current_user.idealweight.intakecarbogram.to_i - @fooddiary_sum_carbo %>g</td>-->
+  <!--          </tbody>-->
+  <!--        </table>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--  <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">-->
+  <!--    <div class="card card-nav-tabs">-->
+  <!--      <div class="card-header card-header-tabs card-header-primary">-->
+  <!--        <div class="nav-tabs-navigation">-->
+  <!--          <div class="nav-tabs-wrapper">-->
+  <!--            <h4 class="nav-tabs-title">-->
+  <!--              <i class="material-icons">donut_small</i> Progress-->
+  <!--            </h4>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--      <div class="card-body">-->
+  <!--        <th>カロリー</th>-->
+  <!--        <div class="pull-right"><%= @fooddiary_sum_kcal %>kcal／<%= current_user.idealweight.kcalintake.to_i %>kcal</div>-->
+  <!--        <div class="progress">-->
+  <!--          <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_kcal*100 / current_user.idealweight.kcalintake.to_i %>%;" aria-valuemin="0" aria-valuemax="100">-->
+  <!--          </div>-->
+  <!--        </div><br>-->
+  <!--        <th>タンパク質（P）</th>-->
+  <!--        <div class="pull-right"><%= @fooddiary_sum_protein %>g／<%= current_user.idealweight.intakeproteingram.to_i %>g</div>-->
+  <!--        <div class="progress">-->
+  <!--          <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_protein*100 / current_user.idealweight.intakeproteingram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">-->
+  <!--          </div>-->
+  <!--        </div><br>-->
+  <!--        <th>脂質（F）</th>-->
+  <!--        <div class="pull-right"><%= @fooddiary_sum_fat %>g／<%= current_user.idealweight.intakefatgram.to_i %>g</div>-->
+  <!--        <div class="progress">-->
+  <!--          <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_fat*100 / current_user.idealweight.intakefatgram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">-->
+  <!--          </div>-->
+  <!--        </div><br>-->
+  <!--        <th>炭水化物（C）</th>-->
+  <!--        <div class="pull-right"><%= @fooddiary_sum_carbo %>g／<%= current_user.idealweight.intakecarbogram.to_i %>g</div>-->
+  <!--        <div class="progress">-->
+  <!--          <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_carbo*100 / current_user.idealweight.intakecarbogram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</div>-->
   
   <!--Twitter-->
   <% if current_user.useradvice.present? %>

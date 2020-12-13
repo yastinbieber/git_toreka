@@ -10,19 +10,19 @@
   </nav>
   <div class="row">
     <div class="col-md-4">
-      <div class="card card-profile">
-        <div class="card-avatar">
+      <div class="card card-profile ml-auto mr-auto" style="max-width: 360px">
+        <div class="card-header card-header-image">
           <% if current_user.image.attached? %>
             <%= image_tag current_user.image, class: "img" %>
           <% else %>
-            <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+            <img class="img" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
           <% end %>
         </div>
-        <div class="card-body">
+        <div class="card-body ">
           <h4 class="card-title"><%= current_user.username %></h4>
-          <p class="card-description">
-            <%= current_user.text %>
-          </p>
+          <h6 class="card-category text-gray"><%= current_user.text %></h6>
+        </div>
+        <div class="card-footer justify-content-center">
           <% if current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' %>
             <%= link_to "ベーシックプラン", plancheck_users_path(current_user), class: "btn btn-default btn-round" %>
           <% elsif current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
@@ -142,3 +142,4 @@
     <% end %>
   <% end %>
 </div>
+

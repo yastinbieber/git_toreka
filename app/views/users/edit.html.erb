@@ -10,19 +10,18 @@
   </nav>
   <div class="row">
     <div class="col-md-12">
-      <div class="card card-nav-tabs">
-        <div class="card-header card-header-tabs card-header-primary">
-          <div class="nav-tabs-navigation">
-            <div class="nav-tabs-wrapper">
-              <h4 class="nav-tabs-title">
-                <% if current_user.username.present? %>
-                <i class="material-icons">bug_report</i> UserProfile
-                <% else %>
-                <i class="material-icons">bug_report</i> まずはプロフィールを充実させよう
-                <% end %>
-              </h4>
-            </div>
+      <div class="card">
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">assignment</i>
           </div>
+          <h4 class="card-title">
+            <% if current_user.username.present? %>
+            UserProfile
+            <% else %>
+            まずはプロフィールを充実させよう
+            <% end %>
+          </h4>
         </div>
         <div class="card-body">
           <%= form_for @user do |f| %>

@@ -8,35 +8,35 @@
       <%= render 'users/users' %>
     </div>
   </nav>
+  
   <div class="row">
-  	<div class="col-md-12">
-    	<div class="card" >
-			  <div class="card-body">
-			    <p class="card-text text-muted">現在のプラン</p>
-			    <% if current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' %>
+    <div class="col-md-4 ml-auto mr-auto">
+      <div class="card card-pricing bg-primary"><div class="card-body ">
+        <div class="card-icon">
+          <i class="material-icons">business</i>
+        </div>
+        <h3 class="card-title">
+          <% if current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' %>
 			      <h4 class="card-text">ベーシックプラン (¥480/month)</h4>
 			    <% elsif current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
 			      <h4 class="card-text">プレミアムプラン (¥980/month)</h4>
 			    <% else %>
 			      <h4 class="card-text">フリープラン (¥0/month)</h4>
 			    <% end %>
-			    <%= link_to "プラン変更", "/purchases/index", class: "btn btn-primary" %>
-			  </div>
-			</div> 
-    </div>
-    <div class="col-md-12">
-      <div class="card" >
-			  <div class="card-body">
-          <p class="text-muted">クレジットカード登録</p>
+        </h3>
+        <%= link_to "プラン変更", "/purchases/index", class: "btn btn-success" %>
+        <p class="card-description">
           <% if current_user.cards.present? %>
-            <%= link_to "登録済み", "/cards/new", class: "btn btn-default btn-sm" %>
-            <br><small class="text-muted">カードの有効期限等は上記よりご確認ください</small>
+            <small class="text-muted">カードの有効期限等は上記よりご確認ください</small><br>
+            <%= link_to "登録済み", "/cards/new", class: "btn btn-default " %>
           <% else %>
-            <%= link_to "未登録", "/cards/new", class: "btn btn-default btn-sm" %>
-            <br><small class="text-muted">cardをご登録ください</small>
+            <br><small class="text-muted">cardの登録がまだの場合は下記よりご登録ください</small><br>
+            <%= link_to "未登録", "/cards/new", class: "btn btn-default " %>
           <% end %>
+        </p>
         </div>
       </div>
     </div>
   </div>
 </div>
+
