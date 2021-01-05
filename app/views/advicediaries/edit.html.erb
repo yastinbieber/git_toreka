@@ -11,56 +11,85 @@
   <div class="row">
     <div class="col-md-12">
       <div class="card">
-        <div class="card-header card-header-tabs card-header-primary">
-          <div class="nav-tabs-navigation">
-            <div class="nav-tabs-wrapper">
-              <h4 class="nav-tabs-title">
-                <i class="material-icons">trending_down</i> トレーニングを記録する
-              </h4>
-            </div>
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">assignment</i>
           </div>
+          <h4 class="card-title">TrainingEdit</h4>
         </div>
         <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" style="table-layout:fixed;">
-              <thead class="thead-light">
-                <tr>
-                  <th style="width:150px;">日付</th>
-                  <th style="width:200px;">メニュー</th>
-                  <th style="width:80px;">重量</th>
-                  <th style="width:80px;">回数</th>
-                  <th style="width:80px;">重量</th>
-                  <th style="width:80px;">回数</th>
-                  <th style="width:80px;">重量</th>
-                  <th style="width:80px;">回数</th>
-                  <th style="width:200px">memo</th>
-                </tr>
-              </thead>
-              <tbody>
-                <%= form_for @advicediary do |f| %>
-                <tr>
-                  <td><%= f.date_field :date, placeholder: 'date', class: 'form-control' %></td>
-                  <td><%= f.collection_select :advicemenu_id, Advicemenu.all, :id, :menu, { include_blank: '選択してください'}, class: 'form-control' %></td>
-                  <td><%= f.number_field :weight, placeholder: 'kg', class: 'form-control' %></td>
-                  <td><%= f.number_field :reps, placeholder: 'reps', class: 'form-control' %></td>
-                  <td><%= f.number_field :weightsecond, placeholder: 'kg', class: 'form-control' %></td>
-                  <td><%= f.number_field :repssecond, placeholder: 'reps', class: 'form-control' %></td>
-                  <td><%= f.number_field :weightthird, placeholder: 'kg', class: 'form-control' %></td>
-                  <td><%= f.number_field :repsthird, placeholder: 'reps', class: 'form-control' %></td>
-                  <td><%= f.text_field :memo, placeholder: 'memo', class: 'form-control' %></td>
-                  <%= f.hidden_field :user_id, value: current_user.id %>
-                  <%= f.hidden_field :idealweight_id, value: current_user.idealweight.id %>
-                  <%= f.hidden_field :useradvice_id, value: current_user.useradvice.id %>
-                </tr>
-              </tbody>
-            </table>
+          <%= form_for @advicediary do |f| %>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group has-primary">
+                <%= f.label :date %>
+                <%= f.date_field :date %>
+              </div>
+            </div>
           </div>
-          <thead>
-            <tr>
-              <td><%= f.submit "変更する", class: "btn btn-raised btn-primary" %></td>
-            </tr>
-          </thead>
-            <% end %>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group has-primary">
+                <%= f.label :menu %>
+                <%= f.collection_select :advicemenu_id, Advicemenu.all, :id, :menu, { include_blank: '選択してください'}, class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group has-primary">
+                <%= f.label :weight %>
+                <%= f.number_field :weight, placeholder: 'kg', class: 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group has-primary">
+                <%= f.label :reps %>
+                <%= f.number_field :reps, placeholder: 'reps', class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group has-primary">
+                <%= f.label :weight %>
+                <%= f.number_field :weightsecond, placeholder: 'kg', class: 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group has-primary">
+                <%= f.label :reps %>
+                <%= f.number_field :repssecond, placeholder: 'reps', class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group has-primary">
+                <%= f.label :weight %>
+                <%= f.number_field :weightthird, placeholder: 'kg', class: 'form-control' %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group has-primary">
+                <%= f.label :reps %>
+                <%= f.number_field :repsthird, placeholder: 'reps', class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group has-primary">
+                <%= f.label :Memo %>
+                <%= f.text_field :memo, placeholder: 'memo', class: 'form-control' %>
+              </div>
+            </div>
+          </div>
+            <%= f.submit "変更する", class: "btn btn-raised btn-primary" %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :idealweight_id, value: current_user.idealweight.id %>
+            <%= f.hidden_field :useradvice_id, value: current_user.useradvice.id %>
+          <% end %>
         </div>
       </div>
       <div class="container">
@@ -72,3 +101,5 @@
   </div>
 </div>
 
+
+          

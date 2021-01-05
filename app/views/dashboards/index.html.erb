@@ -1,4 +1,4 @@
-<div class="container-fuild">
+<div class="container">
   <!--Navbar-->
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
     <div class="container-fluid">
@@ -9,9 +9,8 @@
     </div>
   </nav>
   
-	<% if current_user.plan != 'free' && current_user.idealweight.present? %>
 	  <!--最終日のみ出す-->
-  	<% if current_user.what_day == current_user.idealweight.period %>
+  	<% if current_user.idealweight.present? && current_user.what_day == current_user.idealweight.period %>
   	<div class="alert alert-warning alert-dismissible fade show" role="alert">
       <h4>※本日はボディメイク最終日です※</h4>
       <p>本日が終了するとボディメイクデータがリセットされます。必要なデータは保存しておくようお願いします。</p>
@@ -21,982 +20,476 @@
     </div>
     <% end %>
     
-    <!--プレミアム-->
+    <!--premiumplan-->
     <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' && current_user.idealweight.present? && current_user.useradvice.present? %>
-    <!--PC-->
-    <div class="d-none d-lg-block">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-warning card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">chrome_reader_mode</i>
-              </div>
-                <p class="card-category">ボディメイクプラン</p>
-                <h3 class="card-title"><%= current_user.useradvice.purpose %> <small>コース</small></h3>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-danger">warning</i>
-                <%= link_to "ボディメイク目的を見直す", useradvice_path(current_user.useradvice) %>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-info card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">today</i>
-              </div>
-              <p class="card-category">トレーニング頻度</p>
-              <h3 class="card-title"><small>週 </small><%= current_user.useradvice.frequency %> <small>日</small></h3>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-info">event_note</i>
-                <%= link_to "トレーニング頻度を見直す", useradvice_path(current_user.useradvice) %>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-success card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">date_range</i>
-              </div>
-              <p class="card-category">ボディメイク期間</p>
-              <h3 class="card-title"><%= current_user.what_day %> <small>日目</small> ／ <%= current_user.idealweight.period %> <small>日間</small></h3>
-              <small class="text-info"><%= current_user.idealweight.start_day %> 〜 <%= current_user.idealweight.last_day %></small>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons">date_range</i> <%= link_to "ボディメイク期間を見直す", idealweight_path(current_user.idealweight) %>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-danger card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">date_range</i>
-              </div>
-              <p class="card-category">今日の体重</p>
-              <% if @weightchange_today.present? %>
-                <h3 class="card-title"><%= @weightchange_today.todayweight %> <small>Kg</small></h3>
-              <% else %>
-                <h3 class="card-title"><%= link_to "本日の体重を記録する", new_weightchange_path, class: "btn btn-danger" %></h3>
-              <% end %>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons">date_range</i> <%= current_user.idealweight.weight %> Kg start
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-default card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">article</i>
-              </div>
-              <p class="card-category">目標体重</p>
-              <h3 class="card-title"><%= current_user.idealweight.targetweight %> <small>Kg</small></h3>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-info">event_note</i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-primary card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">local_convenience_store</i>
-              </div>
-              <p class="card-category">当初の乖離</p>
-              <% if current_user.idealweight.targetweight < current_user.idealweight.weight %>
-                <h3 class="card-title"><%= current_user.idealweight.period %> <small>日で</small> <%= current_user.idealweight.weight - current_user.idealweight.targetweight %> <small>Kg落とす</small></h3>
-                <small class="text-danger">1日あたり<%= current_user.idealweight.minusweight_day.ceil(2).to_f %> Kg調整する</small>
-              <% else %>
-                <h3 class="card-title"><%= current_user.idealweight.period %> <small>日で</small> <%= current_user.idealweight.targetweight - current_user.idealweight.weight %> <small>Kg増やす</small></h3>
-              <% end %>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-info">event_note</i>
-                <%= link_to "目標体重を見直す", idealweight_path(current_user.idealweight) %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!--スマホ-->
-    <div class="d-lg-none">
-      <h5 class="text-muted">ボディメイク情報</h5>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="card card-stats">
-              <div class="card-header card-header-warning card-header-icon">
-                <div class="card-icon">
-                  <i class="material-icons">chrome_reader_mode</i>
-                </div>
-                  <p class="card-category">ボディメイクプラン</p>
-                  <h3 class="card-title"><%= current_user.useradvice.purpose %> <small>コース</small></h3>
-              </div>
-              <div class="card-footer">
-                <div class="stats">
-                  <i class="material-icons text-danger">warning</i>
-                  <%= link_to "ボディメイク目的を見直す", useradvice_path(current_user.useradvice) %>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card card-stats">
-              <div class="card-header card-header-info card-header-icon">
-                <div class="card-icon">
-                  <i class="material-icons">today</i>
-                </div>
-                <p class="card-category">トレーニング頻度</p>
-                <h3 class="card-title"><small>週 </small><%= current_user.useradvice.frequency %> <small>日</small></h3>
-              </div>
-              <div class="card-footer">
-                <div class="stats">
-                  <i class="material-icons text-info">event_note</i>
-                  <%= link_to "トレーニング頻度を見直す", useradvice_path(current_user.useradvice) %>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card card-stats">
-              <div class="card-header card-header-success card-header-icon">
-                <div class="card-icon">
-                  <i class="material-icons">date_range</i>
-                </div>
-                <p class="card-category">ボディメイク期間</p>
-                <h3 class="card-title"><%= current_user.what_day %> <small>日目</small> ／ <%= current_user.idealweight.period %> <small>日間</small></h3>
-                <small class="text-info"><%= current_user.idealweight.start_day %> 〜 <%= current_user.idealweight.last_day %></small>
-              </div>
-              <div class="card-footer">
-                <div class="stats">
-                  <i class="material-icons">date_range</i> <%= link_to "ボディメイク期間を見直す", idealweight_path(current_user.idealweight) %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-      <h5 class="text-muted">体重情報</h5>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="card card-stats">
-                <div class="card-header card-header-danger card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">date_range</i>
-                  </div>
-                  <p class="card-category">今日の体重</p>
-                  <% if @weightchange_today.present? %>
-                  <h3 class="card-title"><%= @weightchange_today.todayweight %> <small>Kg</small></h3>
-                  <% else %>
-                  <h3 class="card-title"><%= link_to "本日の体重を記録する", new_weightchange_path, class: "btn btn-danger" %></h3>
-                  <% end %>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons">date_range</i> <%= current_user.idealweight.weight %> Kg start
-                    </div>
-                </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card card-stats">
-                <div class="card-header card-header-default card-header-icon">
-                  <div class="card-icon">
-                      <i class="material-icons">article</i>
-                  </div>
-                  <p class="card-category">目標体重</p>
-                  <h3 class="card-title"><%= current_user.idealweight.targetweight %> <small>Kg</small></h3>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons text-info">event_note</i>
-                    </div>
-                </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card card-stats">
-                <div class="card-header card-header-primary card-header-icon">
-                  <div class="card-icon">
-                      <i class="material-icons">local_convenience_store</i>
-                  </div>
-                  <p class="card-category">当初の乖離</p>
-                    <% if current_user.idealweight.targetweight < current_user.idealweight.weight %>
-                      <h3 class="card-title"><%= current_user.idealweight.period %> <small>日で</small> <%= current_user.idealweight.weight - current_user.idealweight.targetweight %> <small>Kg落とす</small></h3>
-                      <small class="text-danger">1日あたり<%= current_user.idealweight.minusweight_day.ceil(2).to_f %> Kg調整する</small>
-                    <% else %>
-                      <h3 class="card-title"><%= current_user.idealweight.period %> <small>日で</small> <%= current_user.idealweight.targetweight - current_user.idealweight.weight %> <small>Kg増やす</small></h3>
-                    <% end %>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons text-info">event_note</i>
-                        <%= link_to "目標体重を見直す", idealweight_path(current_user.idealweight) %>
-                    </div>
-                </div>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-    <!--basicplan-->
-    <% elsif current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' && current_user.idealweight.present? %>
-    <!--PC-->
-    <div class="d-none d-lg-block">
-      <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-danger card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">date_range</i>
-              </div>
-              <p class="card-category">今日の体重</p>
-              <% if @weightchange_today.present? %>
-                <h3 class="card-title"><%= @weightchange_today.todayweight %> <small>Kg</small></h3>
-              <% else %>
-                <h3 class="card-title"><%= link_to "本日の体重を記録する", new_weightchange_path, class: "btn btn-danger" %></h3>
-              <% end %>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons">date_range</i> <%= current_user.idealweight.weight %> Kg start
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-default card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">article</i>
-              </div>
-              <p class="card-category">目標体重</p>
-              <h3 class="card-title"><%= current_user.idealweight.targetweight %> <small>Kg</small></h3>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-info">event_note</i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-          <div class="card card-stats">
-            <div class="card-header card-header-primary card-header-icon">
-              <div class="card-icon">
-                <i class="material-icons">local_convenience_store</i>
-              </div>
-              <p class="card-category">当初の乖離</p>
-              <% if current_user.idealweight.targetweight < current_user.idealweight.weight %>
-                <h3 class="card-title"><%= current_user.idealweight.period %> <small>日で</small> <%= current_user.idealweight.weight - current_user.idealweight.targetweight %> <small>Kg落とす</small></h3>
-                <small class="text-danger">1日あたり<%= current_user.idealweight.minusweight_day.ceil(2).to_f %> Kg調整する</small>
-              <% else %>
-                <h3 class="card-title"><%= current_user.idealweight.period %> <small>日で</small> <%= current_user.idealweight.targetweight - current_user.idealweight.weight %> <small>Kg増やす</small></h3>
-              <% end %>
-            </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-info">event_note</i>
-                <%= link_to "目標体重を見直す", idealweight_path(current_user.idealweight) %>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--スマホ-->
-    <div class="d-lg-none">
-      <h5 class="text-muted">体重情報</h5>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="card card-stats">
-                <div class="card-header card-header-danger card-header-icon">
-                  <div class="card-icon">
-                    <i class="material-icons">date_range</i>
-                  </div>
-                  <p class="card-category">今日の体重</p>
-                  <% if @weightchange_today.present? %>
-                  <h3 class="card-title"><%= @weightchange_today.todayweight %> <small>Kg</small></h3>
-                  <% else %>
-                  <h3 class="card-title"><%= link_to "本日の体重を記録する", new_weightchange_path, class: "btn btn-danger" %></h3>
-                  <% end %>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons">date_range</i> <%= current_user.idealweight.weight %> Kg start
-                    </div>
-                </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card card-stats">
-                <div class="card-header card-header-default card-header-icon">
-                  <div class="card-icon">
-                      <i class="material-icons">article</i>
-                  </div>
-                  <p class="card-category">目標体重</p>
-                  <h3 class="card-title"><%= current_user.idealweight.targetweight %> <small>Kg</small></h3>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons text-info">event_note</i>
-                    </div>
-                </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card card-stats">
-                <div class="card-header card-header-primary card-header-icon">
-                  <div class="card-icon">
-                      <i class="material-icons">local_convenience_store</i>
-                  </div>
-                  <p class="card-category">当初の乖離</p>
-                    <% if current_user.idealweight.targetweight < current_user.idealweight.weight %>
-                      <h3 class="card-title"><%= current_user.idealweight.period %> <small>日で</small> <%= current_user.idealweight.weight - current_user.idealweight.targetweight %> <small>Kg落とす</small></h3>
-                      <small class="text-danger">1日あたり<%= current_user.idealweight.minusweight_day.ceil(2).to_f %> Kg調整する</small>
-                    <% else %>
-                      <h3 class="card-title"><%= current_user.idealweight.period %> <small>日で</small> <%= current_user.idealweight.targetweight - current_user.idealweight.weight %> <small>Kg増やす</small></h3>
-                    <% end %>
-                </div>
-                <div class="card-footer">
-                    <div class="stats">
-                        <i class="material-icons text-info">event_note</i>
-                        <%= link_to "目標体重を見直す", idealweight_path(current_user.idealweight) %>
-                    </div>
-                </div>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-    <% end %>
-    
-    <!--共通-->
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="card card-nav-tabs">
-          <div class="card-header card-header-tabs card-header-primary">
-            <div class="nav-tabs-navigation">
-              <div class="nav-tabs-wrapper">
-                <h4 class="nav-tabs-title">
-                  <i class="material-icons">trending_down</i> WeightChanges
-                </h4>
-              </div>
+      <div class="col-md-4">
+        <div class="card card-stats">
+          <div class="card-header card-header-warning card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">chrome_reader_mode</i>
+            </div>
+              <p class="card-category">ボディメイクプラン/トレーニング頻度</p>
+              <h3 class="card-title"><%= current_user.useradvice.purpose %> <small>コース </small>× <small>週 </small><%= current_user.useradvice.frequency %> <small>日</small></h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons text-danger">warning</i>
+              <%= link_to "ボディメイク目的を見直す", useradvice_path(current_user.useradvice) %>
             </div>
           </div>
-          <div class="d-none d-lg-block">
-          <div class="card-body">
-            <!--本日の体重が入力されている-->
-            <% if @weightchanges.present? %>
-            <canvas id="myLineChart"></canvas>
-              <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-            <script>
-            var ctx = document.getElementById("myLineChart");
-            var myLineChart = new Chart(ctx, {
-              type: 'line',
-              data: {
-                labels: <%= @labels.to_json.html_safe %>,
-                // labels: ["0701", "0702", "0703", "0704", "0705", "0706", "0707"],
-                datasets: [
-                  {
-                    label: '実績推移',
-                    data: <%= @datas %>,
-                    borderColor: "#0000ff",
-                    backgroundColor: "rgba(0,0,0,0)"
-                  },
-                   {
-                    label: '期待値',
-                    data: <%= @idealweight_datas %>,
-                    borderColor: "rgba(255,0,0,1)",
-                    backgroundColor: "rgba(0,0,0,0)"
-                  }
-                ],
-              },
-              options: {
-                title: {
-                  display: true,
-                  text: '体重推移 （<%= current_user.idealweight.start_day %> 〜 <%= current_user.idealweight.last_day %>）'
-                },
-                scales: {
-                  yAxes: [{
-                    ticks: {
-                      suggestedMax: <%= @max %> +5,
-                      suggestedMin: <%= @minimum %> -5,
-                      stepSize: 1,
-                      callback: function(value, index, values){
-                        return  value +  'KG'
-                      }
-                    }
-                  }]
-                },
-              }
-            });
-            </script>
-            <!--本日の体重が入力されていない-->
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">date_range</i>
+            </div>
+            <p class="card-category">ボディメイク期間</p>
+            <h3 class="card-title"><%= current_user.what_day %> <small>日目</small> ／ <%= current_user.idealweight.period %> <small>日間</small></h3>
+            <small class="text-info"><%= current_user.idealweight.start_day %> 〜 <%= current_user.idealweight.last_day %></small>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">date_range</i> <%= link_to "ボディメイク期間を見直す", idealweight_path(current_user.idealweight) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-stats">
+          <div class="card-header card-header-default card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">article</i>
+            </div>
+            <p class="card-category">直近体重 / 目標体重</p>
+            <h3 class="card-title"><%= @weight_last.todayweight %> / <%= current_user.idealweight.targetweight %> <small>Kg</small></h3>
+            <% if current_user.idealweight.targetweight < current_user.idealweight.weight %>
+              <small class="card-title"><%= current_user.idealweight.period %> 日で<%= current_user.idealweight.weight - current_user.idealweight.targetweight %> Kg落とす</small>
+              <br><small class="text-danger">1日あたり<%= current_user.idealweight.minusweight_day.ceil(2).to_f %> Kg調整する</small>
             <% else %>
-            <p>Nodate...</p>
+              <small class="card-title"><%= current_user.idealweight.period %> 日で <%= current_user.idealweight.targetweight - current_user.idealweight.weight %> Kg増やす</small>
+              <br><small class="text-danger">1日あたり<%= current_user.idealweight.minusweight_day.ceil(2).to_f %> Kg調整する</small>
             <% end %>
           </div>
-          </div>
-          <div class="d-lg-none">
-            <div class="card-body">
-              <small class="text-muted">タブレット以上のデバイスでグラフを確認することができます</small>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons text-info">event_note</i>
+              <% if @weightchange_today.present? %>
+              <span><%= current_user.idealweight.weight %> Kg start</span>
+              <% else %>
+              <span>本日の体重が未入力です。<%= link_to "こちら", new_weightchange_path, class: "" %>よりご入力ください。</span>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!--freeplan-->
+    <% elsif current_user.plan == 'free' && current_user.idealweight.present? %>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card card-stats">
+          <div class="card-header card-header-success card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">date_range</i>
+            </div>
+            <p class="card-category">ボディメイク期間</p>
+            <h3 class="card-title"><%= current_user.what_day %> <small>日目</small> ／ <%= current_user.idealweight.period %> <small>日間</small></h3>
+            <small class="text-info"><%= current_user.idealweight.start_day %> 〜 <%= current_user.idealweight.last_day %></small>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons">date_range</i> <%= link_to "ボディメイク期間を見直す", idealweight_path(current_user.idealweight) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-stats">
+          <div class="card-header card-header-default card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">article</i>
+            </div>
+            <p class="card-category">直近体重 / 目標体重</p>
+            <h3 class="card-title"><%= @weight_last.todayweight %> / <%= current_user.idealweight.targetweight %> <small>Kg</small></h3>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons text-info">event_note</i>
+              <% if @weightchange_today.present? %>
+              <span><%= current_user.idealweight.weight %> Kg start</span>
+              <% else %>
+              <span>本日の体重が未入力です。<%= link_to "こちら", new_weightchange_path, class: "" %>よりご入力ください。</span>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-stats">
+          <div class="card-header card-header-rose card-header-icon">
+            <div class="card-icon">
+              <i class="material-icons">local_convenience_store</i>
+            </div>
+            <p class="card-category">推移目標</p>
+            <% if current_user.idealweight.targetweight < current_user.idealweight.weight %>
+              <h3 class="card-title"><%= current_user.idealweight.period %> <small>日で</small> <%= current_user.idealweight.weight - current_user.idealweight.targetweight %> <small>Kg落とす</small></h3>
+              <small class="text-danger">1日あたり<%= current_user.idealweight.minusweight_day.ceil(2).to_f %> Kg調整する</small>
+            <% else %>
+              <h3 class="card-title"><%= current_user.idealweight.period %> <small>日で</small> <%= current_user.idealweight.targetweight - current_user.idealweight.weight %> <small>Kg増やす</small></h3>
+            <% end %>
+          </div>
+          <div class="card-footer">
+            <div class="stats">
+              <i class="material-icons text-info">event_note</i>
+              <%= link_to "目標体重を見直す", idealweight_path(current_user.idealweight) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--入力項目が欠如していた場合  -->
+    <% elsif current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.blank? %>
+      <div class="text-center">
+        <h3>ダッシュボードを利用するために必要な情報を入力しよう</h3>
+      </div>
+      <div class="row">
+        <div class="col-md-4 ml-auto mr-auto text-center">
+          <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
+          <%= link_to "必要情報を入力する", "/idealweights/new", class: "btn btn-raised btn-primary" %>
+        </div>
+      </div>
+    <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.blank? %>
+      <div class="text-center">
+        <h3>ボディメイクの細かなプランを決めよう</h3>
+      </div>
+      <div class="row">
+        <div class="col-md-4 ml-auto mr-auto text-center">
+          <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
+          <%= link_to "必要情報を入力する", "/useradvices/new", class: "btn btn-raised btn-primary" %>
+        </div>
+      </div>
+    <% elsif current_user.plan == 'free' && current_user.idealweight.blank? %>
+      <div class="text-center">
+        <h3>ダッシュボードを利用するために必要な情報を入力しよう</h3>
+      </div>
+      <div class="row ">
+        <div class="col-md-4 ml-auto mr-auto text-center">
+          <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
+          <%= link_to "必要情報を入力する", "/idealweights/new", class: "btn btn-raised btn-primary" %>
+        </div>
+      </div>
+    <% end %>  
+    
+    
+    <% if current_user.idealweight.present? %>
+    <!--Chart-->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-icon card-header-info">
+            <div class="card-icon">
+              <i class="material-icons">timeline</i>
+            </div>
+            <h4 class="card-title">WeightRecord</h4>
+          </div>
+          <div class="card-body">
+            <p class="text-center">
+              体重推移 （<%= current_user.idealweight.start_day %> 〜 <%= current_user.idealweight.last_day %>）<br>
+              Red:実績 / Blue:期待値
+            </p>
+            <div id="colouredBarsChart" class="ct-chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var chart = new Chartist.Line('.ct-chart', {
+        labels: <%= @labels.to_json.html_safe %>,
+        series: [
+          // 期待値
+          <%= @idealweight_datas %>,
+          // 実績
+          <%= @datas %>,
+        ]
+      }, {
+        high: <%= @max %> +1,
+        low: <%= @minimum %> -2,
+        // height: 200,
+      });
+      
+      // こっから下よくわからん
+      // Let's put a sequence number aside so we can use it in the event callbacks
+      var seq = 0,
+        delays = 80,
+        durations = 500;
+      
+      // Once the chart is fully created we reset the sequence
+      chart.on('created', function() {
+        seq = 0;
+      });
+      
+      // On each drawn element by Chartist we use the Chartist.Svg API to trigger SMIL animations
+      chart.on('draw', function(data) {
+        seq++;
+      
+        if(data.type === 'line') {
+          // If the drawn element is a line we do a simple opacity fade in. This could also be achieved using CSS3 animations.
+          data.element.animate({
+            opacity: {
+              // The delay when we like to start the animation
+              begin: seq * delays + 1000,
+              // Duration of the animation
+              dur: durations,
+              // The value where the animation should start
+              from: 0,
+              // The value where it should end
+              to: 1
+            }
+          });
+        } else if(data.type === 'label' && data.axis === 'x') {
+          data.element.animate({
+            y: {
+              begin: seq * delays,
+              dur: durations,
+              from: data.y + 100,
+              to: data.y,
+              // We can specify an easing function from Chartist.Svg.Easing
+              easing: 'easeOutQuart'
+            }
+          });
+        } else if(data.type === 'label' && data.axis === 'y') {
+          data.element.animate({
+            x: {
+              begin: seq * delays,
+              dur: durations,
+              from: data.x - 100,
+              to: data.x,
+              easing: 'easeOutQuart'
+            }
+          });
+        } else if(data.type === 'point') {
+          data.element.animate({
+            x1: {
+              begin: seq * delays,
+              dur: durations,
+              from: data.x - 10,
+              to: data.x,
+              easing: 'easeOutQuart'
+            },
+            x2: {
+              begin: seq * delays,
+              dur: durations,
+              from: data.x - 10,
+              to: data.x,
+              easing: 'easeOutQuart'
+            },
+            opacity: {
+              begin: seq * delays,
+              dur: durations,
+              from: 0,
+              to: 1,
+              easing: 'easeOutQuart'
+            }
+          });
+        } else if(data.type === 'grid') {
+          // Using data.axis we get x or y which we can use to construct our animation definition objects
+          var pos1Animation = {
+            begin: seq * delays,
+            dur: durations,
+            from: data[data.axis.units.pos + '1'] - 30,
+            to: data[data.axis.units.pos + '1'],
+            easing: 'easeOutQuart'
+          };
+      
+          var pos2Animation = {
+            begin: seq * delays,
+            dur: durations,
+            from: data[data.axis.units.pos + '2'] - 100,
+            to: data[data.axis.units.pos + '2'],
+            easing: 'easeOutQuart'
+          };
+      
+          var animations = {};
+          animations[data.axis.units.pos + '1'] = pos1Animation;
+          animations[data.axis.units.pos + '2'] = pos2Animation;
+          animations['opacity'] = {
+            begin: seq * delays,
+            dur: durations,
+            from: 0,
+            to: 1,
+            easing: 'easeOutQuart'
+          };
+      
+          data.element.animate(animations);
+        }
+      });
+      
+      // For the sake of the example we update the chart every time it's created with a delay of 10 seconds
+      chart.on('created', function() {
+        if(window.__exampleAnimateTimeout) {
+          clearTimeout(window.__exampleAnimateTimeout);
+          window.__exampleAnimateTimeout = null;
+        }
+        window.__exampleAnimateTimeout = setTimeout(chart.update.bind(chart), 12000);
+      });
+    </script>
+    <!--PC PFC-->
     <div class="d-none d-lg-block">
       <div class="row">
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-md-3 ml-auto mr-auto">
           <div class="card card-stats">
             <div class="card-header card-header-warning card-header-icon">
               <div class="card-icon">
                 <i class="material-icons">food_bank</i>
               </div>
-              <p class="card-category">Kcal／カロリー</p>
-              <h3 class="card-title"><%= @fooddiary_sum_kcal %>／<%= current_user.idealweight.kcalintake.to_i %> <small>KCAL</small></h3>
+              <p class="card-category">カロリー</p>
             </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-danger">warning</i>
-                <a>残り：<%= current_user.idealweight.kcalintake - @fooddiary_sum_kcal %>kcal</a>
+            <div class="card-body">
+              <div class="progress-container">
+                <small class="text-right">残り</small>
+                <h5 class="text-right"><%= current_user.idealweight.kcalintake.to_i - @fooddiary_sum_kcal %><small class="text-muted"> kcal</small></h5>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_kcal*100 / current_user.idealweight.kcalintake.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+                <p class="text-right"><%= @fooddiary_sum_kcal %>／<%= current_user.idealweight.kcalintake.to_i %><small class="text-muted"> kcal</small></p>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-md-3 ml-auto mr-auto">
           <div class="card card-stats">
             <div class="card-header card-header-success card-header-icon">
               <div class="card-icon">
                 <i class="material-icons">android</i>
               </div>
-              <p class="card-category">Protein／タンパク質</p>
-              <h3 class="card-title"><%= @fooddiary_sum_protein %>／<%= current_user.idealweight.intakeproteingram.to_i %> <small>G</small></h3>
+              <p class="card-category">タンパク質(P)</p>
             </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-danger">warning</i>
-                <a>残り：<%= current_user.idealweight.intakeproteingram - @fooddiary_sum_protein %>g</a>
+            <div class="card-body">
+              <div class="progress-container">
+                <small class="text-right">残り</small>
+                <h5 class="text-right"><%= current_user.idealweight.intakeproteingram.to_i - @fooddiary_sum_protein %><small class="text-muted"> g</small></h5>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_protein*100 / current_user.idealweight.intakeproteingram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+                <p class="text-right"><%= @fooddiary_sum_protein %>／<%= current_user.idealweight.intakeproteingram.to_i %><small class="text-muted"> g</small></p>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-md-3 ml-auto mr-auto">
           <div class="card card-stats">
             <div class="card-header card-header-danger card-header-icon">
               <div class="card-icon">
                 <i class="material-icons">local_pizza</i>
               </div>
-              <p class="card-category">Fat／脂質</p>
-              <h3 class="card-title"><%= @fooddiary_sum_fat %>／<%= current_user.idealweight.intakefatgram.to_i %> <small>G</small></h3>
+              <p class="card-category">脂質(F)</p>
             </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-danger">warning</i>
-                <a>残り：<%= current_user.idealweight.intakefatgram - @fooddiary_sum_fat %>g</a>
+            <div class="card-body">
+              <div class="progress-container">
+                <small class="text-right">残り</small>
+                <h5 class="text-right"><%= current_user.idealweight.intakefatgram.to_i - @fooddiary_sum_fat %><small class="text-muted"> g</small></h5>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_fat*100 / current_user.idealweight.intakefatgram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+                <p class="text-right"><%= @fooddiary_sum_fat %>／<%= current_user.idealweight.intakefatgram.to_i %><small class="text-muted"> g</small></p>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-md-3 ml-auto mr-auto">
           <div class="card card-stats">
             <div class="card-header card-header-info card-header-icon">
               <div class="card-icon">
                 <i class="material-icons">rice_bowl</i>
               </div>
-              <p class="card-category">Carbo／炭水化物</p>
-              <h3 class="card-title"><%= @fooddiary_sum_carbo %>／<%= current_user.idealweight.intakecarbogram.to_i %> <small>G</small></h3>
+              <p class="card-category">炭水化物(C)</p>
             </div>
-            <div class="card-footer">
-              <div class="stats">
-                <i class="material-icons text-danger">warning</i>
-                <a>残り：<%= current_user.idealweight.intakecarbogram - @fooddiary_sum_carbo %> g</a>
+            <div class="card-body">
+              <div class="progress-container">
+                <small class="text-right">残り</small>
+                <h5 class="text-right"><%= current_user.idealweight.intakecarbogram.to_i - @fooddiary_sum_carbo %><small class="text-muted"> g</small></h5>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_carbo*100 / current_user.idealweight.intakecarbogram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+                <p class="text-right"><%= @fooddiary_sum_carbo %>／<%= current_user.idealweight.intakecarbogram.to_i %><small class="text-muted"> g</small></p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!--スマホ PFC-->
     <div class="d-lg-none">
-      <h5 class="text-muted">本日の食事管理情報</h5>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="card card-stats">
-              <div class="card-header card-header-warning card-header-icon">
-                <div class="card-icon">
-                  <i class="material-icons">food_bank</i>
-                </div>
-                <p class="card-category">Kcal／カロリー</p>
-                <h3 class="card-title"><%= @fooddiary_sum_kcal %>／<%= current_user.idealweight.kcalintake.to_i %> <small>KCAL</small></h3>
-              </div>
-              <div class="card-footer">
-                <div class="stats">
-                  <i class="material-icons text-danger">warning</i>
-                  <a>残り：<%= current_user.idealweight.kcalintake - @fooddiary_sum_kcal %>kcal</a>
-                </div>
-              </div>
+      <div class="row">
+        <div class="col-md-6 ml-auto mr-auto">
+          <div class="card">
+            <div class="card-header text-center">
+              <h5>PFCバランス</h5>
             </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card card-stats">
-              <div class="card-header card-header-success card-header-icon">
-                <div class="card-icon">
-                  <i class="material-icons">android</i>
+            <div class="card-body">
+              <div class="progress-container">
+                <span class="progress-badge"><small>カロリー</small></span>
+                <small class="pull-right">残り</small>
+                <h5 class="text-right"><%= current_user.idealweight.kcalintake.to_i - @fooddiary_sum_kcal %><small class="text-muted"> kcal</small></h5>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_kcal*100 / current_user.idealweight.kcalintake.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                  </div>
                 </div>
-                <p class="card-category">Protein／タンパク質</p>
-                <h3 class="card-title"><%= @fooddiary_sum_protein %>／<%= current_user.idealweight.intakeproteingram.to_i %> <small>G</small></h3>
+                <p class="text-right"><%= @fooddiary_sum_kcal %>／<%= current_user.idealweight.kcalintake.to_i %><small class="text-muted"> kcal</small></p>
               </div>
-              <div class="card-footer">
-                <div class="stats">
-                  <i class="material-icons text-danger">warning</i>
-                  <a>残り：<%= current_user.idealweight.intakeproteingram - @fooddiary_sum_protein %>g</a>
+              <div class="progress-container">
+                <span class="progress-badge"><small>タンパク質（P）</small></span>
+                <small class="pull-right">残り</small>
+                <h5 class="text-right"><%= current_user.idealweight.intakeproteingram.to_i - @fooddiary_sum_protein %><small class="text-muted"> g</small></h5>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_protein*100 / current_user.idealweight.intakeproteingram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                  </div>
                 </div>
+                <p class="text-right"><%= @fooddiary_sum_protein %>／<%= current_user.idealweight.intakeproteingram.to_i %><small class="text-muted"> g</small></p>
               </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card card-stats">
-              <div class="card-header card-header-danger card-header-icon">
-                <div class="card-icon">
-                  <i class="material-icons">local_pizza</i>
+              <div class="progress-container">
+                <span class="progress-badge"><small>脂質（F）</small></span>
+                <small class="pull-right">残り</small>
+                <h5 class="text-right"><%= current_user.idealweight.intakefatgram.to_i - @fooddiary_sum_fat %><small class="text-muted"> g</small></h5>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_fat*100 / current_user.idealweight.intakefatgram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                  </div>
                 </div>
-                <p class="card-category">Fat／脂質</p>
-                <h3 class="card-title"><%= @fooddiary_sum_fat %>／<%= current_user.idealweight.intakefatgram.to_i %> <small>G</small></h3>
+                <p class="text-right"><%= @fooddiary_sum_fat %>／<%= current_user.idealweight.intakefatgram.to_i %><small class="text-muted"> g</small></p>
               </div>
-              <div class="card-footer">
-                <div class="stats">
-                  <i class="material-icons text-danger">warning</i>
-                  <a>残り：<%= current_user.idealweight.intakefatgram - @fooddiary_sum_fat %>g</a>
+              <div class="progress-container">
+                <span class="progress-badge"><small>炭水化物（C）</small></span>
+                <small class="pull-right">残り</small>
+                <h5 class="text-right"><%= current_user.idealweight.intakecarbogram.to_i - @fooddiary_sum_carbo %><small class="text-muted"> g</small></h5>
+                <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_carbo*100 / current_user.idealweight.intakecarbogram.to_i %>%;" aria-valuemin="0" aria-valuemax="100">
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="card card-stats">
-              <div class="card-header card-header-info card-header-icon">
-                <div class="card-icon">
-                  <i class="material-icons">rice_bowl</i>
-                </div>
-                <p class="card-category">Carbo／炭水化物</p>
-                <h3 class="card-title"><%= @fooddiary_sum_carbo %>／<%= current_user.idealweight.intakecarbogram.to_i %> <small>G</small></h3>
-              </div>
-              <div class="card-footer">
-                <div class="stats">
-                  <i class="material-icons text-danger">warning</i>
-                  <a>残り：<%= current_user.idealweight.intakecarbogram - @fooddiary_sum_carbo %> g</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-        <div class="card card-nav-tabs">
-          <div class="card-header card-header-tabs card-header-primary">
-            <div class="nav-tabs-navigation">
-              <div class="nav-tabs-wrapper">
-                <h4 class="nav-tabs-title">
-                  <i class="material-icons">donut_small</i> Progress...
-                </h4>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <th>Kcal／カロリー</th>
-            <div class="pull-right"><%= @fooddiary_sum_kcal %>kcal／<%= current_user.idealweight.kcalintake %>kcal</div>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_kcal*100 / current_user.idealweight.kcalintake %>%;" aria-valuemin="0" aria-valuemax="100">
-              </div>
-            </div><br>
-            <th>Protein／タンパク質</th>
-            <div class="pull-right"><%= @fooddiary_sum_protein %>g／<%= current_user.idealweight.intakeproteingram %>g</div>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_protein*100 / current_user.idealweight.intakeproteingram %>%;" aria-valuemin="0" aria-valuemax="100">
-              </div>
-            </div><br>
-            <th>Fat／脂質</th>
-            <div class="pull-right"><%= @fooddiary_sum_fat %>g／<%= current_user.idealweight.intakefatgram %>g</div>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_fat*100 / current_user.idealweight.intakefatgram %>%;" aria-valuemin="0" aria-valuemax="100">
-              </div>
-            </div><br>
-            <th>Carbo／炭水化物</th>
-            <div class="pull-right"><%= @fooddiary_sum_carbo %>g／<%= current_user.idealweight.intakecarbogram %>g</div>
-            <div class="progress">
-              <div class="progress-bar" role="progressbar" style="width: <%= @fooddiary_sum_carbo*100 / current_user.idealweight.intakecarbogram %>%;" aria-valuemin="0" aria-valuemax="100">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-12">
-        <div class="card">
-          <div class="card-header card-header-tabs card-header-primary">
-            <div class="nav-tabs-navigation">
-              <div class="nav-tabs-wrapper">
-                <ul class="nav nav-tabs" data-tabs="tabs">
-                  <li class="nav-item">
-                    <a class="nav-link active" href="#profile" data-toggle="tab">
-                      <i class="material-icons">bug_report</i> Tasks
-                      <div class="ripple-container"></div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#messages" data-toggle="tab">
-                      <i class="material-icons">code</i> Settings
-                      <div class="ripple-container"></div>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#settings" data-toggle="tab">
-                      <i class="material-icons">cloud</i> Others
-                      <div class="ripple-container"></div>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="tab-content">
-              <div class="tab-pane active" id="profile">
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <% if @weightchange_today.present? %>
-                            <input class="form-check-input" type="checkbox" value="" checked>
-                            <% else %>
-                            <input class="form-check-input" type="checkbox" value="" >
-                            <% end %>
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>Did you enter your weight today?</td>
-                      <td class="td-actions text-right">
-                        <%= link_to new_weightchange_path, title: "New Task", class: "btn btn-primary btn-link btn-sm" do %>
-                          <i class="material-icons">edit</i>
-                        <% end %>
-                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <% if @fooddiary_today.present? %>
-                            <input class="form-check-input" type="checkbox" value="" checked>
-                            <% else %>
-                            <input class="form-check-input" type="checkbox" value="" >
-                            <% end %>
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>Did you enter today's meal?</td>
-                      <td class="td-actions text-right">
-                        <%= link_to fooddiaries_path, title: "New Task", class: "btn btn-primary btn-link btn-sm" do %>
-                          <i class="material-icons">edit</i>
-                        <% end %>
-                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>Did you enter your training today?</td>
-                      <td class="td-actions text-right">
-                        <!--プレミアム会員は下記リンクへ。ベーシック会員はworkoutdiaryのリンクへ飛ばすようにする-->
-                        <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' && current_user.idealweight.present? && current_user.useradvice.present? %>
-                          <%= link_to advicediaries_path, title: "New Task", class: "btn btn-primary btn-link btn-sm" do %>
-                            <i class="material-icons">edit</i>
-                          <% end %>
-                        <!--以外-->
-                        <% else %>
-                          <%= link_to workoutdiaries_path, title: "New Task", class: "btn btn-primary btn-link btn-sm" do %>
-                            <i class="material-icons">edit</i>
-                          <% end %>
-                        <% end %>
-                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="tab-pane" id="messages">
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="" checked>
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>Complete profile information?</td>
-                      <td class="td-actions text-right">
-                        <%= link_to edit_user_path(current_user), title: "Edit Task", class: "btn btn-primary btn-link btn-sm" do %>  
-                          <i class="material-icons">edit</i>
-                        <% end %>
-                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>Review necessary information for body makeup?</td>
-                      <td class="td-actions text-right">
-                        <%= link_to idealweight_path(current_user.idealweight), title: "Edit Task", class: "btn btn-primary btn-link btn-sm" do %>  
-                          <i class="material-icons">edit</i>
-                        <% end %>
-                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <% if current_user.useradvice.present? %>
-                      <td>Review body make-up plan?</td>
-                      <td class="td-actions text-right">
-                        <%= link_to useradvice_path(current_user.useradvice), title: "Edit Task", class: "btn btn-primary btn-link btn-sm" do %>  
-                          <i class="material-icons">edit</i>
-                        <% end %>
-                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                      <% end %>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="tab-pane" id="settings">
-                <table class="table">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>Nodate...</td>
-                      <td class="td-actions text-right">
-                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
-                          <i class="material-icons">edit</i>
-                        </button>
-                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>Nodate...</td>
-                      <td class="td-actions text-right">
-                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
-                          <i class="material-icons">edit</i>
-                        </button>
-                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-sign">
-                              <span class="check"></span>
-                            </span>
-                          </label>
-                        </div>
-                      </td>
-                      <td>Nodate...</td>
-                      <td class="td-actions text-right">
-                        <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
-                          <i class="material-icons">edit</i>
-                        </button>
-                        <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-link btn-sm">
-                          <i class="material-icons">close</i>
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <p class="text-right"><%= @fooddiary_sum_carbo %>／<%= current_user.idealweight.intakecarbogram.to_i %><small class="text-muted"> g</small></p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <% end %>
+    <!--Twitter/Facebook share-->
+    <% if current_user.useradvice.present? %>
+    <!--Twitter-->
+    <a href="https://twitter.com/share?url=https://toreka.herokuapp.com/&text=<%= current_user.useradvice.purpose %>コースで本日<%= current_user.what_day %>日目!!Torekaでボディメイク頑張ってるなう!!&via=yastinbieber6&hashtags=Toreka&hashtags=ダイエット&hashtags=ボディメイク&hashtags=筋トレ&hashtags=食事管理&hashtags=継続は力なり" class="twitter-share-button" data-show-count="false">Twitterでシェア</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <!--facebook-->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v8.0&appId=432448867605749&autoLogAppEvents=1" nonce="sOOuxunP"></script>
+    <div class="fb-share-button" data-href="http://yastinblog.com/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyastinblog.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">FBでシェア</a></div>
+    <% end %>
     
-      <% if current_user.useradvice.present? %>
-        <!--Twitter-->
-        <a href="https://twitter.com/share?url=https://toreka.herokuapp.com/&text=<%= current_user.useradvice.purpose %>コースで本日<%= current_user.what_day %>日目!!Torekaでボディメイク頑張ってるなう!!&via=yastinbieber6&hashtags=Toreka&hashtags=ダイエット&hashtags=ボディメイク&hashtags=筋トレ&hashtags=食事管理&hashtags=継続は力なり" class="twitter-share-button" data-show-count="false">Twitterでシェア</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-        <!--facebook-->
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v8.0&appId=432448867605749&autoLogAppEvents=1" nonce="sOOuxunP"></script>
-        <div class="fb-share-button" data-href="http://yastinblog.com/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyastinblog.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">FBでシェア</a></div>
-      <% end %>
-    
-  <% elsif current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.blank? %>
-    <div class="text-center">
-      <h3>ダッシュボードを利用するために必要な情報を入力していきましょう</h3>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mx-auto text-center">
-        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
-        <%= link_to "必要情報を入力する", "/idealweights/new", class: "btn btn-raised btn-success" %>
-      </div>
-    </div>
-  <% elsif current_user.plan == 'free' %>
-    <div class="text-center">
-      <h3>こちらのメニューは有料プランで利用することができます</h3>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mx-auto text-center">
-        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
-        <%= link_to "プランを変更する", plancheck_users_path(current_user), class: "btn btn-success" %>
-      </div>
-    </div>
-  <% end %>
+      
+
 </div>

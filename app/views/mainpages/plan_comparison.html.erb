@@ -1,228 +1,184 @@
-<div class="container">
-	<!--PCの場合-->
-	<div class="d-none d-lg-block">
-		<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center ">
-			<h1>プランを選定する</h1><br>
-			<h3>Torekaはボディメイクをする全ての方がお使いいただけます<br>ご自身のニーズにあったPlanをお選びください</h3>
-		</div>
-		<div class="row">
-	    <div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="card ">
-					<h3 class="card-header card-header-success text-left">Free</h3>
-					<div class="card-body">
-						<br>
-						<h1 class="card-title pricing-card-title">0円
-						<small class="text-muted">/ 月</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4 text-left">
-							<li>トレーニングのみ管理したい方向け</li>
-						</ul>
-						<%= link_to "無料で会員登録", new_user_registration_path, class: "btn btn-lg btn-block btn-outline-success" %>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="card">
-					<h3 class="card-header card-header-success text-left">Basic</h3>
-					<div class="card-body">
-						<br>
-						<h1 class="card-title pricing-card-title">480円
-						<small class="text-muted">/ 月</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4 text-left">
-							<li>トレーニング・食事の管理をしたい方向け</li>
-						</ul>
-						<%= link_to "無料トライアル（14日間）", new_user_registration_path, class: "btn btn-lg btn-block btn-outline-success" %>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="card">
-					<h3 class="card-header card-header-success text-left">Premium</h3>
-					<div class="card-body">
-						<br>
-						<h1 class="card-title pricing-card-title">980円
-						<small class="text-muted">/ 月</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4 text-left">
-							<li>ボディメイク初心者向け。手厚いプラン</li>
-						</ul>
-						<%= link_to "無料トライアル（14日間）", new_user_registration_path, class: "btn btn-lg btn-block btn-outline-success" %>
-					</div>
-				</div>
-			</div>
-		</div><br>
-		<div class="row">
-	    <div class="col-md-12">
-				<div class="card card-nav-tabs">
-					<h4 class="card-header card-header-success">プラン比較</h4>
-					<div class="card-body">
-						<div class="table-responsive">
-						<table class="table">
-							<thead>
-								<tr class="table-active">
-									<th class="text-left">機能</th>
-									<th class="text-left">Free</th>
-									<th class="text-center">Basic</th>
-									<th class="text-center">Premium</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td class="text-left">毎日のトレーニング記録・管理</td>
-									<td class="text-left"><i class="material-icons">lens</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-								</tr>
-								<tr>
-									<td class="text-left">体重の変化を記録・管理</td>
-									<td class="text-left"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-								</tr>
-								<tr>
-									<td class="text-left">PFCバランスに沿った食事の記録・管理</td>
-									<td class="text-left"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-								</tr>
-								<tr>
-									<td class="text-left">ボディメイクプランの提案</td>
-									<td class="text-left"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-								</tr>
-								<tr>
-									<td class="text-left">目的に応じたトレーニングメニューの提案</td>
-									<td class="text-left"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-								</tr>
-								<tr>
-									<td class="text-left">トレーニングメニューHowto動画</td>
-									<td class="text-left"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-								</tr>
-							</tbody>
-						</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--スマホの場合-->
-	<div class="d-lg-none">
-		<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center ">
-			<br><h2 class="pt-5 mt-5">プランを選定する</h2><br>
-			<h4 class="text-left">Torekaはボディメイクをする全ての方がお使いいただけます<br>ご自身のニーズにあったPlanをお選びください</h4>
-		</div>
-		<div class="row">
-	    <div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="card ">
-					<h3 class="card-header card-header-success text-left">Free</h3>
-					<div class="card-body">
-						<br>
-						<h1 class="card-title pricing-card-title">0円
-						<small class="text-muted">/ 月</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4 text-left">
-							<li>トレーニングのみ管理したい方向け</li>
-						</ul>
-						<%= link_to "無料で会員登録", new_user_registration_path, class: "btn btn-lg btn-block btn-outline-success" %>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="card">
-					<h3 class="card-header card-header-success text-left">Basic</h3>
-					<div class="card-body">
-						<br>
-						<h1 class="card-title pricing-card-title">480円
-						<small class="text-muted">/ 月</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4 text-left">
-							<li>トレーニング・食事の管理をしたい方向け</li>
-						</ul>
-						<%= link_to "無料トライアル（14日間）", new_user_registration_path, class: "btn btn-lg btn-block btn-outline-success" %>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-6">
-				<div class="card">
-					<h3 class="card-header card-header-success text-left">Premium</h3>
-					<div class="card-body">
-						<br>
-						<h1 class="card-title pricing-card-title">980円
-						<small class="text-muted">/ 月</small>
-						</h1>
-						<ul class="list-unstyled mt-3 mb-4 text-left">
-							<li>ボディメイク初心者向け。手厚いプラン</li>
-						</ul>
-						<%= link_to "無料トライアル（14日間）", new_user_registration_path, class: "btn btn-lg btn-block btn-outline-success" %>
-					</div>
-				</div>
-			</div>
-		</div><br>
-		<div class="row">
-	    <div class="col-md-12">
-				<div class="card card-nav-tabs">
-					<h4 class="card-header card-header-success">プラン比較</h4>
-					<div class="card-body">
-						<div class="table-responsive">
-						<table class="table">
-							<thead>
-								<tr class="table-active">
-									<th class="text-left">機能</th>
-									<th class="text-left">Free</th>
-									<th class="text-center">Basic</th>
-									<th class="text-center">Premium</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td class="text-left">毎日のトレーニング記録・管理</td>
-									<td class="text-left"><i class="material-icons">lens</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-								</tr>
-								<tr>
-									<td class="text-left">体重の変化を記録・管理</td>
-									<td class="text-left"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-								</tr>
-								<tr>
-									<td class="text-left">PFCバランスに沿った食事の記録・管理</td>
-									<td class="text-left"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-								</tr>
-								<tr>
-									<td class="text-left">ボディメイクプランの提案</td>
-									<td class="text-left"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-								</tr>
-								<tr>
-									<td class="text-left">目的に応じたトレーニングメニューの提案</td>
-									<td class="text-left"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-								</tr>
-								<tr>
-									<td class="text-left">トレーニングメニューHowto動画</td>
-									<td class="text-left"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">clear</i></td>
-									<td class="text-center"><i class="material-icons">lens</i></td>
-								</tr>
-							</tbody>
-						</table>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+<!--未ログイン用navbar-->
+  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
+    <div class="container">
+      <div class="navbar-wrapper">
+        <a class="navbar-brand" href="javascript:;">Toreka</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="/" class="nav-link">
+              <i class="material-icons">dashboard</i>
+              HOME
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              プラン
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/mainpages/plan_comparison">プランを比較</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/mainpages/freeplan">フリープラン</a>
+              <a class="dropdown-item" href="/mainpages/basicplan">ベーシックプラン</a>
+              <a class="dropdown-item" href="/mainpages/premiumplan">プレミアムプラン</a>
+            </div>
+          </li>
+          <li class="nav-item active">
+            <%= link_to new_user_session_path, class: "nav-link" do %>
+              <i class="material-icons">fingerprint</i>
+              Login
+            <% end %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to new_user_registration_path, class: "nav-link" do %>
+              <i class="material-icons">person_add</i>
+              無料新規登録
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="wrapper wrapper-full-page">
+    <div class="page-header pricing-page header-filter" style="background-image: url('../../assets/img/bg-pricing.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 ml-auto mr-auto text-center">
+            <h2 class="title">プランを選定する</h2>
+            <h5 class="description">Torekaはボディメイクをする全ての方がお使いいただけます<br>ご自身のニーズにあったPlanをお選びください.</h5>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-3 col-md-6 ml-auto mr-auto">
+            <div class="card card-pricing card-plain">
+              <h6 class="card-category"> Free Plan</h6>
+              <div class="card-body">
+                <div class="card-icon icon-white ">
+                  <i class="material-icons">weekend</i>
+                </div>
+                <h3 class="card-title">¥0 / month</h3>
+                <p class="card-description">トレーニング・食事の管理をしたい方向け</p>
+              </div>
+              <div class="card-footer justify-content-center ">
+                <%= link_to "無料で会員登録", new_user_registration_path, class: "btn btn-round btn-white" %>
+              </div>
+            </div>
+            <%= link_to "Free Planの詳細を確認", "/mainpages/freeplan", class: "text-white" %>
+          </div>
+          <div class="col-lg-3 col-md-6 ml-auto mr-auto">
+            <div class="card card-pricing ">
+              <h6 class="card-category"> Premium Plan</h6>
+              <div class="card-body">
+                <div class="card-icon icon-rose ">
+                  <i class="material-icons">home</i>
+                </div>
+                <h3 class="card-title">¥980 / month</h3>
+                <p class="card-description">ボディメイク初心者向け<br>手厚いプラン</p>
+              </div>
+              <div class="card-footer justify-content-center ">
+                <%= link_to "無料トライアル（14日間）", new_user_registration_path, class: "btn btn-round btn-rose" %>
+              </div>
+            </div>
+            <%= link_to "Premium Planの詳細を確認", "/mainpages/premiumplan", class: "text-white" %>
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="container">
+          <nav class="float-left">
+            <ul>
+              <li>
+                <a href="https://www.creative-tim.com/">
+                  Creative Tim
+                </a>
+              </li>
+              <li>
+                <a href="https://www.creative-tim.com/presentation">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="https://www.creative-tim.com/blog">
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a href="https://www.creative-tim.com/license">
+                  Licenses
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright float-right">
+            &copy;
+            <script>
+              document.write(new Date().getFullYear())
+            </script>, made with <i class="material-icons">favorite</i> by
+            <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> for a better web.
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  
+ <!--使わないかもだけど念の為 -->
+ <!-- <div class="row">-->
+ <!--   <div class="col-md-12">-->
+	<!--		<div class="card card-nav-tabs">-->
+	<!--			<h4 class="card-header card-header-primary">プラン比較</h4>-->
+	<!--			<div class="card-body">-->
+	<!--				<div class="table-responsive">-->
+	<!--				<table class="table">-->
+	<!--					<thead>-->
+	<!--						<tr class="table-active">-->
+	<!--							<th class="text-left">機能</th>-->
+	<!--							<th class="text-center">Free</th>-->
+	<!--							<th class="text-center">Premium</th>-->
+	<!--						</tr>-->
+	<!--					</thead>-->
+	<!--					<tbody>-->
+	<!--						<tr>-->
+	<!--							<td class="text-left">毎日のトレーニング記録・管理</td>-->
+	<!--							<td class="text-center"><i class="material-icons">lens</i></td>-->
+	<!--							<td class="text-center"><i class="material-icons">lens</i></td>-->
+	<!--						</tr>-->
+	<!--						<tr>-->
+	<!--							<td class="text-left">体重の変化を記録・管理</td>-->
+	<!--							<td class="text-center"><i class="material-icons">lens</i></td>-->
+	<!--							<td class="text-center"><i class="material-icons">lens</i></td>-->
+	<!--						</tr>-->
+	<!--						<tr>-->
+	<!--							<td class="text-left">PFCバランスに沿った食事の記録・管理</td>-->
+	<!--							<td class="text-center"><i class="material-icons">lens</i></td>-->
+	<!--							<td class="text-center"><i class="material-icons">lens</i></td>-->
+	<!--						</tr>-->
+	<!--						<tr>-->
+	<!--							<td class="text-left">ボディメイクプランの提案</td>-->
+	<!--							<td class="text-center"><i class="material-icons">clear</i></td>-->
+	<!--							<td class="text-center"><i class="material-icons">lens</i></td>-->
+	<!--						</tr>-->
+	<!--						<tr>-->
+	<!--							<td class="text-left">目的に応じたトレーニングメニューの提案</td>-->
+	<!--							<td class="text-center"><i class="material-icons">clear</i></td>-->
+	<!--							<td class="text-center"><i class="material-icons">lens</i></td>-->
+	<!--						</tr>-->
+	<!--						<tr>-->
+	<!--							<td class="text-left">トレーニングメニューHowto動画</td>-->
+	<!--							<td class="text-center"><i class="material-icons">clear</i></td>-->
+	<!--							<td class="text-center"><i class="material-icons">lens</i></td>-->
+	<!--						</tr>-->
+	<!--					</tbody>-->
+	<!--				</table>-->
+	<!--				</div>-->
+	<!--			</div>-->
+	<!--		</div>-->
+	<!--	</div>-->
+	<!--</div>-->

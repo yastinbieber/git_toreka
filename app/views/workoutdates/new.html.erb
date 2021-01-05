@@ -7,6 +7,7 @@
       <%= render 'users/users' %>
     </div>
   </nav>
+  
   <div class="popup" id="js-popup">
     <div class="popup-inner">
       <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
@@ -17,27 +18,26 @@
     </div>
   <div class="black-background" id="js-black-bg"></div>
   </div>
+  
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="col-md-8 ml-auto mr-auto">
       <div class="card">
-        <div class="card-header card-header-success">
-          <h4 class="card-title ">Let's Trainingrecord</h4>
-          <p class="card-category"> Please enter the training you actually did.</p>
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">assignment</i>
+          </div>
+          <h4 class="card-title">Let's TrainingRecord</h4>
         </div>
         <div class="card-body">
           <%= form_for @workoutdate do |f| %>
           <div class="row">
             <div class="col-md-12">
-		          <div class="form-group">
-		            <%= f.label :Trainingmenu／トレーニング名 %>
-		            <%= f.text_field :menu, placeholder: "トレーニング名を記入", class: 'form-control' %><br>
-		          </div>
+	            <%= f.label :Trainingmenu %>
+	            <%= f.text_field :menu, placeholder: "トレーニング名を記入", class: 'form-control' %><br>
 	          </div>
             <div class="col-md-12">
-		          <div class="form-group">
-		            <%= f.label :Part／部位, class: "bmd-label-floating" %>
-            		<%= f.select :part, [['胸'], ['脚'], ['肩'], ['背中'], ['二頭'], ['三頭'], ['腹']], {}, class: "form-control" %>
-		          </div>
+	            <%= f.label :Part, class: "bmd-label-floating" %>
+          		<%= f.select :part, [['胸'], ['脚'], ['肩'], ['背中'], ['二頭'], ['三頭'], ['腹']], {}, class: "form-control" %><br>
 	          </div>
           </div>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">

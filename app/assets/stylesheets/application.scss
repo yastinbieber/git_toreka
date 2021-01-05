@@ -67,8 +67,8 @@
 
 .first {
   /*background-image: url(https://media-public.canva.com/MADGvzN-oeY/6/thumbnail_large.jpg);*/
-  background: url('background.png') fixed;
-  /*background-color: #2f4f4f;*/
+  // background: url('background.png') fixed;
+  background-color: #CCCCCC;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -90,7 +90,7 @@
   background-attachment: fixed;
 }
 .seconds{
-  background-color: #ffffff;
+  background-color: #CCCCCC;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -98,7 +98,7 @@
 }
 
 .third {
-  background: url('Toreka_mainpic3.png') fixed;
+  // background: url('Toreka_mainpic3.png') fixed;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -341,3 +341,10 @@ html {
   cursor: pointer;
 }
 
+.wowow {
+  background-color: #CCCCCC;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}

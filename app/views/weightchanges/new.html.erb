@@ -8,6 +8,7 @@
       <%= render 'users/users' %>
     </div>
   </nav>
+  
   <!--初日の場合は��録時の重量を入力させる-->
   <% if current_user.what_day == 1 %>
   <div class="popup" id="js-popup">
@@ -20,75 +21,26 @@
   <div class="black-background" id="js-black-bg"></div>
   </div>
   <% end %>
-  <!--PCデバイスの場合-->
-  <div class="d-none d-lg-block">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card card-nav-tabs">
-          <div class="card-header card-header-tabs card-header-primary">
-            <div class="nav-tabs-navigation">
-              <div class="nav-tabs-wrapper">
-                <h4 class="nav-tabs-title">
-                  <i class="material-icons">trending_down</i> 本日の体重を入力しよう
-                </h4>
-              </div>
-            </div>
+  
+  <div class="row">
+    <div class="col-md-6 ml-auto mr-auto">
+      <div class="card">
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">trending_down</i>
           </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" style="table-layout:fixed;">
-                <thead class="thead-light">
-                  <tr>
-                    <th><small>日付</small></th>
-                    <th><small>体重(Kg)</small></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%= form_for @weightchange do |f| %>
-                  <tr>
-                    <td><%= f.date_field :date, placeholder: "date", class: 'form-control' %></td>
-                    <td><%= f.number_field :todayweight, placeholder: "todayweight", step: "0.1", class: 'form-control' %></td>
-                  </tr>
-                </tbody>
-              </table>
-              <thead>
-                <tr>
-                  <td><%= f.submit "登録する", class: "btn btn-raised btn-primary" %></td>
-                </tr>
-              </thead>
-                <% end %>
-            </div>
-          </div>
+          <h4 class="card-title">Today's Weight New</h4>
         </div>
-      </div>
-    </div>
-  </div>
-  <!--スマホの場合-->
-  <div class="d-lg-none">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card card-nav-tabs">
-          <div class="card-header card-header-tabs card-header-primary">
-            <div class="nav-tabs-navigation">
-              <div class="nav-tabs-wrapper">
-                <h4 class="nav-tabs-title">
-                  <i class="material-icons">trending_down</i> 本日の体重を入力する
-                </h4>
-              </div>
-            </div>
-          </div>
-          <div class="card-body">
-            <%= form_for @weightchange do |f| %>
-              <%= f.label :測定日 %>
-              <%= f.date_field :date, placeholder: "date", class: 'form-control' %><br>
-              <%= f.label :体重（Kg） %>
-              <%= f.number_field :todayweight, placeholder: "todayweight", step: "0.1", class: 'form-control' %><br>
-              <%= f.submit "送信", class: "btn btn-raised btn-primary" %>
-            <% end %>
-          </div>
+        <div class="card-body">
+          <%= form_for @weightchange do |f| %>
+            <%= f.label :測定日 %>
+            <%= f.date_field :date, placeholder: "date", class: 'form-control' %><br>
+            <%= f.label :体重（Kg） %>
+            <%= f.number_field :todayweight, placeholder: "todayweight", step: "0.1", class: 'form-control' %><br>
+            <%= f.submit "送信", class: "btn btn-raised btn-primary" %>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-

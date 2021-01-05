@@ -20,7 +20,7 @@ class IdealweightsController < ApplicationController
     idealweight = Idealweight.where(user_id: current_user.id).first
     if idealweight.blank?
       @idealweight = Idealweight.create(idealweight_params)
-      if current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35'
+      if current_user.plan == 'free'
         TargetMailer.input_information(@idealweight).deliver_now
         redirect_to controller: :advicediaries, action: :content # basicプランの場合
       elsif current_user.plan == 'pln_572790307dd04b525bdd0a155347'

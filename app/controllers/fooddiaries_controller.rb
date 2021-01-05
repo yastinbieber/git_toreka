@@ -22,6 +22,7 @@ class FooddiariesController < ApplicationController
     else
     @fooddates = Fooddate.all
     end
+    @fooddates = Fooddate.all
   end
   
   def create
@@ -37,6 +38,7 @@ class FooddiariesController < ApplicationController
   
   def edit
     @fooddiary = current_user.fooddiaries.find(params[:id])
+    @fooddates = Fooddate.all
   end
   
   def update
@@ -47,6 +49,6 @@ class FooddiariesController < ApplicationController
   
   private
   def fooddiary_params
-    params.require(:fooddiary).permit(:gram, :kcal, :protein, :fat, :carbo, :timing, :date, :fooddate_id, :user_id, :idealweight_id)
+    params.require(:fooddiary).permit(:gram, :unit, :kcal, :protein, :fat, :carbo, :timing, :date, :fooddate_id, :user_id, :idealweight_id)
   end
 end

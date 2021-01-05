@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_023856) do
+ActiveRecord::Schema.define(version: 2020_12_23_055518) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(version: 2020_11_17_023856) do
     t.integer "max_reps"
     t.integer "sets"
     t.string "group"
+    t.text "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "url"
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_11_17_023856) do
     t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "unit"
   end
 
   create_table "fooddiaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -98,6 +99,7 @@ ActiveRecord::Schema.define(version: 2020_11_17_023856) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "foodname"
+    t.string "unit"
   end
 
   create_table "howtovideos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

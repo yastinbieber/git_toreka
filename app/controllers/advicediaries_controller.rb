@@ -9,6 +9,7 @@ class AdvicediariesController < ApplicationController
       @search_params = advicediary_search_params
       @advicediaries = Advicediary.search(@search_params).includes(:advicemenu)
       @advicemenus = Advicemenu.all
+      # @advicediaries_all =  Advicediary.all
     end
   end
   

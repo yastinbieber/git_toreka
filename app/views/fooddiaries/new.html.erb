@@ -8,56 +8,105 @@
       <%= render 'users/users' %>
     </div>
   </nav>
-  <!--PCデバイスの場合-->
-  <!--<div class="d-none d-lg-block">-->
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="card">
-          <div class="card-header card-header-tabs card-header-primary">
-            <div class="nav-tabs-navigation">
-              <div class="nav-tabs-wrapper">
-                <h4 class="nav-tabs-title">
-                  <i class="material-icons">trending_down</i> 食べた食事内容を入力する
-                </h4>
-              </div>
-            </div>
+  
+  <div class="row">
+    <div class="col-md-6 ml-auto mr-auto">
+      <div class="card">
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">fastfood</i>
           </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered" style="table-layout:fixed;">
-                <thead class="thead-light">
-                  <tr>
-                    <th style="width:150px;"><small>日付</small></th>
-                    <th style="width:150px;"><small>食品名</small></th>
-                    <th style="width:150px;"><small>グラム数</small></th>
-                    <th style="width:150px;"><small>タイミング</small></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <%= form_for @fooddiary do |f| %>
-                  <tr>
-                    <td><%= f.date_field :date, placeholder: 'date', class: 'form-control' %></td>
-                    <td><%= f.autocomplete_field :foodname, autocomplete_fooddate_foodname_fooddiaries_path, id_element: '#fooddiary_fooddate_id', placeholder: '食品名を入力してください', class: 'form-control' %></td>
-                    <td><%= f.number_field :gram, placeholder: "gram", class: 'form-control' %></td>
-                    <td><%= f.select :timing, [['朝食'], ['昼食'], ['夕食'], ['間食']], {}, class: "form-control" %></td>
-                    <%= f.hidden_field :fooddate_id %>
-                    <%= f.hidden_field :user_id, value: current_user.id %>
-                    <%= f.hidden_field :idealweight_id, value: current_user.idealweight.id %>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <thead>
-              <tr>
-                <td><%= f.submit "登録", class: "btn btn-raised btn-primary" %></td>
-              </tr>
-            </thead>
-              <% end %>
-          </div>
+          <h4 class="card-title">Today's EatFood New <br>
+          <small class="text-muted">食品情報を確認して入力しましょう</small>
+          </h4>
         </div>
-        <div class="container">
-          <small class="text-muted">※食べた食品が検索にかからない場合<%= link_to 'こちら', '/fooddates/new', class: "" %>からご登録ください</small>
+        <div class="card-body text-left">
+          <%= form_for @fooddiary do |f| %>
+          <div class="row">
+            <div class="col-md-12">
+              <%= f.label :Date %>
+              <%= f.date_field :date, placeholder: "date", class: 'form-control' %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <%= f.label :Food %>
+              <%= f.autocomplete_field :foodname, autocomplete_fooddate_foodname_fooddiaries_path, id_element: '#fooddiary_fooddate_id', placeholder: '食品名を入力してください', class: 'form-control' %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <%= f.label :Amount %>
+              <%= f.number_field :gram, placeholder: "食品の質量もしくは本数（本数の場合は1と入力）", class: 'form-control' %><br>
+            </div>
+            <div class="col-md-4">
+              <%= f.label :Unit %>
+              <%= f.select :unit, [['g(食品)'], ['ml(飲料)'], ['本(バナナなど)'], ['個'], ['人前'], ['匹'], ['枚']], {}, class: "form-control" %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <%= f.label :Timing %>
+              <%= f.select :timing, [['朝食'], ['昼食'], ['夕食'], ['間食']], {}, class: "form-control" %><br>
+            </div>
+          </div>
+          <%= f.hidden_field :fooddate_id %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :idealweight_id, value: current_user.idealweight.id %>
+          <%= f.submit "送信", class: "btn btn-raised btn-primary" %>
+        <% end %>
+        </div>
+      </div>
+      <div class="container">
+        <small class="text-muted">※食べた食品が検索にかからない場合<%= link_to 'こちら', '/fooddates/new', class: "" %>からご登録ください</small>
+      </div>
+    </div>
+    <!--foodDB-->
+    <div class="col-md-6 ml-auto mr-auto">
+      <div class="card">
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">fastfood</i>
+          </div>
+          <h4 class="card-title">食品情報データベースを確認する</h4>
+        </div>
+        <div class="card-body">
+          <div class="toolbar">
+            <!--        Here you can write extra buttons/actions for the toolbar              -->
+          </div>
+          <div class="material-datatables">
+            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+              <thead>
+                <tr>
+                  <th><small>食品名</small></th>
+                  <th><small>量</small></th>
+                  <th><small>単位</small></th>
+                  <th><small>カロリー</small></th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th><small>食品名</small></th>
+                  <th><small>量</small></th>
+                  <th><small>単位</small></th>
+                  <th><small>カロリー</small></th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <% @fooddates.each do |fooddate| %>
+                <tr>
+                  <td><%= fooddate.foodname %></td>
+                  <td><%= fooddate.inputgram %></td>
+                  <td><%= fooddate.unit %></td>
+                  <td><%= fooddate.kcal * fooddate.inputgram %>Kcal</td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 </div>
+

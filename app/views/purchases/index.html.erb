@@ -12,165 +12,97 @@
 			<div class="col-md-6 col-md-offset-3 mx-auto text-center my-5">
 				<br><br><br><br><h1 class="text-white"><strong>ボディメイクを確実に成功させる</strong></h1>
 				<p class="text-muted">より細かく管理をしボディメイクを成功させよう</p>
-				<% if current_user.status != 'active' %>
-					<a href="#1"><button class="btn btn-primary btn-lg">14日トライアルを試す</button></a>
-				<% else %>
-					<a href="#1"><button class="btn btn-primary btn-lg">プラン比較をする</button></a>
+				<% if current_user.plan == 'free' %>
+					<a href="#1"><button class="btn btn-primary btn-lg">
+						<i class="material-icons">person_add</i>14日トライアルを試す
+					</button></a>
 				<% end %>
 			</div>
 		</div>
   </section>
   <section class="second">
   	<div class="row">
-  		<div class="col-md-8 col-md-offset-2 mx-auto text-center my-5"><br><br><br><br>
-		  	<h4 class="text-muted ">
-		  		Torekaでは誰でもボディメイクを成功する事ができるよう<br>「簡単に」そして「わかりやすい」プラットフォームを提供しています<br><br>
-		  		『これまでジムが続かなかった人』『何をすれば良いかわからなかった人』<br>『ベストな管理サービスが見つからなかった人』<br>
-		  		それぞれの悩みを解決できるプランを取り揃えております<br><br>
-		  		ボディメイクに近道はありませんが、正しい道は存在します<br><br>
-		  		Torekaで身体も人生も変えましょう<br>
-		  		最大限サポートさせていただきます<br>
+  		<div class="col-md-8 ml-auto mr-auto"><br><br><br><br>
+		  	<h4 class="text-muted text-center">
+		  		<p class="pb-3">Torekaでは誰でもボディメイクを成功する事ができるよう<br>「簡単に」そして「わかりやすい」プラットフォームを提供しています</p>
+		  		<p class="pb-3">『これまでジムが続かなかった人』『何をすれば良いかわからなかった人』<br>『ベストな管理サービスが見つからなかった人』</p>
+		  		<p class="pb-3">それぞれの悩みを解決できるプランを取り揃えております</p>
+		  		<p class="pb-3">ボディメイクに近道はありませんが、正しい道は存在します</p>
+		  		<p class="pb-3">Torekaで身体も人生も変えましょう</p>
+		  		<p class="pb-3">最大限サポートさせていただきます</p>
 		  	</h4>
   		</div>
   	</div>
   </section>
-  <section class="thirds">
-  	<div id="1">
+  
+  <section class="third">
 		<div class="container">
-			<div class="col-md-10 col-md-offset-1 mx-auto text-center my-5">
-				<br><h2 class="text-black pt-5">あなたに合うプランがきっと見つかる</h2><br>
+			<div class="card card-background py-5" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D')">
+			  <div class="card-body">
+			    <h6 class="card-category text-info">なんとなくは今日で終わり</h6>
+			    <a href="#pablo">
+			      <h3 class="card-title">あなたに合うプランが見つかる</h3>
+			      </a>
+			      <p class="card-description">
+			      あなたのボディメイクに今必要なのはなんだろう。筋トレの記録？PFCバランスを知ること？そもそも何のトレーニングをすれば良いか知ること？さあ適切なプランを選択しよう
+			      </p>
+			    <a href="#pablo" class="btn btn-white btn-link">
+			      <i class="material-icons">subject</i> 
+			    </a>
+			    <a href="#pablo" class="btn btn-white btn-link">
+			      <i class="material-icons">watch_later</i> 
+			    </a>
+			  </div>
 			</div>
 			<div class="row">
-	      <div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="card ">
-						<h3 class="card-header card-header-primary text-left">Free</h3>
-						<div class="card-body">
-							<br>
-							<h1 class="card-title pricing-card-title">0円
-							<small class="text-muted">/ 月</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4 text-left">
-								<li>トレーニングのみ管理したい方向け</li>
-							</ul>
-							<% if current_user.plan == 'free' %>
+		    <div class="col-md-6 ml-auto mr-auto">
+		      <div class="card card-pricing ">
+		        <h6 class="card-category"> Free Plan</h6>
+		        <div class="card-body">
+		          <div class="card-icon icon-primary ">
+		            <i class="material-icons">weekend</i>
+		          </div>
+		          <h3 class="card-title">¥0 / month</h3>
+		          <p class="card-description">トレーニング・食事の管理をしたい方向け</p>
+		        </div>
+		        <div class="card-footer justify-content-center ">
+		          <% if current_user.plan == 'free' %>
 								現在のプラン
 							<% elsif current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' %>
-								<%= link_to "無料プランへ変更する", "/purchases/basicplan", class: "btn btn-lg btn-block btn-outline-success" %>
+								<%= link_to "無料プランへ変更する", "/purchases/basicplan", class: "btn btn-round btn-white" %>
 							<% elsif current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
-								<%= link_to "無料プランへ変更する", "/purchases/premiumplan", class: "btn btn-lg btn-block btn-outline-success" %>
+								<%= link_to "無料プランへ変更する", "/purchases/premiumplan", class: "btn btn-round btn-white" %>
 							<% end %>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="card">
-						<h3 class="card-header card-header-primary text-left">Basic</h3>
-						<div class="card-body">
-							<br>
-							<h1 class="card-title pricing-card-title">480円
-							<small class="text-muted">/ 月</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4 text-left">
-								<li>トレーニング・食事の管理をしたい方向け</li>
-							</ul>
-							<% if current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' && current_user.plan_id == 'pln_c97be8359fee9eecf65b59eeed35' %>
-								現在のプラン
-							<% end %>
-							<% if current_user.plan == 'free' && current_user.plan_id == 'pln_c97be8359fee9eecf65b59eeed35' && current_user.status == 'canceled' %>
-								<%= link_to "ベーシックプランを再開", "/purchases/basicplan", class: "btn btn-lg btn-block btn-outline-success" %>
-							<% end %>
-							<% if current_user.status != 'active' && current_user.plan != 'pln_c97be8359fee9eecf65b59eeed35' && current_user.plan_id != 'pln_c97be8359fee9eecf65b59eeed35' %>
-								<%= link_to "※無料トライアル（14日間）", "/purchases/basicplan", class: "btn btn-lg btn-block btn-outline-success" %>
-							<% end %>
-							<% if current_user.status == 'active' && current_user.plan != 'pln_c97be8359fee9eecf65b59eeed35' %>
-								<%= link_to "※ベーシックプランへ変更", "/purchases/basicplan", class: "btn btn-lg btn-block btn-outline-success" %>
-							<% end %>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="card">
-						<h3 class="card-header card-header-primary text-left">Premium</h3>
-						<div class="card-body">
-							<br>
-							<h1 class="card-title pricing-card-title">980円
-							<small class="text-muted">/ 月</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4 text-left">
-								<li>ボディメイク初心者向け。手厚いプラン</li>
-							</ul>
-							<% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' && current_user.plan_id == 'pln_572790307dd04b525bdd0a155347' %>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="col-md-6 ml-auto mr-auto">
+		      <div class="card card-pricing bg-primary">
+		        <h6 class="card-category"> Premium Plan</h6>
+		        <div class="card-body">
+		          <div class="card-icon icon-rose ">
+		            <i class="material-icons">home</i>
+		          </div>
+		          <h3 class="card-title">¥980 / month</h3>
+		          <p class="card-description">ボディメイク初心者向け。手厚いプラン</p>
+		        </div>
+		        <div class="card-footer justify-content-center ">
+		          <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' && current_user.plan_id == 'pln_572790307dd04b525bdd0a155347' %>
 								現在のプラン
 							<% end %>
 							<% if current_user.plan == 'free' && current_user.plan_id == 'pln_572790307dd04b525bdd0a155347' && current_user.status == 'canceled' %>
-								<%= link_to "プレミアムプランを再開", "/purchases/premiumplan", class: "btn btn-lg btn-block btn-outline-success" %>
+								<%= link_to "プレミアムプランを再開", "/purchases/premiumplan", class: "btn btn-round btn-white" %>
 							<% end %>
 							<% if current_user.status != 'active' && current_user.plan != 'pln_572790307dd04b525bdd0a155347' && current_user.plan_id != 'pln_572790307dd04b525bdd0a155347' %>
-								<%= link_to "※無料トライアル（14日間）", "/purchases/premiumplan", class: "btn btn-lg btn-block btn-outline-success" %>
+								<%= link_to "※無料トライアル（14日間）", "/purchases/premiumplan", class: "btn btn-round btn-white" %>
 							<% end %>
 							<% if current_user.status == 'active' && current_user.plan != 'pln_572790307dd04b525bdd0a155347' %>
-								<%= link_to "※プレミアムプランへ変更", "/purchases/premiumplan", class: "btn btn-lg btn-block btn-outline-success" %>
-							<% end %>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="container">
-				<small>※無料トライアル・・・無料トライアルとはアカウント登録後最初の有料登録時（ベーシックプラン・プレミアムプラン問わず）より算出されます。プラン変更時にトライアル期間が初期化するわけではございませんのでご了承ください。また場合によっては無料トライアルと記載があっても経過日によって有料対象となる場合がございます。</small>
-			</div><br><br>
-			
-			<div class="row">
-			  <div class="col-md-4 ml-auto mr-auto">
-			    <div class="card card-pricing bg-primary">
-			    	<div class="card-body ">
-			        <div class="card-icon">
-		            <i class="material-icons">business</i>
-			        </div>
-			        <h3 class="card-title">0円 / 月</h3>
-			        <p class="card-description">
-			          ボディメイク初心者向け。手厚いプラン
-			        </p>
-			        <% if current_user.plan == 'free' %>
-								現在のプラン
-							<% elsif current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' %>
-								<%= link_to "無料プランへ変更する", "/purchases/basicplan", class: "btn btn-success" %>
-							<% elsif current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
-								<%= link_to "無料プランへ変更する", "/purchases/premiumplan", class: "btn btn-success" %>
+								<%= link_to "※プレミアムプランへ変更", "/purchases/premiumplan", class: "btn btn-round btn-white" %>
 							<% end %>
 		        </div>
-			    </div>
-			  </div>
-			  <div class="col-md-4 ml-auto mr-auto">
-			    <div class="card card-pricing bg-primary">
-			    	<div class="card-header card-header-text text-left card-header-rose">
-	            <div class="card-text">
-	              <h4 class="card-title">Osusume!</h4>
-	            </div>
-	          </div>
-			    	<div class="card-body ">
-			        <div class="card-icon">
-		            <i class="material-icons">business</i>
-			        </div>
-			        <h3 class="card-title">980円 / 月</h3>
-			        <p class="card-description">
-			          トレーニングのみ管理したい方向け
-			        </p>
-			        <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' && current_user.plan_id == 'pln_572790307dd04b525bdd0a155347' %>
-								現在のプラン
-							<% end %>
-							<% if current_user.plan == 'free' && current_user.plan_id == 'pln_572790307dd04b525bdd0a155347' && current_user.status == 'canceled' %>
-								<%= link_to "プレミアムプランを再開", "/purchases/premiumplan", class: "btn btn-success" %>
-							<% end %>
-							<% if current_user.status != 'active' && current_user.plan != 'pln_572790307dd04b525bdd0a155347' && current_user.plan_id != 'pln_572790307dd04b525bdd0a155347' %>
-								<%= link_to "※無料トライアル（14日間）", "/purchases/premiumplan", class: "btn btn-success" %>
-							<% end %>
-							<% if current_user.status == 'active' && current_user.plan != 'pln_572790307dd04b525bdd0a155347' %>
-								<%= link_to "※プレミアムプランへ変更", "/purchases/premiumplan", class: "btn btn-success" %>
-							<% end %>
-		        </div>
-			    </div>
-			  </div>
-			</div>
+		      </div>
+		    </div>
+		  </div>
 			
 			<div class="row">
 		    <div class="col-md-12">
@@ -185,7 +117,7 @@
 							<div class="table-responsive">
 							<table class="table">
 								<thead>
-									<tr class="table-active">
+									<tr>
 										<th class="text-left">機能</th>
 										<th class="text-center">Free</th>
 										<th class="text-center">Premium</th>
@@ -236,5 +168,6 @@
 				</div>
 			</div>
 		</div>
-		</div>
 	</section>
+	
+	

@@ -1,259 +1,283 @@
-<!--PC-->
-<div class="d-none d-lg-block">
+<!--未ログイン用navbar-->
+  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
+    <div class="container">
+      <div class="navbar-wrapper">
+        <a class="navbar-brand" href="javascript:;">Toreka</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="/" class="nav-link">
+              <i class="material-icons">dashboard</i>
+              HOME
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              プラン
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/mainpages/plan_comparison">プランを比較</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/mainpages/freeplan">フリープラン</a>
+              <a class="dropdown-item" href="/mainpages/basicplan">ベーシックプラン</a>
+              <a class="dropdown-item" href="/mainpages/premiumplan">プレミアムプラン</a>
+            </div>
+          </li>
+          <li class="nav-item active">
+            <%= link_to new_user_session_path, class: "nav-link" do %>
+              <i class="material-icons">fingerprint</i>
+              Login
+            <% end %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to new_user_registration_path, class: "nav-link" do %>
+              <i class="material-icons">person_add</i>
+              無料新規登録
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
 	<section class="first">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3 mx-auto text-center my-5">
-				<br><br><br><br><h1 class="text-white"><strong>ボディメイクを通して人生を豊かにしよう</strong></h1>
-				<%= link_to "無料で新規登録", plan_comparison_mainpages_path, class: "btn btn-primary btn-lg my-5" %>
+		<div class="container">
+			<div class="row pt-5">
+				<div class="col-md-8 ml-auto mr-auto text-center pt-5">
+					<h1 class="pt-5 pb-3"><strong>ボディメイクを通して人生を豊かにしよう</strong></h1>
+					<%= link_to "無料で新規登録", plan_comparison_mainpages_path, class: "btn btn-primary btn-lg " %>
+					<%= image_tag "ipad.png", class: "img", width: "100%;" %>
+				</div>
 			</div>
 		</div>
 	</section>
+	
 	<section class="second">
 		<div class="container">
-			<div class="col-md-8 col-md-offset-2 mx-auto text-center my-5">
-				<h2 class="py-5">Torekaってどんなサービス？？</h2><br>
-				<p>Torekaはこれまでになかったボディメイク自己管理サービスです。</p>
-				<p>なぜ人はボディメイクに失敗してしまうのか。</p>
-				<p>それは何をすべきかわかっていないからです。</p>
-				<p>ボディメイクは皆さんが思っているよりもシンプルで簡単なものです。</p>
-				<p>Torekaでは目的別にプランを用意しておりあなたのボディメイクのお手伝いを安価に提供します。</p>
-				<p class="pb-5">もうボディメイクに無駄なお金はかけないでください。Torekaで十分です。</p>
+			<div class="col-md-12 text-center py-5">
+				<h2>ボディメイクでこんな悩みありませんか？</h2>
 			</div>
+			<div class="row">
+		    <div class="col-md-6">
+		      <ul class="timeline timeline-simple">
+		        <li class="timeline-inverted">
+		          <div class="timeline-badge danger">
+		            <i class="material-icons">card_travel</i>
+		          </div>
+		          <div class="timeline-panel">
+		            <div class="timeline-heading">
+		              <span class="badge badge-pill badge-danger">良い感じの管理アプリがない</span>
+		            </div>
+		            <div class="timeline-body">
+		              <p>ボディメイクにおける良い感じの記録アプリが見つからない︎︎</p>
+		            </div>
+		          </div>
+		        </li>
+		        <li class="timeline-inverted">
+		          <div class="timeline-badge success">
+		            <i class="material-icons">extension</i>
+		          </div>
+		          <div class="timeline-panel">
+		            <div class="timeline-heading">
+		              <span class="badge badge-pill badge-success">何をやっても痩せない</span>
+		            </div>
+		            <div class="timeline-body">
+		              <p>食事も減らした。有酸素運動もたくさんやってる。でも痩せない。それやり方間違ってるかも…︎</p>
+		            </div>
+		          </div>
+		        </li>
+		        <li class="timeline-inverted">
+		          <div class="timeline-badge info">
+		            <i class="material-icons">fingerprint</i>
+		          </div>
+		          <div class="timeline-panel">
+		            <div class="timeline-heading">
+		              <span class="badge badge-pill badge-info">ボディメイクて何すれば良いかわかんない</span>
+		            </div>
+		            <div class="timeline-body">
+		              <p>ボディメイクにおいて『筋トレ』×『食事』が大事なのはわかるけど何すれば良いかわかんない…</p>
+		              <p>パーソナルトレーニングも良さそうだけど高額すぎて足が重い…</p>
+		            </div>
+		          </div>
+		        </li>
+		      </ul>
+		    </div>
+		    <div class="col-md-6">
+		      <div class="row">
+		        <div class="col-md-12">
+		          <div class="card card-testimonial">
+		            <div class="icon">
+		              <i class="material-icons">format_quote</i>
+		            </div>
+		            <div class="card-title">
+		            	<h3>その悩みTorekaが解決します‼</h3>
+		            </div>
+		            <div class="card-body">
+		              <h5 class="card-description">
+		                ボディメイクは皆さんが思っている以上に難易度の高いモノではありません。正しいやり方を繰り返し継続する。これだけで理想の身体を作り出すことができるのです。Torekaではそんな再現性高い方法を提供しております。
+		              </h5>
+		            </div>
+		            <div class="card-footer">
+		              <h4 class="card-title">ボディメイクマスター@Bodyくん</h4>
+		              <div class="card-avatar">
+		                <a href="#pablo">
+		                  <img class="img" src="./../assets/img/faces/card-profile1-square.jpg" />
+		                </a>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
 		</div>
 	</section>
+	
 	<section class="seconds">
 		<div class="container">
-			<div class="col-md-8 col-md-offset-2 mx-auto text-center my-5">
-				<h2 class="pt-5">Torekaできること</h2><br>
-			</div>	
-			<div class="row mx-auto text-center my-4">
-				<div class="col-md-6 col-sm-6">
-					<h2 class="my-5 text-success text-left">トレーニングの情報を簡単に記録する</h2>
-					<h4 class=" text-left">やっておわりのトレーニングはおしまいにしよう。<br>Torekaでは簡単にトレーニング管理をすることが可能です。</h4><br>
-					<p class=" text-left"><%= link_to "Toreka-FreePlan→", "/mainpages/freeplan", class: "" %></p>
-				</div>
-				<div class="col-md-6 col-sm-6 pt-5">
-					<%= image_tag "tr_mockup.png", class: "img-responsive img-rounded", width: "70%;" %>
-				</div>
-			</div>
-			<div class="row mx-auto text-center my-5">
-				<div class="col-md-6 col-sm-6  text-left">
-					<%= image_tag "dashboard_mockup.png", class: "img-responsive img-rounded", width: "100%;" %>
-				</div>
-				<div class="col-md-6 col-sm-6">
-					<h2 class="text-left my-5 text-success">ボディメイクをスムーズに成功させる</h2>
-					<h4 class="text-left">トレーニング記録、毎日の体重の管理、食事の管理を簡単にすることが可能です。</h4><br>
-					<div class="text-left"><%= link_to "Toreka-BasicPlan→", "/mainpages/basicplan", class: "" %></div>
-				</div>
-			</div>
-			<div class="row mx-auto text-center my-5">
-				<div class="col-md-6 col-sm-6"><br>
-					<h2 class="my-5 text-success text-left">30日間で0から身体を変える</h2>
-					<h4 class="text-left">初心者でも何をすればよいのかわからない。大丈夫です。<br>貴方のデバイスが提案してくれます。</h4><br>
-					<p class=" text-left"><%= link_to "Toreka-PremiumPlan→", "mainpages/premiumplan", class: "" %></p>
-				</div>
-				<div class="col-md-6 col-sm-6 ">
-					<%= image_tag "admock.png", class: "img-responsive img-rounded", width: "100%;" %>
-				</div>
-			</div>
-			<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-				<div class="display-4">
-					<%= link_to "TorekaのPlanを比較する", plan_comparison_mainpages_path, class: "btn btn-primary btn-md" %>
-				</div>
-			</div>
+			<h2 class="text-center py-5">Toreka でできること</h2>
+		  <br>
+		  <div class="row">
+		    <div class="col-md-3 ml-auto mr-auto">
+		      <div class="card card-product">
+		        <div class="card-header card-header-image" data-header-animation="true">
+		          <%= image_tag "fd_mockup.png", class: "img" %>
+		        </div>
+		        <div class="card-body">
+		          <h3 class="card-title pb-2">
+		            ボディメイクをスムーズに成功させる
+		          </h4>
+		          <div class="card-description">
+		            トレーニング記録、毎日の体重の管理、食事の管理を簡単にすることが可能です。
+		          </div>
+		        </div>
+		        <div class="card-footer">
+		          <div class="ml-auto mr-auto">
+		          <%= link_to "/mainpages/freeplan", class: "btn" do %>
+		            <i class="material-icons">check</i>
+		            Toreka Freeplan
+		          <% end %>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="col-md-3 ml-auto mr-auto">
+		      <div class="card card-product">
+		        <div class="card-header card-header-image" data-header-animation="true">
+		          <%= image_tag "admock.png", class: "img" %>
+		        </div>
+		        <div class="card-body">
+		          <h3 class="card-title pb-2">
+		            0から身体を変える
+		          </h3>
+		          <div class="card-description">
+		            初心者でも何をすればよいのかわからない。大丈夫です。あなたのデバイスが提案してくれます。
+		          </div>
+		        </div>
+		        <div class="card-footer">
+		          <div class="ml-auto mr-auto">
+		          <%= link_to "mainpages/premiumplan", class: "btn" do %>
+		            <i class="material-icons">check</i>
+		            Toreka Premiumplan
+		          <% end %>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="col-md-3 ml-auto mr-auto">
+		      <div class="card card-product">
+		        <div class="card-header card-header-image" data-header-animation="true">
+		          <%= image_tag "hv_mockup.png", class: "img" %>
+		        </div>
+		        <div class="card-body">
+		          <h3 class="card-title pb-2">
+		            正しい動作も理解できる
+		          </h3>
+		          <div class="card-description">
+		            2分程度の短い動画でわからないタイミングでフォームチェックが可能です。もう恥ずかしい思いをして誰かに聞かなくて大丈夫。
+		          </div>
+		        </div>
+		        <div class="card-footer">
+		          <div class="ml-auto mr-auto">
+		          <%= link_to "mainpages/premiumplan", class: "btn" do %>
+		            <i class="material-icons">check</i>
+		            Toreka Premiumplan
+		          <% end %>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
 		</div>
 	</section>
+	
 	<section class="third">
 		<div class="container">
-			<div class="col-md-8 col-md-offset-2 mx-auto text-center py-5">
-				<br><h2 class="pt-5">あなたに合うプランがきっと見つかる</h2><br>
-				<p class="text-center">目的別に3プラン用意</p>
+			<div class="card card-background py-5" style="background-image: url('https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D')">
+			  <div class="card-body">
+			    <h6 class="card-category text-info">なんとなくは今日で終わり</h6>
+			    <a href="#pablo">
+			      <h3 class="card-title">あなたに合うプランが見つかる</h3>
+			      </a>
+			      <p class="card-description">
+			      あなたのボディメイクに今必要なのはなんだろう。筋トレの記録？PFCバランスを知ること？そもそも何のトレーニングをすれば良いか知ること？さあ適切なプランを選択しよう
+			      </p>
+			    <a href="#pablo" class="btn btn-white btn-link">
+			      <i class="material-icons">subject</i> 
+			    </a>
+			    <a href="#pablo" class="btn btn-white btn-link">
+			      <i class="material-icons">watch_later</i> 
+			    </a>
+			  </div>
 			</div>
 			<div class="row">
-	      <div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="card ">
-						<h3 class="card-header card-header-success text-left">Free</h3>
-						<div class="card-body">
-							<br>
-							<h1 class="card-title pricing-card-title">0円
-							<small class="text-muted">/ 月</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4 text-left">
-								<li>トレーニングのみ管理したい方向け</li>
-							</ul>
-							<%= link_to "無料で会員登録", new_user_registration_path, class: "btn btn-lg btn-block btn-outline-success" %>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="card">
-						<h3 class="card-header card-header-success text-left">Basic</h3>
-						<div class="card-body">
-							<br>
-							<h1 class="card-title pricing-card-title">480円
-							<small class="text-muted">/ 月</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4 text-left">
-								<li>トレーニング・食事の管理をしたい方向け</li>
-							</ul>
-							<%= link_to "無料トライアル（14日間）", basicplan_users_path(current_user), class: "btn btn-lg btn-block btn-outline-success" %>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="card">
-						<h3 class="card-header card-header-success text-left">Premium</h3>
-						<div class="card-body">
-							<br>
-							<h1 class="card-title pricing-card-title">980円
-							<small class="text-muted">/ 月</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4 text-left">
-								<li>ボディメイク初心者向け。手厚いプラン</li>
-							</ul>
-							<%= link_to "無料トライアル（14日間）", premiumplan_users_path(current_user), class: "btn btn-lg btn-block btn-outline-success" %>
-						</div>
-					</div>
-				</div>
-			</div>
-			<p>※無料会員でまずはログインいただきます。ログイン後有料プランの登録をお願い致します。</p>
-			<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-				<div class="display-4">
-					<%= link_to "TorekaのPlanを比較する", plan_comparison_mainpages_path, class: "btn btn-primary btn-md" %>
-				</div>
-			</div>
+		    <div class="col-lg-6 col-md-6 ml-auto mr-auto">
+		      <div class="card card-pricing ">
+		        <h6 class="card-category"> Free Plan</h6>
+		        <div class="card-body">
+		          <div class="card-icon icon-primary ">
+		            <i class="material-icons">weekend</i>
+		          </div>
+		          <h3 class="card-title">¥0 / month</h3>
+		          <p class="card-description">トレーニング・食事の管理をしたい方向け</p>
+		        </div>
+		        <div class="card-footer justify-content-center ">
+		          <%= link_to "Free Planの詳細を確認", "/mainpages/freeplan", class: "btn btn-round btn-white" %>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="col-lg-6 col-md-6 ml-auto mr-auto">
+		      <div class="card card-pricing ">
+		        <h6 class="card-category"> Premium Plan</h6>
+		        <div class="card-body">
+		          <div class="card-icon icon-rose ">
+		            <i class="material-icons">home</i>
+		          </div>
+		          <h3 class="card-title">¥980 / month</h3>
+		          <p class="card-description">ボディメイク初心者向け。手厚いプラン</p>
+		        </div>
+		        <div class="card-footer justify-content-center ">
+		          <%= link_to "Premium Planの詳細を確認", "/mainpages/premiumplan", class: "btn btn-round btn-white" %>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
 		</div>
 	</section>
+	
 	<section class="fourth">
 		<div class="container">
-		<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center my-5">
-			<h3>さあ始めよう！</h3>
-			<p>結果を出す人は今日行動する。貴方はどう？</p><br>
-			<%= link_to "無料で新規登録", plan_comparison_mainpages_path, class: "btn btn-primary btn-lg" %>
-		</div>
-		</div>
-	</section>
-</div>
-<!--スマホ-->
-<div class="d-lg-none">
-	<section class="first">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3 mx-auto text-center ">
-				<br><h2 class="text-black mt-5 pt-5"><strong>ボディメイクを通して人生を豊かにしよう</strong></h2>
-				<%= link_to "無料で新規登録", plan_comparison_mainpages_path, class: "btn btn-primary btn-lg my-5" %>
+			<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center ">
+				<h3>さあ始めよう！</h3>
+				<p>結果を出す人は今日行動する。あなたはどう？</p><br>
+				<%= link_to "無料で新規登録", plan_comparison_mainpages_path, class: "btn btn-primary btn-lg" %>
 			</div>
 		</div>
 	</section>
-	<section class="second">
-		<div class="container">
-			<div class="col-md-6 col-md-offset-3 mx-auto text-center my-5">
-				<h3 class="pt-5">Torekaってどんなサービス？？</h3><br>
-				<p class="text-left text-muted">Torekaはこれまでになかったボディメイク自己管理サービスです。<br>初心者の方から上級者まで全てのユーザーが利用可能で必要な機能に応じてプランを選ぶことができます。</p>
-			</div>
-			<div class="row mx-auto text-center my-5">
-				<div class="col-md-6 col-sm-6">
-					<h2 class="text-success text-left">トレーニングの情報を簡単に記録する</h2>
-					<h4 class=" text-left">やっておわりのトレーニングはおしまいにしよう。<br>Torekaでは簡単にトレーニング管理をすることが可能です。</h4><br>
-					<p class=" text-left"><%= link_to "Toreka-FreePlan→", "/mainpages/freeplan", class: "" %></p>
-				</div>
-				<div class="col-md-6 col-sm-6 text-left">
-					<%= image_tag "tr_mockup.png", class: "img-responsive img-rounded", width: "100%;" %>
-				</div>
-			</div>
-			<div class="row mx-auto text-center ">
-				<div class="col-md-6 col-sm-6">
-					<h2 class="text-left text-success">ボディメイクをスムーズに成功させる</h2>
-					<h4 class="text-left">トレーニング記録、毎日の体重の管理、食事の管理を簡単にすることが可能です。</h4><br>
-					<div class="text-left"><%= link_to "Toreka-BasicPlan→", "/mainpages/basicplan", class: "" %></div>
-				</div>
-				<div class="col-md-6 col-sm-6 text-left">
-					<%= image_tag "dashboard_mockup.png", class: "img-responsive img-rounded", width: "120%;" %>
-				</div>
-			</div>
-			<div class="row mx-auto text-center my-5">
-				<div class="col-md-6 col-sm-6"><br>
-					<h2 class="text-success text-left">30日間で0から身体を変える</h2>
-					<h4 class="text-left">初心者でも何をすればよいのかわからない。大丈夫です。<br>貴方のデバイスが提案してくれます。</h4><br>
-					<p class=" text-left"><%= link_to "Toreka-PremiumPlan→", "mainpages/premiumplan", class: "" %></p>
-				</div>
-				<div class="col-md-6 col-sm-6 text-left">
-					<%= image_tag "admock.png", class: "img-responsive img-rounded", width: "120%;" %>
-				</div>
-			</div>
-			<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-				<div class="display-4 ">
-					<%= link_to "TorekaのPlanを比較する", plan_comparison_mainpages_path, class: "btn btn-success btn-lg" %>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="third">
-		<div class="container">
-			<div class="col-md-6 col-md-offset-3 mx-auto text-center my-5">
-				<br><h2 class="text-white pt-5">あなたに合うプランがきっと見つかる</h2><br>
-				<p class="text-center text-muted">目的別に3プラン用意</p>
-			</div>
-			<div class="row">
-	      <div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="card ">
-						<h3 class="card-header card-header-success text-left">Free</h3>
-						<div class="card-body">
-							<br>
-							<h1 class="card-title pricing-card-title">0円
-							<small class="text-muted">/ 月</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4 text-left">
-								<li>トレーニングのみ管理したい方向け</li>
-							</ul>
-							<%= link_to "無料で会員登録", new_user_registration_path, class: "btn btn-lg btn-block btn-outline-success" %>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="card">
-						<h3 class="card-header card-header-success text-left">Basic</h3>
-						<div class="card-body">
-							<br>
-							<h1 class="card-title pricing-card-title">480円
-							<small class="text-muted">/ 月</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4 text-left">
-								<li>トレーニング・食事の管理をしたい方向け</li>
-							</ul>
-							<%= link_to "無料トライアル（14日間）", new_user_registration_path, class: "btn btn-lg btn-block btn-outline-success" %>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<div class="card">
-						<h3 class="card-header card-header-success text-left">Premium</h3>
-						<div class="card-body">
-							<br>
-							<h1 class="card-title pricing-card-title">980円
-							<small class="text-muted">/ 月</small>
-							</h1>
-							<ul class="list-unstyled mt-3 mb-4 text-left">
-								<li>ボディメイク初心者向け。手厚いプラン</li>
-							</ul>
-							<%= link_to "無料トライアル（14日間）", new_user_registration_path, class: "btn btn-lg btn-block btn-outline-success" %>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-				<div class="display-4">
-					<%= link_to "TorekaのPlanを比較する", plan_comparison_mainpages_path, class: "btn btn-success btn-lg" %>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="fourth">
-		<div class="container">
-		<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center my-5">
-			<h3>さあ始めよう！</h3>
-			<p>結果を出す人は今日行動する。貴方はどう？</p><br>
-			<%= link_to "無料で新規登録", plan_comparison_mainpages_path, class: "btn btn-primary btn-lg" %>
-		</div>
-		</div>
-	</section>
-</div>

@@ -1,4 +1,4 @@
-<div class="container-fuild">
+<div class="container">
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
     <div class="container-fluid">
       <div class="navbar-wrapper">
@@ -7,66 +7,84 @@
       <%= render 'users/users' %>
     </div>
   </nav>
-  
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div class="card">
-      <div class="card-header card-header-tabs card-header-primary">
-        <div class="nav-tabs-navigation">
-          <div class="nav-tabs-wrapper">
-            <h4 class="nav-tabs-title">
-              <i class="material-icons">trending_down</i> トレーニングを記録する
-            </h4>
+  <div class="row">
+    <div class="col-md-8 ml-auto mr-auto">
+      <div class="card">
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">assignment</i>
           </div>
+          <h4 class="card-title">Today's Training New</h4>
+        </div>
+        <div class="card-body text-left">
+          <%= form_for @workoutdiary do |f| %>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.label :Date %>
+              <%= f.date_field :date, placeholder: "date", class: 'form-control' %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.label :Menu %>
+              <%= f.autocomplete_field :menu, autocomplete_workoutdate_menu_workoutdiaries_path, id_element: '#workoutdiary_workoutdate_id', class: 'form-control' %><br>
+            </div>
+            <div class="col-md-6">
+              <%= f.label :Settype %>
+              <%= f.select :settype, {'ノーマルセット': 'ノーマルセット', 'ドロップセット': 'ドロップセット', 'スーパーセット': 'スーパーセット', 'ジャイアントセット': 'ジャイアントセット'}, { include_blank: 'セットタイプを選択'}, { class: 'form-control' , required: true } %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.label :Weight %>
+              <%= f.number_field :weight, placeholder: 'kg', class: 'form-control' %><br>
+            </div>
+            <div class="col-md-6">
+              <%= f.label :Reps %>
+              <%= f.number_field :reps, placeholder: 'reps', class: 'form-control' %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.label :Weight %>
+              <%= f.number_field :weightsecond, placeholder: 'kg', class: 'form-control' %><br>
+            </div>
+            <div class="col-md-6">
+              <%= f.label :Reps %>
+              <%= f.number_field :repssecond, placeholder: 'reps', class: 'form-control' %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.label :Weight %>
+              <%= f.number_field :weightthird, placeholder: 'kg', class: 'form-control' %><br>
+            </div>
+            <div class="col-md-6">
+              <%= f.label :Reps %>
+              <%= f.number_field :repsthird, placeholder: 'reps', class: 'form-control' %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <%= f.label :Memo %>
+              <%= f.text_field :memo, placeholder: '見返したときにわかるようにメモとしてご活用ください', class: 'form-control' %><br>
+            </div>
+          </div>
+          <%= f.hidden_field :workoutdate_id %>
+          <%= f.submit "送信", class: "btn btn-raised btn-primary" %>
+        <% end %>
         </div>
       </div>
-      <div class="card-body">
-        <div class="table-responsive">
-          <table class="table table-bordered" style="table-layout:fixed;">
-            <thead class="thead-light">
-              <tr>
-                <th style="width:150px;">日付</th>
-                <th style="width:200px;">メニュー</th>
-                <th style="width:150px;">セットタイプ</th>
-                <th style="width:80px;">重量</th>
-                <th style="width:80px;">回数</th>
-                <th style="width:80px;">重量</th>
-                <th style="width:80px;">回数</th>
-                <th style="width:80px;">重量</th>
-                <th style="width:80px;">回数</th>
-                <th style="width:200px;">memo</th>
-              </tr>
-            </thead>
-            <tbody>
-              <%= form_for @workoutdiary do |f| %>
-              <tr>
-                <td><%= f.date_field :date, placeholder: 'date', class: 'form-control' %></td>
-                <td><%= f.autocomplete_field :menu, autocomplete_workoutdate_menu_workoutdiaries_path, id_element: '#workoutdiary_workoutdate_id', class: 'form-control' %></td>
-                    <%= f.hidden_field :workoutdate_id %>
-                <td><%= f.select :settype, {'ノーマルセット': 'ノーマルセット', 'ドロップセット': 'ドロップセット', 'スーパーセット': 'スーパーセット', 'ジャイアントセット': 'ジャイアントセット'}, { include_blank: 'セットタイプを選択'}, { class: 'form-control' , required: true } %></td>
-                <td><%= f.number_field :weight, placeholder: 'kg', class: 'form-control' %></td>
-                <td><%= f.number_field :reps, placeholder: 'reps', class: 'form-control' %></td>
-                <td><%= f.number_field :weightsecond, placeholder: 'kg', class: 'form-control' %></td>
-                <td><%= f.number_field :repssecond, placeholder: 'reps', class: 'form-control' %></td>
-                <td><%= f.number_field :weightthird, placeholder: 'kg', class: 'form-control' %></td>
-                <td><%= f.number_field :repsthird, placeholder: 'reps', class: 'form-control' %></td>
-                <td><%= f.text_field :memo, placeholder: '見返したときにわかるようにメモとしてご活用ください', class: 'form-control' %></td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="row">
+        <div class="col-md-12">
+          <small class="text-muted">※トレーニングメニューが検索にかからない場合<%= link_to 'こちら', '/workoutdates/new', class: "" %>からご登録ください</small><br>
+          <small class="text-muted">※ 1メニュー3セットまで入力することが可能です.それ以上のセットを入力したい場合は新たにページを開き追加するようお願いいたします</small><br>
+          <small class="text-muted">※マシンがポンド表記の場合（1lb (ポンド) = 0.45kg）／左記参考にしていただきながらキログラム表記で登録ください<br>
+          100lbの場合 = 100lb × 0.45 => 約45kg</small>
         </div>
-        <thead>
-          <tr>
-            <td><%= f.submit "登録する", class: "btn btn-raised btn-primary" %></td>
-          </tr>
-        </thead>
-          <% end %><br>
       </div>
-    </div>
-    <div class="container">
-      <small class="text-muted">※トレーニングメニューが検索にかからない場合<%= link_to 'こちら', '/workoutdates/new', class: "" %>からご登録ください</small><br>
-      <small class="text-muted">※ 1メニュー3セットまで入力することが可能です.それ以上のセットを入力したい場合は新たにページを開き追加するようお願いいたします</small><br>
-      <small class="text-muted">※マシンがポンド表記の場合（1lb (ポンド) = 0.45kg）／左記参考にしていただきながらキログラム表記で登録ください<br>
-      100lbの場合 = 100lb × 0.45 => 約45kg</small>
     </div>
   </div>
 </div>
+
+    

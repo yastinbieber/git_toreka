@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :weightchanges, dependent: :destroy
   has_many :withdrawals
   has_many :cards
-  
+  has_many :advicediaries
   
   
   def set_date

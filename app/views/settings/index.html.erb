@@ -7,80 +7,35 @@
       <%= render 'users/users' %>
     </div>
   </nav>
-	<h2>Settings</h2>
-	<hr>
+
 	<small class="text-muted">確認したい内容に応じて選択ください</small><br><br>
-	<!--PC用-->
-	<div class="d-none d-lg-block">
-		<div class="row">
-			<div class="col-md-4 ml-auto mr-auto">
-		    <div class="card rounded-0 p-0 shadow-sm">
-		      <%= image_tag "ota_1.png", class: "card-img-top", width: "50%;" %>
-		      <div class="card-body text-left">
-		        <small class="card-text text-muted">プラン変更はこちらから</small><br>
-		        <%= link_to "プランを確認・変更する", plancheck_users_path(current_user), class: "btn btn-success" %>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-md-4 ml-auto mr-auto">
-		    <div class="card rounded-0 p-0 shadow-sm">
-		      <%= image_tag "ozo_3.png", class: "card-img-top", width: "50%;" %>
-		      <div class="card-body text-left">
-		        <small class="card-text text-muted">退会希望の方はこちらから</small><br>
-		        <%= link_to "退会する", new_withdrawal_path, class: "btn btn-raised btn-danger" %>
-		      </div>
-		    </div>
-		  </div>
-		  <div class="col-md-4 ml-auto mr-auto">
-		    <div class="card rounded-0 p-0 shadow-sm">
-		      <%= image_tag "oji_4.png", class: "card-img-top", width: "50%;" %>
-		      <div class="card-body text-left">
-		        <small class="card-text text-muted">問い合わせから質問まで何でもお待ちしています！</small><br>
-		        <%= link_to "お問い合わせ", "/inquiry", class: "btn btn-raised btn-info" %>
-		      </div>
-		    </div>
-		  </div>
+	<div class="row">
+		<div class="col-md-4 ml-auto mr-auto">
+	    <div class="card rounded-0 p-0 shadow-sm">
+	      <%= image_tag "ota_1.png", class: "card-img-top", width: "50%;" %>
+	      <div class="card-body text-left">
+	        <small class="card-text text-muted">プラン変更はこちらから</small><br>
+	        <%= link_to "プランを確認・変更する", plancheck_users_path(current_user), class: "btn btn-success" %>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-md-4 ml-auto mr-auto">
+	    <div class="card rounded-0 p-0 shadow-sm">
+	      <%= image_tag "ozo_3.png", class: "card-img-top", width: "50%;" %>
+	      <div class="card-body text-left">
+	        <small class="card-text text-muted">退会希望の方はこちらから</small><br>
+	        <%= link_to "退会する", new_withdrawal_path, class: "btn btn-raised btn-danger" %>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="col-md-4 ml-auto mr-auto">
+	    <div class="card rounded-0 p-0 shadow-sm">
+	      <%= image_tag "oji_4.png", class: "card-img-top", width: "50%;" %>
+	      <div class="card-body text-left">
+	        <small class="card-text text-muted">何でもお待ちしています！</small><br>
+	        <%= link_to "お問い合わせ", "/inquiry", class: "btn btn-raised btn-info" %>
+	      </div>
+	    </div>
 	  </div>
   </div>
-  <!--スマホ用-->
-	<div class="d-lg-none">
-		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-		  <ol class="carousel-indicators">
-		    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-		    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-		    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-		  </ol>
-		  <div class="carousel-inner">
-		    <div class="carousel-item active">
-		      <%= image_tag "ota_1.png", class: "card-img-top", width: "50%;" %>
-		      <div class="card-body text-left mb-5">
-		        <small class="card-text text-muted">プラン変更はこちらから</small><br>
-		        <%= link_to "プランを変更する", "", class: "btn btn-raised btn-success" %>
-		      </div>
-		    </div>
-		    <div class="carousel-item">
-		      <%= image_tag "ozo_3.png", class: "card-img-top", width: "50%;" %>
-		      <div class="card-body text-left mb-5">
-		        <small class="card-text text-muted">退会希望の方はこちらから</small><br>
-		        <%= link_to "退会する", "", class: "btn btn-raised btn-danger" %>
-		      </div>
-		    </div>
-		    <div class="carousel-item">
-		      <%= image_tag "oji_4.png", class: "card-img-top", width: "50%;" %>
-		      <div class="card-body text-left mb-5">
-		        <small class="card-text text-muted">お問い合わせから質問まで何でもお待ちしています！</small><br>
-		        <%= link_to "お問い合わせ", "/inquiry", class: "btn btn-raised btn-info" %>
-		      </div>
-		    </div>
-		  </div>
-		  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		    <span class="sr-only">Previous</span>
-		  </a>
-		  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-		    <span class="sr-only">Next</span>
-		  </a>
-		</div>
-	</div>
 </div>

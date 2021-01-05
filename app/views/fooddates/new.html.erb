@@ -8,6 +8,7 @@
       <%= render 'users/users' %>
     </div>
   </nav>
+  
 	<div class="popup" id="js-popup">
     <div class="popup-inner">
       <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
@@ -18,62 +19,69 @@
     </div>
   <div class="black-background" id="js-black-bg"></div>
   </div>
-	<div class="alert alert-warning alert-dismissible fade show" role="alert">
-	  <strong>食べた食品の栄養成分表示をそのままご記入ください</strong>
-	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-	    <span aria-hidden="true">&times;</span>
-	  </button>
-	</div>
+  
   <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  	<div class="col-md-6 ml-auto mr-auto">
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			  <strong>食べた食品の栄養成分表示をそのままご記入ください</strong>
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+		</div>
+	</div>
+	
+  <div class="row">
+    <div class="col-md-6 ml-auto mr-auto">
       <div class="card">
-        <div class="card-header card-header-tabs card-header-primary">
-            <div class="nav-tabs-navigation">
-              <div class="nav-tabs-wrapper">
-                <h4 class="nav-tabs-title">
-                  <i class="material-icons">trending_down</i> 食品情報をDBに追加する
-                </h4>
-              </div>
-            </div>
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">fastfood</i>
           </div>
+          <h4 class="card-title">食品情報をデータベースに登録する</h4>
+        </div>
         <div class="card-body">
           <%= form_for @fooddate do |f| %>
           <div class="row">
             <div class="col-md-12">
 		          <div class="form-group has-primary">
 		            <%= f.label :Foodname／食品名 %>
-		            <%= f.text_field :foodname, placeholder: "食品名を記入", class: 'form-control' %><br>
+		            <%= f.text_field :foodname, placeholder: "わかりやすく食品の名前を記載しよう", class: 'form-control' %><br>
 		          </div>
 	          </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
-		          <div class="form-group has-primary">
-		            <%= f.label :gram／グラム %>
-		            <%= f.number_field :inputgram, placeholder: "食品のグラム数を記入（g）", class: 'form-control' %><br>
-		          </div>
+            <div class="col-md-8">
+	            <%= f.label :Amount／量 %>
+	            <%= f.number_field :inputgram, placeholder: "食品の質量もしくは本数（本数の場合は1と入力）", class: 'form-control' %><br>
 	          </div>
+	          <div class="col-md-4">
+	            <%= f.label :Unit／単位 %>
+	            <%= f.select :unit, [['g(食品)'], ['ml(飲料)'], ['本(バナナなど)'], ['個'], ['人前'], ['匹'], ['枚']], {}, class: "form-control" %><br>
+	          </div>
+          </div>
+          <div class="row">
 	          <div class="col-md-6">
 		          <div class="form-group has-primary">
 		            <%= f.label :kcal／カロリー %>
 		            <%= f.number_field :kcal, placeholder: "カロリーを記入（kcal）", class: 'form-control', step: "0.1" %><br>
 		          </div>
 	          </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
 		          <div class="form-group has-primary">
 		            <%= f.label :proteinタンパク質 %>
 		            <%= f.number_field :protein, placeholder: "タンパク質を記入（g）", class: 'form-control', step: "0.1" %><br>
 		          </div>
 	          </div>
-	          <div class="col-md-4">
+          </div>
+          <div class="row">
+	          <div class="col-md-6">
 		          <div class="form-group has-primary">
 		            <%= f.label :fat／脂質 %>
 		            <%= f.number_field :fat, placeholder: "脂質を記入（g）", class: 'form-control', step: "0.1" %><br>
 		          </div>
 	          </div>
-	          <div class="col-md-4">
+	          <div class="col-md-6">
 		          <div class="form-group has-primary">
 		            <%= f.label :carbo／炭水化物（糖質） %>
 		            <%= f.number_field :carbo, placeholder: "炭水化物を記入（g）", class: 'form-control', step: "0.1" %><br>

@@ -10,7 +10,8 @@ class WeightchangesController < ApplicationController
     @idealweight_datas = weightchanges.map(&:third)
     @max = current_user.weightchanges.maximum(:todayweight)
     @minimum = current_user.weightchanges.minimum(:todayweight)
-    @weightchange = current_user.weightchanges.last
+    @weight_last = current_user.weightchanges.last
+    @weightchangess = current_user.weightchanges.all
   end
   
   def confirm

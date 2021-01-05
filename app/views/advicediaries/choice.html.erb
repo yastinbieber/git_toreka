@@ -8,37 +8,47 @@
       <%= render 'users/users' %>
     </div>
   </nav>
+  
   <div class="row">
-    <div class="col-md-6 mx-auto text-center">
-      <div class="card card-profile">
-        <div class="card-avatar">
-          <% if current_user.image.attached? %>
-            <%= image_tag current_user.image, class: "img" %>
-          <% else %>
-            <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
-          <% end %>
-        </div>
+    <div class="col-md-12">
+      <div class="card bg-primary">
         <div class="card-body">
-          <h4 class="card-title"><%= current_user.username %> さんへのメニュープラン <br><small>(<%= current_user.useradvice.purpose %> プラン × 週<%= current_user.useradvice.frequency %>日)</small></h4>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-            Check!
-          </button>
-          <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Check!</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>選択するメニューを下記からお選びください</p>
-                  <small>※週1のみの方は選択肢が1つのみとなります</small><br>
-                  <small>※提案されたメニューが複数ある場合は前回のトレーニングメニューと異なるメニューを選択するようにしてください。</small>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <h5 class="card-category card-category-social">
+            <i class="fa fa-twitter"></i> You're Plan
+          </h5>
+          <h4 class="card-title">
+            <%= current_user.username %> さんへのメニュープラン <small>(<%= current_user.useradvice.purpose %> プラン × 週<%= current_user.useradvice.frequency %>日)</small>
+          </h4>
+          <div class="card-stats">
+            <div class="author">
+              <% if current_user.image.attached? %>
+                <%= image_tag current_user.image, class: "avatar img-raised" %>
+              <% else %>
+                <img class="avatar img-raised" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+              <% end %>
+            </div>
+            <div class="stats ml-auto">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                Check!
+              </button>
+              <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Check!</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>選択するメニューを下記からお選びください</p>
+                      <small>※週1のみの方は選択肢が1つのみとなります</small><br>
+                      <small>※提案されたメニューが複数ある場合は前回のトレーニングメニューと異なるメニューを選択するようにしてください。</small>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -48,9 +58,8 @@
     </div>
   </div>
   
-  <!--PCの場合-->
-  <!--<div class="d-none d-lg-block">-->
-    <small class="text-muted">下記より本日のメニューを選択ください</small>
+  
+  <small class="text-muted">下記より本日のメニューを選択ください</small>
   <% if current_user.useradvice.purpose == "ダイエット" && current_user.useradvice.frequency == 1 %>
     <div class="row">
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 mx-auto text-center">
@@ -897,3 +906,5 @@
     </div>
   <% end %>
 </div>
+
+
