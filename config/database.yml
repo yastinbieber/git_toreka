@@ -50,6 +50,6 @@ test:
 production:
   <<: *default
   database: toreka_production
-  username: toreka
+  username: root
   password: <%= ENV['TOREKA_DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
