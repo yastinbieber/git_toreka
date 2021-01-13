@@ -52,3 +52,4 @@ production:
   database: toreka_production
   username: toreka
   password: <%= ENV['TOREKA_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
