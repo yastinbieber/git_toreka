@@ -1,4 +1,5 @@
-app_path = File.expand_path('../../../', __FILE__)
+# app_path = File.expand_path('../../../', __FILE__)
+app_path = "/var/www/git_toreka"
 
 worker_processes 1
 # currentを指定
