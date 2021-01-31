@@ -34,5 +34,3 @@ namespace :deploy do
   end
 end
 
-set :stage, :production
-set :rails_env, 'production'
