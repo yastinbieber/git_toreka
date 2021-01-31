@@ -21,13 +21,6 @@ class Fooddiary < ApplicationRecord
     self.carbo = (gram)*(fooddate.carbo)
   end
   
-  # def calory_of_days(day_range) # start_day .. end_day で戻りがHash
-  #   fooddiaries.where(created_at: day_range). # 期間のfooddiaryを集め
-  #   group_by{|fooddiary| fooddiary.created_at.to_date}. # 日付でグループ分けし
-  #   map{|date,ary_fooddiary|  # 日毎にカロリーを合計する
-  #   [date,ary_fooddiary.inject(0){|cal,fooddiary| cal + fooddiary.kcal}]}.to_h
-  # end
-  
   
   
 end

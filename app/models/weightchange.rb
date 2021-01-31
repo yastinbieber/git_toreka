@@ -12,14 +12,14 @@ class Weightchange < ApplicationRecord
     str_last_day.to_date
   end
   
-  # 仮
+  # 検索
   scope :search, -> (search_params) do
     unless search_params.blank?
-
       date_from(search_params[:date_from])
       .date_to(search_params[:date_to])
     else
       Weightchange.all
+      # Weightchange.where(date: 2020-12-11)
     end
   end
   scope :date_from, -> (from) { where('? <= date', from) if from.present? }
