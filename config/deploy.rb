@@ -33,3 +33,6 @@ namespace :deploy do
     invoke 'unicorn:restart'
   end
 end
+
+set :stage, :production
+set :rails_env, 'production'
