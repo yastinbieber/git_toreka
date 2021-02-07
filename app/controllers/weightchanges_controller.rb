@@ -12,6 +12,8 @@ class WeightchangesController < ApplicationController
     @minimum = current_user.weightchanges.minimum(:todayweight)
     @weight_last = current_user.weightchanges.last
     @weightchangess = current_user.weightchanges.all
+    @idealweights = Idealweight.with_deleted
+    @idealweight_history = @idealweights.where!(user_id: current_user.id)
   end
   
   def confirm

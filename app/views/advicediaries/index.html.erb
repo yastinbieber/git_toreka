@@ -14,7 +14,10 @@
       <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
       <div class="card-body text-center">
         <h5>トレーニングを記録しよう</h5>
-        <%= link_to "add...", choice_advicediaries_path, class: 'btn btn-primary' %>
+        <%= link_to choice_advicediaries_path, class: 'btn btn-primary' do %>
+          <i class="material-icons">fitness_center</i>
+          トレーニングを記録する
+        <% end %>
       </div>
     </div>
   <div class="black-background" id="js-black-bg"></div>
@@ -59,7 +62,7 @@
       <div class="card card-stats">
         <div class="card-header card-header-info card-header-icon">
           <div class="card-icon">
-            <i class="material-icons">today</i>
+            <i class="material-icons">fitness_center</i>
           </div>
           <p class="card-category">トレーニング頻度</p>
           <h3 class="card-title"><small>週 </small><%= current_user.useradvice.frequency %> <small>日</small></h3>
@@ -146,7 +149,10 @@
                 <%= render @advicediaries %>
               </tbody>
             </table>
-            <%= link_to "トレーニングを記録する", "/advicediaries/choice", class: "btn btn-raised btn-primary" %>
+            <%= link_to "/advicediaries/choice", class: "btn btn-raised btn-primary" do %>
+		            <i class="material-icons">fitness_center</i>
+		            トレーニングを記録する
+		          <% end %>
           </div>
         </div>
       </div>

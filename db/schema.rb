@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_055518) do
+ActiveRecord::Schema.define(version: 2021_02_02_121327) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2020_12_23_055518) do
     t.integer "user_id"
     t.integer "idealweight_id"
     t.integer "gram"
+    t.string "unit"
     t.integer "kcal"
     t.integer "protein"
     t.integer "fat"
@@ -99,7 +100,6 @@ ActiveRecord::Schema.define(version: 2020_12_23_055518) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "foodname"
-    t.string "unit"
   end
 
   create_table "howtovideos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -197,6 +197,8 @@ ActiveRecord::Schema.define(version: 2020_12_23_055518) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "expected_weight"
+    t.date "start_day"
+    t.date "last_day"
   end
 
   create_table "withdrawals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -18,7 +18,10 @@
             <small class="text-muted">
               食事管理は毎日行う必要があります。毎日の積み重ねがとても重要です。
             </small>
-            <%= link_to "登録する", new_fooddiary_path, class: 'btn btn-primary' %>
+            <%= link_to new_fooddiary_path, class: 'btn btn-primary' do %>
+              <i class="material-icons">food_bank</i>
+              食事内容を登録
+            <% end %>
           </div>
         </div>
       <div class="black-background" id="js-black-bg"></div>
@@ -227,16 +230,15 @@
                 <%= render @fooddiary_snack %>
               </tbody>
             </table>
-            <%= link_to "食事を追加する", "/fooddiaries/new", class:"btn btn-primary" %>
+            <%= link_to "/fooddiaries/new", class: "btn btn-primary" do %>
+	            <i class="material-icons">local_dining</i>
+	            食事を追加する
+	          <% end %>
           </div>
         </div>
-        <!-- end content-->
       </div>
-      <!--  end card  -->
     </div>
-    <!-- end col-md-12 -->
   </div>
-  <!-- end row -->
   
   <!--Twitter-->
   <% if current_user.useradvice.present? %>

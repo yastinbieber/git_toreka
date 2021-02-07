@@ -26,9 +26,15 @@
           <% if current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' %>
             <%= link_to "ベーシックプラン", plancheck_users_path(current_user), class: "btn btn-default btn-round" %>
           <% elsif current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
-            <%= link_to "プレミアムプラン", plancheck_users_path(current_user), class: "btn btn-default btn-round" %>
+            <%= link_to plancheck_users_path(current_user), class: "btn btn-default btn-round" do %>
+              <i class="material-icons">next_plan</i>
+              プレミアムプラン
+            <% end %>
           <% else %>
-            <%= link_to "フリープラン", plancheck_users_path(current_user), class: "btn btn-default btn-round" %>
+            <%= link_to plancheck_users_path(current_user), class: "btn btn-default btn-round" do %>
+            <i class="material-icons">next_plan</i>
+            フリープラン
+          <% end %>
           <% end %>  
         </div>
       </div>
@@ -76,13 +82,28 @@
               </div>
             </div>
             <% if current_user.id == current_user.id %>
-              <span><%= link_to "プロフィール編集", edit_user_path(current_user), {:class => "btn btn-primary" } %></span>
+              <span>
+                <%= link_to edit_user_path(current_user), {:class => "btn btn-primary" } do %>
+                  <i class="material-icons">mode</i>
+                  プロフィール編集
+                <% end %>
+              </span>
             <% end %>
             <% if current_user.idealweight.present? %>
-              <span><%= link_to "Bodymake目標を確認する", content_advicediaries_path, class: "btn btn-info" %></span>
+              <span>
+                <%= link_to content_advicediaries_path, class: "btn btn-info" do %>
+                  <i class="material-icons">sports_score</i>
+                  Bodymake目標を確認する
+                <% end %>
+              </span>
             <% end %>
             <% if current_user.id == current_user.id %>
-              <span><%= link_to "プランを確認・変更する", plancheck_users_path(current_user), class: "btn btn-success" %></span>
+              <span>
+                <%= link_to plancheck_users_path(current_user), class: "btn btn-success" do %>
+                  <i class="material-icons">how_to_reg</i>
+                  プランを確認・変更する
+                <% end %>
+              </span>
             <% end %>
             <div class="clearfix"></div>
           </form>

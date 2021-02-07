@@ -53,7 +53,10 @@
 					<h4 class="text-muted">Toreka PremiumPlan</h4>
 					<h1>何をすればいいかはTorekaが教えてくれます</h1>
 					<h3>Torekaプレミアムプランは初心者向けのプランです。<br>ボディメイクて何をすればいいのという課題を解決してくれます。</h3><br>
-					<%= link_to "無料トライアル（14日間）", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+					<%= link_to new_user_registration_path, class: "btn btn-lg btn-primary" do %>
+            <i class="material-icons">how_to_reg</i>
+            無料トライアル（14日間）
+          <% end %>
 					<br><small class="text-muted ">※無料会員でまずはログインいただきます。ログイン後有料プランの登録をお願い致します。</small>
 				</div>
 				<div class="col-md-6">
@@ -65,8 +68,8 @@
 	
 	<section class="second">
 		<div class="container">
-			<div class="col-md-8 ml-auto mr-auto ">
-				<h2 class="pt-5">あなたに必要なメニューを提案してくれます</h2><br>
+			<div class="col-md-10 ml-auto mr-auto pt-5">
+				<h2 class="pt-5 text-center">あなたに必要なメニューを提案してくれます</h2><br>
 				<p class="text-center text-muted">目的に応じあなたにとって的確なトレーニングメニューを提案してくれます。<br>言われた通りに取り組めば必ず目的を達成できます。</p>
 			</div>
 			<div class="row ">
@@ -116,7 +119,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row mb-5">
+			<div class="row pb-5">
 				<div class="col-md-3 ml-auto mr-auto">
 					<div class="card card-blog">
 				    <div class="card-header card-header-image">
@@ -233,7 +236,10 @@
 			</div>
 			<div class="pricing-header text-center my-5">
 				<div class="display-4 pb-5">
-					<%= link_to "無料トライアル（14日間）", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+					<%= link_to new_user_registration_path, class: "btn btn-lg btn-primary" do %>
+            <i class="material-icons">how_to_reg</i>
+            無料トライアル（14日間）
+          <% end %>
 				</div>
 			</div>
 		</div>

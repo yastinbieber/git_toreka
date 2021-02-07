@@ -67,10 +67,16 @@
                 <p class="card-description">トレーニング・食事の管理をしたい方向け</p>
               </div>
               <div class="card-footer justify-content-center ">
-                <%= link_to "無料で会員登録", new_user_registration_path, class: "btn btn-round btn-white" %>
+                <%= link_to new_user_registration_path, class: "btn btn-round btn-white" do %>
+			            <i class="material-icons">how_to_reg</i>
+			            無料で新規登録
+			          <% end %>
               </div>
             </div>
-            <%= link_to "Free Planの詳細を確認", "/mainpages/freeplan", class: "text-white" %>
+            <%= link_to "/mainpages/freeplan", class: "text-white" do %>
+	            <i class="material-icons">mobile_friendly</i>
+	            Free Planの詳細を確認
+	          <% end %>
           </div>
           <div class="col-lg-3 col-md-6 ml-auto mr-auto">
             <div class="card card-pricing ">
@@ -83,10 +89,16 @@
                 <p class="card-description">ボディメイク初心者向け<br>手厚いプラン</p>
               </div>
               <div class="card-footer justify-content-center ">
-                <%= link_to "無料トライアル（14日間）", new_user_registration_path, class: "btn btn-round btn-rose" %>
+                <%= link_to new_user_registration_path, class: "btn btn-round btn-rose" do %>
+			            <i class="material-icons">how_to_reg</i>
+			            無料トライアル（14日間）
+			          <% end %>
               </div>
             </div>
-            <%= link_to "Premium Planの詳細を確認", "/mainpages/premiumplan", class: "text-white" %>
+            <%= link_to "/mainpages/premiumplan", class: "text-white" do %>
+	            <i class="material-icons">mobile_friendly</i>
+	            Premium Planの詳細を確認
+	          <% end %>
           </div>
         </div>
       </div>

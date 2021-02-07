@@ -90,7 +90,10 @@
                 <%= render @workoutdiaries %>
               </tbody>
             </table>
-            <%= link_to "トレーニングを追加する", "/workoutdiaries/new", class: "btn btn-raised btn-primary" %>
+            <%= link_to "/workoutdiaries/new", class: "btn btn-raised btn-primary" do %>
+	            <i class="material-icons">fitness_center</i>
+	            トレーニングを記録する
+	          <% end %>
           </div>
         </div>
       </div>

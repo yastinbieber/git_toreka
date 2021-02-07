@@ -4,12 +4,12 @@ class Weightchange < ApplicationRecord
   
   def start_days
     str_start_day = idealweight.start_day
-    str_start_day.to_date
+    # str_start_day.to_date
   end
   
   def last_days
     str_last_day = idealweight.last_day
-    str_last_day.to_date
+    # str_last_day.to_date
   end
   
   # 検索
@@ -18,8 +18,7 @@ class Weightchange < ApplicationRecord
       date_from(search_params[:date_from])
       .date_to(search_params[:date_to])
     else
-      Weightchange.all
-      # Weightchange.where(date: 2020-12-11)
+      Weightchange.joins(:idealweight).where("date BETWEEN idealweights.start_day and idealweights.last_day")
     end
   end
   scope :date_from, -> (from) { where('? <= date', from) if from.present? }
@@ -28,4 +27,7 @@ class Weightchange < ApplicationRecord
   before_save do
     self.expected_weight = (idealweight.weight)-((idealweight.minusweight_day)*(user.what_day))
   end
+  
+  
+  
 end

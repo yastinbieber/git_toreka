@@ -1,24 +1,23 @@
-
-  <tr>
-    <td><%= workoutdiary.date %></td>
-    <td><%= workoutdiary.workoutdate.menu %></td>
-    <td><%= workoutdiary.settype %></td>
-    <td><%= workoutdiary.weight %>kg</td>
-    <td><%= workoutdiary.reps %>reps</td>
-    <td><%= workoutdiary.weightsecond %>kg</td>
-    <td><%= workoutdiary.repssecond %>reps</td>
-    <td><%= workoutdiary.weightthird %>kg</td>
-    <td><%= workoutdiary.repsthird %>reps</td>
-    <td><%= workoutdiary.memo %></td>
-    <td class="td-actions text-right">
-        <%= link_to workoutdiary_path(workoutdiary), class: "btn btn-link btn-info btn-just-icon like" do %>
-            <i class="material-icons">speaker_notes</i>
-        <% end %>
-        <%= link_to "/workoutdiaries/#{workoutdiary.id}/edit", class: "btn btn-link btn-warning btn-just-icon edit" do %>
-          <i class="material-icons">edit</i>
-        <% end %>
-        <%= link_to workoutdiary_path(workoutdiary), method: :delete, remote: true,  class: "btn btn-link btn-danger btn-just-icon remove" do %>
-            <i class="material-icons">close</i>
-        <% end %>
-    </td>
-  </tr>
+<tr>
+  <td><%= workoutdiary.date %></td>
+  <td><%= workoutdiary.workoutdate.menu %></td>
+  <td><%= workoutdiary.settype %></td>
+  <td><%= workoutdiary.weight %>kg</td>
+  <td><%= workoutdiary.reps %>reps</td>
+  <td><%= workoutdiary.weightsecond %>kg</td>
+  <td><%= workoutdiary.repssecond %>reps</td>
+  <td><%= workoutdiary.weightthird %>kg</td>
+  <td><%= workoutdiary.repsthird %>reps</td>
+  <td><%= workoutdiary.memo %></td>
+  <td class="td-actions text-right">
+      <%= link_to workoutdiary_path(workoutdiary), class: "btn btn-link btn-info btn-just-icon like" do %>
+          <i class="material-icons">speaker_notes</i>
+      <% end %>
+      <%= link_to "/workoutdiaries/#{workoutdiary.id}/edit", class: "btn btn-link btn-warning btn-just-icon edit" do %>
+        <i class="material-icons">edit</i>
+      <% end %>
+      <%= link_to workoutdiary_path(workoutdiary), method: :delete, remote: true,  class: "btn btn-link btn-danger btn-just-icon remove" do %>
+          <i class="material-icons">close</i>
+      <% end %>
+  </td>
+</tr>

@@ -46,13 +46,21 @@
     </div>
   </nav>
 
-	<section class="first">
+
+	<section class="first pt-5">
 		<div class="container">
-			<div class="row pt-5">
-				<div class="col-md-8 ml-auto mr-auto text-center pt-5">
-					<h1 class="pt-5 pb-3"><strong>ボディメイクを通して人生を豊かにしよう</strong></h1>
-					<%= link_to "無料で新規登録", plan_comparison_mainpages_path, class: "btn btn-primary btn-lg " %>
-					<%= image_tag "ipad.png", class: "img", width: "100%;" %>
+			<div class="row py-5">
+				<div class="col-md-6 pt-5">
+					<!--<h4 class="text-muted"></h4>-->
+					<h1>ボディメイクを通じて人生を豊かにしよう</h1>
+					<h3>Torekaはボディメイクを通じてあなたの人生をより良くしていくお手伝いをします</h3><br>
+					<%= link_to new_user_registration_path, class: "btn btn-lg btn-primary" do %>
+            <i class="material-icons">how_to_reg</i>
+            無料で新規登録
+          <% end %>
+				</div>
+				<div class="col-md-6 pt-5">
+					<%= image_tag "ipad.png", class: "img-responsive img-rounded", width: "100%;" %>
 				</div>
 			</div>
 		</div>
@@ -61,7 +69,7 @@
 	<section class="second">
 		<div class="container">
 			<div class="col-md-12 text-center py-5">
-				<h2>ボディメイクでこんな悩みありませんか？</h2>
+				<h2 class="pt-5">ボディメイクでこんな悩みありませんか？</h2>
 			</div>
 			<div class="row">
 		    <div class="col-md-6">
@@ -126,9 +134,6 @@
 		            <div class="card-footer">
 		              <h4 class="card-title">ボディメイクマスター@Bodyくん</h4>
 		              <div class="card-avatar">
-		                <!--<a href="#pablo">-->
-		                <!--  <img class="img" src="assets/card-profile1-square.jpg" />-->
-		                <!--</a>-->
 		                <%= image_tag "card-profile1-square.jpg", class: "img" %>
 		              </div>
 		            </div>
@@ -142,8 +147,9 @@
 	
 	<section class="seconds">
 		<div class="container">
-			<h2 class="text-center py-5">Toreka でできること</h2>
-		  <br>
+			<div class="col-md-12 text-center py-5">
+				<h2 class="pt-5">Toreka でできること</h2>
+			</div>
 		  <div class="row">
 		    <div class="col-md-3 ml-auto mr-auto">
 		      <div class="card card-product">
@@ -160,7 +166,7 @@
 		        </div>
 		        <div class="card-footer">
 		          <div class="ml-auto mr-auto">
-		          <%= link_to "/mainpages/freeplan", class: "btn" do %>
+		          <%= link_to "/mainpages/basicplan", class: "btn" do %>
 		            <i class="material-icons">check</i>
 		            Toreka Freeplan
 		          <% end %>
@@ -191,7 +197,7 @@
 		        </div>
 		      </div>
 		    </div>
-		    <div class="col-md-3 ml-auto mr-auto">
+		    <div class="col-md-3 ml-auto mr-auto pb-5">
 		      <div class="card card-product">
 		        <div class="card-header card-header-image" data-header-animation="true">
 		          <%= image_tag "hv_mockup.png", class: "img" %>
@@ -249,7 +255,10 @@
 		          <p class="card-description">トレーニング・食事の管理をしたい方向け</p>
 		        </div>
 		        <div class="card-footer justify-content-center ">
-		          <%= link_to "Free Planの詳細を確認", "/mainpages/basicplan", class: "btn btn-round btn-white" %>
+		          <%= link_to "/mainpages/basicplan", class: "btn btn-round btn-white" do %>
+		          	<i class="material-icons">mobile_friendly</i>
+		            Free Planの詳細を確認
+		          <% end %>
 		        </div>
 		      </div>
 		    </div>
@@ -264,7 +273,10 @@
 		          <p class="card-description">ボディメイク初心者向け。手厚いプラン</p>
 		        </div>
 		        <div class="card-footer justify-content-center ">
-		          <%= link_to "Premium Planの詳細を確認", "/mainpages/premiumplan", class: "btn btn-round btn-white" %>
+		          <%= link_to "/mainpages/premiumplan", class: "btn btn-round btn-white" do %>
+		            <i class="material-icons">mobile_friendly</i>
+		            Premium Planの詳細を確認
+		          <% end %>
 		        </div>
 		      </div>
 		    </div>
@@ -277,7 +289,10 @@
 			<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center ">
 				<h3>さあ始めよう！</h3>
 				<p>結果を出す人は今日行動する。あなたはどう？</p><br>
-				<%= link_to "無料で新規登録", plan_comparison_mainpages_path, class: "btn btn-primary btn-lg" %>
+				<%= link_to plan_comparison_mainpages_path, class: "btn btn-primary btn-lg" do %>
+          <i class="material-icons">how_to_reg</i>
+          無料で新規登録
+        <% end %>
 			</div>
 		</div>
 	</section>
