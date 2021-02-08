@@ -67,7 +67,7 @@
 
 .first {
   /*background-image: url(https://media-public.canva.com/MADGvzN-oeY/6/thumbnail_large.jpg);*/
-  background: url('background.png') fixed;
+  // background: url('background.png') fixed;
   background-color: #CCCCCC;
   background-position: center center;
   background-repeat: no-repeat;
@@ -350,9 +350,9 @@ html {
 }
 
 .plan_comparison {
-  background: url('login.jpg') fixed;
-  background-color: #CCCCCC;
-  background-position: center center;
+  background: image-url('login.jpg') fixed;
+  // background-color: #CCCCCC;
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
