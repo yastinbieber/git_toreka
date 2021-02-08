@@ -37,11 +37,7 @@
           <div class="row">
             <div class="col-md-8">
               <%= f.label :Amount %>
-              <%= f.number_field :gram, placeholder: "食品の質量もしくは本数（本数の場合は1と入力）", class: 'form-control' %><br>
-            </div>
-            <div class="col-md-4">
-              <%= f.label :Unit %>
-              <%= f.select :unit, [['g(食品)'], ['ml(飲料)'], ['本(バナナなど)'], ['個'], ['人前']], {}, class: "form-control" %>
+              <%= f.number_field :amount, placeholder: "参照元を1人前として何人前か", class: 'form-control', step: "0.1" %> <br>
             </div>
           </div>
           <div class="row">

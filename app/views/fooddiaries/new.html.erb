@@ -9,7 +9,81 @@
     </div>
   </nav>
   
+  <div class="popup" id="js-popup">
+    <div class="popup-inner">
+      <div class="close-btn" id="js-close-btn"><i class="fas fa-times"></i></div>
+      <div class="card-body text-center">
+        <h5>食品情報記録の流れ</h5>
+        <div class="row ">
+  				<div class="col-md-6 ml-auto mr-auto">
+  					<%= image_tag "fooddate1.png", class:"img" %>
+  				</div>
+  				<div class="col-md-6 ml-auto mr-auto">
+  					<%= image_tag "fooddate2.png", class:"img" %>
+  				</div>
+  			</div>
+      </div>
+    </div>
+    <div class="black-background" id="js-black-bg"></div>
+  </div>
+  
   <div class="row">
+    <!--foodDB-->
+    <div class="col-md-6 ml-auto mr-auto">
+      <div class="card">
+        <div class="card-header card-header-primary card-header-icon">
+          <div class="card-icon">
+            <i class="material-icons">fastfood</i>
+          </div>
+          <h4 class="card-title">食品情報データベースを確認する</h4>
+        </div>
+        <div class="card-body">
+          <div class="toolbar">
+            <!--        Here you can write extra buttons/actions for the toolbar              -->
+          </div>
+          <div class="material-datatables">
+            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+              <thead>
+                <tr>
+                  <th><small>食品名</small></th>
+                  <th><small>量</small></th>
+                  <th><small>単位</small></th>
+                  <th><small>カロリー</small></th>
+                  <th><small>タンパク質</small></th>
+                  <th><small>脂質</small></th>
+                  <th><small>炭水化物</small></th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th><small>食品名</small></th>
+                  <th><small>量</small></th>
+                  <th><small>単位</small></th>
+                  <th><small>カロリー</small></th>
+                  <th><small>タンパク質</small></th>
+                  <th><small>脂質</small></th>
+                  <th><small>炭水化物</small></th>
+                </tr>
+              </tfoot>
+              <tbody>
+                <% @fooddates.each do |fooddate| %>
+                <tr>
+                  <td><%= fooddate.foodname %></td>
+                  <td><%= fooddate.gram %></td>
+                  <td><%= fooddate.unit %></td>
+                  <td><%= fooddate.kcal %>Kcal</td>
+                  <td><%= fooddate.protein %>g</td>
+                  <td><%= fooddate.fat %>g</td>
+                  <td><%= fooddate.carbo %>g</td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--fooddiary-->
     <div class="col-md-6 ml-auto mr-auto">
       <div class="card">
         <div class="card-header card-header-primary card-header-icon">
@@ -37,11 +111,7 @@
           <div class="row">
             <div class="col-md-8">
               <%= f.label :Amount %>
-              <%= f.number_field :gram, placeholder: "食品の質量もしくは本数（本数の場合は1と入力）", class: 'form-control' %><br>
-            </div>
-            <div class="col-md-4">
-              <%= f.label :Unit %>
-              <%= f.select :unit, [['g(食品)'], ['ml(飲料)'], ['本(バナナなど)'], ['個'], ['人前'], ['匹'], ['枚']], {}, class: "form-control" %>
+              <%= f.number_field :amount, placeholder: "参照元を1人前として何人前か", class: 'form-control', step: "0.1" %> <br>
             </div>
           </div>
           <div class="row">
@@ -59,52 +129,6 @@
       </div>
       <div class="container">
         <small class="text-muted">※食べた食品が検索にかからない場合<%= link_to 'こちら', '/fooddates/new', class: "" %>からご登録ください</small>
-      </div>
-    </div>
-    <!--foodDB-->
-    <div class="col-md-6 ml-auto mr-auto">
-      <div class="card">
-        <div class="card-header card-header-primary card-header-icon">
-          <div class="card-icon">
-            <i class="material-icons">fastfood</i>
-          </div>
-          <h4 class="card-title">食品情報データベースを確認する</h4>
-        </div>
-        <div class="card-body">
-          <div class="toolbar">
-            <!--        Here you can write extra buttons/actions for the toolbar              -->
-          </div>
-          <div class="material-datatables">
-            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
-              <thead>
-                <tr>
-                  <th><small>食品名</small></th>
-                  <th><small>量</small></th>
-                  <th><small>単位</small></th>
-                  <th><small>カロリー</small></th>
-                </tr>
-              </thead>
-              <tfoot>
-                <tr>
-                  <th><small>食品名</small></th>
-                  <th><small>量</small></th>
-                  <th><small>単位</small></th>
-                  <th><small>カロリー</small></th>
-                </tr>
-              </tfoot>
-              <tbody>
-                <% @fooddates.each do |fooddate| %>
-                <tr>
-                  <td><%= fooddate.foodname %></td>
-                  <td><%= fooddate.inputgram %></td>
-                  <td><%= fooddate.unit %></td>
-                  <td><%= fooddate.kcal * fooddate.inputgram %>Kcal</td>
-                </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-        </div>
       </div>
     </div>
   </div>

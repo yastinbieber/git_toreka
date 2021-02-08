@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_02_121327) do
+ActiveRecord::Schema.define(version: 2021_02_07_101857) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 2021_02_02_121327) do
   create_table "fooddates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "foodname"
     t.integer "gram"
+    t.string "unit"
     t.float "kcal"
     t.float "protein"
     t.float "fat"
@@ -82,19 +83,19 @@ ActiveRecord::Schema.define(version: 2021_02_02_121327) do
     t.text "memo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "unit"
   end
 
   create_table "fooddiaries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "fooddate_id"
     t.integer "user_id"
     t.integer "idealweight_id"
-    t.integer "gram"
+    t.float "amount"
+    t.float "gram"
     t.string "unit"
-    t.integer "kcal"
-    t.integer "protein"
-    t.integer "fat"
-    t.integer "carbo"
+    t.float "kcal"
+    t.float "protein"
+    t.float "fat"
+    t.float "carbo"
     t.string "timing"
     t.date "date"
     t.datetime "created_at", null: false

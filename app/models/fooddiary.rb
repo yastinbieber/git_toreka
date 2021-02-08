@@ -15,10 +15,12 @@ class Fooddiary < ApplicationRecord
   end
 
   before_save do
-    self.kcal = (gram)*(fooddate.kcal)
-    self.protein = (gram)*(fooddate.protein)
-    self.fat = (gram)*(fooddate.fat)
-    self.carbo = (gram)*(fooddate.carbo)
+    self.gram = (amount)*(fooddate.gram)
+    self.unit = fooddate.unit
+    self.kcal = (amount)*(fooddate.kcal)
+    self.protein = (amount)*(fooddate.protein)
+    self.fat = (amount)*(fooddate.fat)
+    self.carbo = (amount)*(fooddate.carbo)
   end
   
   

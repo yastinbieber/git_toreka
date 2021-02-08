@@ -49,6 +49,6 @@ class FooddiariesController < ApplicationController
   
   private
   def fooddiary_params
-    params.require(:fooddiary).permit(:gram, :unit, :kcal, :protein, :fat, :carbo, :timing, :date, :fooddate_id, :user_id, :idealweight_id)
+    params.require(:fooddiary).permit(:gram, :unit, :amount, :kcal, :protein, :fat, :carbo, :timing, :date, :fooddate_id, :user_id, :idealweight_id)
   end
 end
