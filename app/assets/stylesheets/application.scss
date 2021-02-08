@@ -120,6 +120,14 @@
   background-attachment: fixed; 
 }
 
+.fourth {
+  background-color: #CCCCCC;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 .table-area {
   overflow: auto;
 }
@@ -350,8 +358,23 @@ html {
 }
 
 .plan_comparison {
+  background: image-url('lock.jpg') fixed;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.register {
+  background: image-url('register.jpg') fixed;
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.login-view {
   background: image-url('login.jpg') fixed;
-  // background-color: #CCCCCC;
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;

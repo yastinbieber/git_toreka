@@ -47,11 +47,12 @@
   </nav>
 
   <div class="wrapper wrapper-full-page">
-    <div class="page-header register-page header-filter" filter-color="black" style="background-image: url('../../assets/img/register.jpg')">
-      <div class="container">
-        <div class="row">
+    <!--<div class="page-header register-page header-filter" filter-color="black" style="background-image: url('../../assets/img/register.jpg')">-->
+    <div class="register">
+      <div class="container py-5">
+        <div class="row py-5">
           <div class="col-md-6 ml-auto mr-auto">
-            <div class="card card-signup">
+            <div class="card mx-auto text-left">
               <h4 class="card-header">アカウントを作成</h4>
               <div class="card-body">
               <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -80,40 +81,5 @@
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class="container">
-          <nav class="float-left">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com/">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/presentation">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/blog">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/license">
-                  Licenses
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> for a better web.
-          </div>
-        </div>
-      </footer>
     </div>
   </div>
