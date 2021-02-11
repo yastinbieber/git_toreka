@@ -13,9 +13,9 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require ./js/plugins/moment.min.js
-//= require ./js/core/popper.min.js
-//= require ./js/core/jquery.min.js
+//  require ./js/plugins/moment.min.js
+//  require ./js/core/popper.min.js
+//  require ./js/core/jquery.min.js
 //= require_tree .
 //= require jquery
 //= require jquery_ujs
