@@ -67,7 +67,7 @@
 
 .first {
   /*background-image: url(https://media-public.canva.com/MADGvzN-oeY/6/thumbnail_large.jpg);*/
-  // background: url('ipad.png') fixed;
+  // background: url('sample.png') fixed;
   background-color: #CCCCCC;
   background-position: center center;
   background-repeat: no-repeat;
@@ -379,4 +379,11 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+
+.img-border {
+  // border: 3px solid #ff0000;
+  border-radius: 50%;
+  width:  180px;
+  height: 180px;
 }

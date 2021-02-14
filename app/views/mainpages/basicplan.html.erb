@@ -18,16 +18,11 @@
               HOME
             </a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              プラン
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="/mainpages/plan_comparison">プランを比較</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/mainpages/basicplan">フリープラン</a>
-              <a class="dropdown-item" href="/mainpages/premiumplan">プレミアムプラン</a>
-            </div>
+          <li class="nav-item ">
+            <%= link_to "/mainpages/plan_comparison", class: "nav-link" do %>
+              <i class="material-icons">public</i>
+              プラン比較
+            <% end %>
           </li>
           <li class="nav-item ">
             <%= link_to new_user_session_path, class: "nav-link" do %>
@@ -47,7 +42,7 @@
   </nav>
   
 	
-	
+	<!--やっぱりPCとスマホで分けようと思う-->
 	<section class="first pt-5">
 		<div class="container">
 			<div class="row py-5">
@@ -61,7 +56,7 @@
           <% end %>
 				</div>
 				<div class="col-md-6">
-					<%= image_tag "basic_mockup.png", class: "img-responsive img-rounded", width: "100%;" %>
+					<%= image_tag "basic_index.png", class: "img-responsive img-rounded", width: "100%;" %>
 				</div>
 			</div>
 		</div>
@@ -70,97 +65,93 @@
 	
 	<section class="second">
 		<div class="container">
-			<div class="col-md-8 ml-auto mr-auto pt-5">
-				<h2 class="pt-5 text-center">ボディメイクに必要な情報全てを管理する</h2><br>
-				<p class="text-center text-muted">トレーニング・食事・日々の体重。<br>ボディメイクにおいて必要な情報を全て管理することが可能</p>
-			</div>
-			<div class="row pb-5">
-				<div class="col-md-3 ml-auto mr-auto">
-					<div class="card card-blog">
-				    <div class="card-header card-header-image">
-			        <%= image_tag "senzai1.png", class:"img" %>
-				    </div>
-				    <div class="card-body text-center">
-				      <h6 class="card-category text-info">トレーニングを記録する</h6>
-				      <hr>
-				      <p class="card-description">
-				        その日行ったメニューを簡単に記録することが可能。振り返りも容易
-				      </p>
-				    </div>
+			<div class="col-md-8 ml-auto mr-auto py-5">
+				<h2 class="pt-5 text-center">ボディメイクに必要な情報全てを管理する</h2><hr><br>
+				<p class="text-center text-muted">トレーニング・食事・日々の体重<br>ボディメイクにおいて必要な情報を全て管理することが可能</p>
+				<div class="row pb-5">
+					<div class="col-xs-4 col-sm-4 col-md-4 ml-auto mr-auto text-center">
+						<%= image_tag "img_dambel.png", class: "img-responsive img-rounded", width: "80%;" %>
+						<h4 class="pt-3">トレーニングを記録する</h4>
+						<h6 class="text-muted">その日行ったメニューを簡単に記録することが可能。振り返りも容易</h6>
 					</div>
-				</div>
-				<div class="col-md-3 ml-auto mr-auto">
-					<div class="card card-blog">
-				    <div class="card-header card-header-image">
-			        <%= image_tag "senzai2.png", class:"img" %>
-				    </div>
-				    <div class="card-body text-center">
-				      <h6 class="card-category text-info">日々の体重変化を管理する</h6>
-				      <hr>
-				      <p class="card-description">
-				        ボディメイクにおいて体重は大切な指標。簡単に管理することが可能
-				      </p>
-				    </div>
+					<div class="col-xs-4 col-sm-4 col-md-4 ml-auto mr-auto text-center">
+						<%= image_tag "img_food.png", class: "img-responsive img-rounded", width: "80%;" %>
+						<h4 class="pt-3">PFCに沿って食事管理する</h4>
+						<h6 class="text-muted">ボディメイクに大切なPFCバランスに沿って食事内容を管理することが可能</h6>
 					</div>
-				</div>
-				<div class="col-md-3 ml-auto mr-auto">
-					<div class="card card-blog">
-				    <div class="card-header card-header-image">
-				    	<%= image_tag "senzai3.png", class:"img" %>
-				    </div>
-				    <div class="card-body text-center">
-				      <h6 class="card-category text-info">食事内容をPFCに沿って管理する</h6>
-				      <hr>
-				      <p class="card-description">
-				        ボディメイクに大切なPFCバランスに沿って食事内容を管理することが可能
-				      </p>
-				    </div>
+					<div class="col-xs-4 col-sm-4 col-md-4 ml-auto mr-auto text-center">
+						<%= image_tag "img_weight.png", class: "img-responsive img-rounded", width: "80%;" %>
+						<h4 class="pt-3">日々の体重変化を管理する</h4>
+						<h6 class="text-muted">ボディメイクにおいて体重は大切な指標。簡単に管理することが可能</h6>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 	
+	<!--PC対応-->
+	<div class="d-none d-lg-block">
 	<section class="wowow">
 		<div class="container">
-			<div class="col-md-8 ml-auto mr-auto pt-5">
-				<h2 class="pt-5 text-center">フリープラン詳しい機能</h2><br>
-				<!--<p class="text-center text-muted">トレーニング・食事・日々の体重。<br>ボディメイクにおいて必要な情報を全て管理することが可能</p>-->
+			<div class="col-md-6 ml-auto mr-auto pt-5">
+				<h2 class="pt-5 text-center">フリープラン詳しい機能</h2>
+				<hr >
 			</div>
 			<div class="row pt-5">
-				<div class="col-md-6 pt-5 mt-5">
-					<h2 class="pt-5 text-primary">余計な機能がなくシンプルな設計</h2>
-					<h4>無駄な機能がないため入力から閲覧までスムーズに行うことが可能です。<br>日々の煩わしいトレーニング記録をスムーズに実現させてくれます。</h4>
+				<div class="col-md-6 ">
+          <div class="icon">
+            <i class="material-icons">fitness_center</i>
+            <i class="material-icons">fitness_center</i>
+            <i class="material-icons">fitness_center</i>
+          </div>
+					<h2 class="">余計な機能がなくシンプルな設計</h2>
+					<div class="icon">
+            <i class="material-icons">fitness_center</i>
+            <i class="material-icons">fitness_center</i>
+            <i class="material-icons">fitness_center</i>
+          </div>
+					<h3>無駄な機能がないため入力から閲覧までスムーズに行うことが可能です。<br>日々の煩わしいトレーニング記録をスムーズに実現させてくれます。</h3>
 				</div>
 				<div class="col-md-6 ">
-					<%= image_tag "tr_mockup2.png", class: "img-responsive img-rounded", width: "60%;" %>
+					<%= image_tag "training_index.png", class: "img-responsive img-rounded" %>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<%= image_tag "tr_mockup7.png", class: "img-responsive img-rounded", width: "70%;" %>
+					<%= image_tag "weight_index.png", class: "img-responsive img-rounded" %>
 				</div>
-				<div class="col-md-6 pt-5">
-					<h2 class="text-left pt-5 text-primary">日付毎に管理し取り出しやすい</h2>
-					<h4 class="text-left">日付単位でトレーニングを管理するためいつでも振り返ることが可能です。<br>前回のトレーニング内容や重量などを簡単に振り返ることが可能です。</h4>
+				<div class="col-md-6 text-right">
+          <div class="icon">
+            <i class="material-icons">monitor_weight</i>
+            <i class="material-icons">monitor_weight</i>
+            <i class="material-icons">monitor_weight</i>
+          </div>
+					<h2 class="">体重の変化を記録し可視化する</h2>
+					<div class="icon">
+            <i class="material-icons">monitor_weight</i>
+            <i class="material-icons">monitor_weight</i>
+            <i class="material-icons">monitor_weight</i>
+          </div>
+					<h3>毎日の体重の変化をわかりやすくチェックすることが可能です。<br>グラフでチェックすることで毎日の変化がわかりやすくなります。</h3>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-6 pt-5 mt-5">
-					<h2 class="pt-5 text-primary ">体重の変化を可視化する</h2>
-					<h4>毎日の体重の変化をわかりやすくチェックすることが可能です。<br>グラフでチェックすることで毎日の変化がわかりやすくなります。</h4>
+				<div class="col-md-6">
+          <div class="icon">
+            <i class="material-icons">dinner_dining</i>
+            <i class="material-icons">dinner_dining</i>
+            <i class="material-icons">dinner_dining</i>
+          </div>
+					<h2 class="text-left ">PFCバランスベースで食事管理</h2>
+					<div class="icon">
+            <i class="material-icons">dinner_dining</i>
+            <i class="material-icons">dinner_dining</i>
+            <i class="material-icons">dinner_dining</i>
+          </div>
+					<h3 class="text-left">PFCバランスの面倒な計算は一切しなくて大丈夫です。<br>いくつか質問に答えるだけで導き出してくれます。</h3>
 				</div>
 				<div class="col-md-6">
-					<%= image_tag "wg_mockup.png", class: "img-responsive img-rounded", width: "120%;" %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<%= image_tag "fd_mockup.png", class: "img-responsive img-rounded", width: "100%;" %>
-				</div>
-				<div class="col-md-6 pt-5">
-					<h2 class="text-left pt-5 text-primary">PFCバランスベースで食事を管理する</h2>
-					<h4 class="text-left">PFCバランスの面倒な計算は一切しなくて大丈夫です。<br>いくつか質問に答えるだけで導き出してくれます。</h4><br>
+					<%= image_tag "pfc_index.png", class: "img-responsive img-rounded" %>
 				</div>
 			</div>
 			<div class="pricing-header text-center my-5">
@@ -173,4 +164,51 @@
 			</div>
 		</div>
 	</section>
+	</div>
 	
+	<!--スマホ・タブレット対応-->
+	<div class="d-lg-none">
+	<section class="wowow">
+		<div class="container">
+			<div class="col-md-6 ml-auto mr-auto pt-5">
+				<h2 class="pt-5 text-center">フリープラン詳しい機能</h2>
+				<hr >
+			</div>
+			<div class="row text-center">
+				<div class="col-md-6 ">
+					<h3 class="">余計な機能がなくシンプルな設計</h3>
+					<h5 class="text-muted">無駄な機能がないため入力から閲覧までスムーズに行うことが可能です。<br>日々の煩わしいトレーニング記録をスムーズに実現させてくれます。</h5>
+				</div>
+				<div class="col-md-6 ">
+					<%= image_tag "training_index.png", class: "img-responsive img-rounded", width: "100%;" %>
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col-md-6">
+					<h3 class="">体重の変化を記録し可視化する</h3>
+					<h5 class="text-muted">毎日の体重の変化をわかりやすくチェックすることが可能です。<br>グラフでチェックすることで毎日の変化がわかりやすくなります。</h5>
+				</div>
+				<div class="col-md-6">
+					<%= image_tag "weight_index.png", class: "img-responsive img-rounded", width: "100%;" %>
+				</div>
+			</div>
+			<div class="row text-center">
+				<div class="col-md-6">
+					<h3 class="">PFCバランスベースで食事管理</h3>
+					<h5 class="text-muted">PFCバランスの面倒な計算は一切しなくて大丈夫です。<br>いくつか質問に答えるだけで導き出してくれます。</h5>
+				</div>
+				<div class="col-md-6">
+					<%= image_tag "pfc_index.png", class: "img-responsive img-rounded", width: "100%;" %>
+				</div>
+			</div>
+			<div class="pricing-header text-center my-5">
+				<div class="display-4 pb-5">
+					<%= link_to new_user_registration_path, class: "btn btn-lg btn-primary" do %>
+            <i class="material-icons">how_to_reg</i>
+            無料で新規登録
+          <% end %>
+				</div>
+			</div>
+		</div>
+	</section>
+	</div>

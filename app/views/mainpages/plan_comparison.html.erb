@@ -18,18 +18,13 @@
               HOME
             </a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              プラン
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="/mainpages/plan_comparison">プランを比較</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/mainpages/basicplan">フリープラン</a>
-              <a class="dropdown-item" href="/mainpages/premiumplan">プレミアムプラン</a>
-            </div>
-          </li>
           <li class="nav-item active">
+            <%= link_to "/mainpages/plan_comparison", class: "nav-link" do %>
+              <i class="material-icons">public</i>
+              プラン比較
+            <% end %>
+          </li>
+          <li class="nav-item ">
             <%= link_to new_user_session_path, class: "nav-link" do %>
               <i class="material-icons">fingerprint</i>
               Login
@@ -73,7 +68,7 @@
 			          <% end %>
               </div>
             </div>
-            <%= link_to "/mainpages/freeplan", class: "text-white" do %>
+            <%= link_to "/mainpages/basicplan", class: "text-white" do %>
 	            <i class="material-icons">mobile_friendly</i>
 	            Free Planの詳細を確認
 	          <% end %>
