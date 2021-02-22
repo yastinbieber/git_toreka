@@ -25,6 +25,7 @@
       </div>
     </div>
     <div class="col-md-8">
+      <!--プレミアムプランの場合-->
       <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
       <div class="card">
         <div class="card-header card-header-primary card-header-icon">
@@ -83,7 +84,8 @@
         <%= link_to "編集する②", idealweight_path(current_user.idealweight), class: 'btn btn-default' %>
       </div>
     </div>
-    <% elsif current_user.plan == 'pln_c97be8359fee9eecf65b59eeed35' %>
+    <!--無料プランの場合-->
+    <% elsif current_user.plan == 'free' %>
     <div class="card">
       <div class="card-header card-header-primary card-header-icon">
         <div class="card-icon">

@@ -4,16 +4,16 @@ class IdealweightsController < ApplicationController
   end
   
  	def new
- 	  if current_user.plan == 'free'
- 	    redirect_to controller: :dashboards, action: :index
- 	  else
+ 	  # if current_user.plan == 'free'
+ 	  #   redirect_to controller: :dashboards, action: :index
+ 	  # else
    	  idealweight = Idealweight.where(user_id: current_user.id).first
    	  if idealweight.blank?
         @idealweight = Idealweight.new
       else
         redirect_to controller: :dashboards, action: :index
       end
-    end
+    # end
   end
   
   def create
@@ -22,7 +22,7 @@ class IdealweightsController < ApplicationController
       @idealweight = Idealweight.create(idealweight_params)
       if current_user.plan == 'free'
         TargetMailer.input_information(@idealweight).deliver_now
-        redirect_to controller: :advicediaries, action: :content # basicプランの場合
+        redirect_to controller: :advicediaries, action: :content # freeプランの場合
       elsif current_user.plan == 'pln_572790307dd04b525bdd0a155347'
         redirect_to controller: :useradvices, action: :new # premiumプランの場合
       end

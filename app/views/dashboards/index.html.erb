@@ -152,35 +152,35 @@
     </div>
     <!--入力項目が欠如していた場合  -->
     <% elsif current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.blank? %>
-      <div class="text-center">
-        <h3>ダッシュボードを利用するために必要な情報を入力しよう</h3>
+    <div class="text-center">
+      <h3>ダッシュボードを利用するために必要な情報を入力しよう</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-4 ml-auto mr-auto text-center">
+        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
+        <%= link_to "必要情報を入力する", "/idealweights/new", class: "btn btn-raised btn-primary" %>
       </div>
-      <div class="row">
-        <div class="col-md-4 ml-auto mr-auto text-center">
-          <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
-          <%= link_to "必要情報を入力する", "/idealweights/new", class: "btn btn-raised btn-primary" %>
-        </div>
-      </div>
+    </div>
     <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.blank? %>
-      <div class="text-center">
-        <h3>ボディメイクの細かなプランを決めよう</h3>
+    <div class="text-center">
+      <h3>ボディメイクの細かなプランを決めよう</h3>
+    </div>
+    <div class="row">
+      <div class="col-md-4 ml-auto mr-auto text-center">
+        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
+        <%= link_to "必要情報を入力する", "/useradvices/new", class: "btn btn-raised btn-primary" %>
       </div>
-      <div class="row">
-        <div class="col-md-4 ml-auto mr-auto text-center">
-          <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
-          <%= link_to "必要情報を入力する", "/useradvices/new", class: "btn btn-raised btn-primary" %>
-        </div>
-      </div>
+    </div>
     <% elsif current_user.plan == 'free' && current_user.idealweight.blank? %>
-      <div class="text-center">
-        <h3>ダッシュボードを利用するために必要な情報を入力しよう</h3>
+    <div class="text-center">
+      <h3>ダッシュボードを利用するために必要な情報を入力しよう</h3>
+    </div>
+    <div class="row ">
+      <div class="col-md-4 ml-auto mr-auto text-center">
+        <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
+        <%= link_to "必要情報を入力する", "/idealweights/new", class: "btn btn-raised btn-primary" %>
       </div>
-      <div class="row ">
-        <div class="col-md-4 ml-auto mr-auto text-center">
-          <%= image_tag "oji_1.png", class: "card-img-top", width: "50%;" %>
-          <%= link_to "必要情報を入力する", "/idealweights/new", class: "btn btn-raised btn-primary" %>
-        </div>
-      </div>
+    </div>
     <% end %>  
     
     
@@ -490,6 +490,4 @@
     <div class="fb-share-button" data-href="http://yastinblog.com/" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fyastinblog.com%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">FBでシェア</a></div>
     <% end %>
     
-      
-
 </div>
