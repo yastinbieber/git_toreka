@@ -12,15 +12,30 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
-//  require ./js/plugins/moment.min.js
-//  require ./js/core/popper.min.js
-//  require ./js/core/jquery.min.js
-//= require_tree .
+//  require turbolinks
+
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+
+//= require ./js/plugins/moment.min.js
+//= require ./js/core/popper.min.js
+
+//= require ./js/core/bootstrap-material-design.min.js
+//= require ./js/plugins/jquery.bootstrap-wizard.js
+//= require ./js/plugins/bootstrap-selectpicker.js
+//= require ./js/plugins/bootstrap-datetimepicker.min.js
+//= require ./js/plugins/bootstrap-tagsinput.js
+//= require ./js/plugins/jasny-bootstrap.min.js
+//= require ./js/plugins/bootstrap-notify.js
+
+//= require_tree .
+
 //= require autocomplete-rails
+
+
+
+
 
 // popup modalwindow
 window.onload = function() {

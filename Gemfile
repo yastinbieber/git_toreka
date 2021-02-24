@@ -79,7 +79,7 @@ gem 'rails4-autocomplete'
 gem 'therubyracer'
 gem "font-awesome-rails"
 gem 'payjp'
-gem 'turbolinks'
+# gem 'turbolinks'
 
 group :production do
   gem 'unicorn', '5.4.1'
