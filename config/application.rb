@@ -18,6 +18,6 @@ module Toreka
     config.i18n.default_locale = :ja
     config.time_zone = "Tokyo"
     config.active_record.default_timezone = :local
-    config.action_controller.default_protect_from_forgery = false
+    # config.action_controller.default_protect_from_forgery = false
   end
 end
