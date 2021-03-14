@@ -17,6 +17,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require autocomplete-rails
 
 //= require ./js/plugins/moment.min.js
 //= require ./js/core/popper.min.js
@@ -29,9 +30,10 @@
 //= require ./js/plugins/jasny-bootstrap.min.js
 //= require ./js/plugins/bootstrap-notify.js
 
+
 //= require_tree .
 
-//= require autocomplete-rails
+
 
 
 

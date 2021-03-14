@@ -10,7 +10,22 @@
 	    <li class="nav-item dropdown">
 	      <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	        <i class="material-icons">notifications</i>
-	        <span class="notification">✓</span>
+	        <!--freeplanでidealweightを未登録-->
+	        <% if current_user.plan == 'free' && current_user.idealweight.blank? %>
+		        <span class="notification">1</span>
+	        <!--freeplanでidealweightを入力済-->
+	        <% elsif current_user.plan == 'free' && current_user.idealweight.present? %>
+	        	<span class="notification">0</span>
+	        <!--premiumplanで全て入力済-->
+	        <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.present? %>
+	        	<span class="notification">0</span>
+	        <!--premiumplanでidealweightもしくはuseradviceが未登録-->
+	        <% elsif current_user.plan != 'free' && current_user.idealweight.present? || current_user.useradvice.present? %>
+	        	<span class="notification">1</span>
+	        <!--premiumplanでidealweight,useradviceともに未登録-->
+	        <% elsif current_user.plan != 'free' && current_user.idealweight.blank? && current_user.useradvice.blank? %>
+		        <span class="notification">1</span>
+	        <% end %>
 	        <p class="d-lg-none d-md-block">
 	          Some Actions
 	        </p>
@@ -28,9 +43,12 @@
 	        <!--freeプラン以外（有料プラン）で全て入力済みの場合-->
 	        <% elsif current_user.plan != 'free' && current_user.idealweight.present? && current_user.useradvice.present? %>
 	          <%= link_to "通知はありません", "", class: "dropdown-item" %>
-	        <!--freeプランの場合-->
-	        <% elsif current_user.plan == 'free' %>
+	        <!--freeプランでidealweight入力済-->
+	        <% elsif current_user.plan == 'free' && current_user.idealweight.present? %>
 	          <%= link_to "通知はありません", "", class: "dropdown-item" %>
+          <!--freeプランでidealweight未入力-->
+	        <% elsif current_user.plan == 'free' && current_user.idealweight.blank? %>
+	          <%= link_to "Bodymake目的を入力", new_idealweight_path, class: "dropdown-item" %>
 	        <% end %>
 	      </div>
 	    </li>
