@@ -6,12 +6,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   # def new
-  #   super
+  #   # super
   # end
 
   # POST /resource
   # def create
-  #   super
+  #   # super
+  #   freeplan_mainpages_path
   # end
 
   # GET /resource/edit
@@ -52,13 +53,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    # super(resource)
-    edit_user_path(resource)
+    freeplan_mainpages_path #ここに遷移させるページをつくる(メール送信しました的なページ)
   end
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
-    # super(resource)
-    edit_user_path(resource)
+    freeplan_mainpages_path
   end
 end

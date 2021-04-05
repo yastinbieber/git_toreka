@@ -35,7 +35,11 @@
               <i class="material-icons">monitor_weight</i>
             </div>
             <p class="card-category">直近体重 / 目標体重</p>
+            <% if @weight_last.present? %>
             <h3 class="card-title"><%= @weight_last.todayweight %> / <%= current_user.idealweight.targetweight %> <small>Kg</small></h3>
+            <% else %>
+            <h3 class="card-title">  / <%= current_user.idealweight.targetweight %> <small>Kg</small></h3>
+            <% end %>
           </div>
           <div class="card-footer">
             <div class="stats">

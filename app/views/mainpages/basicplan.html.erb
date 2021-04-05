@@ -42,7 +42,6 @@
   </nav>
   
 	
-	<!--やっぱりPCとスマホで分けようと思う-->
 	<section class="first pt-5">
 		<div class="container">
 			<div class="row py-5">
@@ -89,69 +88,24 @@
 		</div>
 	</section>
 	
-	<!--PC対応-->
-	<div class="d-none d-lg-block">
-	<section class="wowow">
+
+	<section class="seconds">
 		<div class="container">
 			<div class="col-md-6 ml-auto mr-auto pt-5">
 				<h2 class="pt-5 text-center">フリープラン詳しい機能</h2>
 				<hr >
 			</div>
-			<div class="row pt-5">
-				<div class="col-md-6 ">
-          <div class="icon">
-            <i class="material-icons">fitness_center</i>
-            <i class="material-icons">fitness_center</i>
-            <i class="material-icons">fitness_center</i>
-          </div>
-					<h2 class="">余計な機能がなくシンプルな設計</h2>
-					<div class="icon">
-            <i class="material-icons">fitness_center</i>
-            <i class="material-icons">fitness_center</i>
-            <i class="material-icons">fitness_center</i>
-          </div>
-					<h3>無駄な機能がないため入力から閲覧までスムーズに行うことが可能です。<br>日々の煩わしいトレーニング記録をスムーズに実現させてくれます。</h3>
-				</div>
-				<div class="col-md-6 ">
-					<%= image_tag "training_index.png", class: "img-responsive img-rounded" %>
-				</div>
-			</div>
 			<div class="row">
-				<div class="col-md-6">
-					<%= image_tag "weight_index.png", class: "img-responsive img-rounded" %>
-				</div>
-				<div class="col-md-6 text-right">
-          <div class="icon">
-            <i class="material-icons">monitor_weight</i>
-            <i class="material-icons">monitor_weight</i>
-            <i class="material-icons">monitor_weight</i>
-          </div>
-					<h2 class="">体重の変化を記録し可視化する</h2>
-					<div class="icon">
-            <i class="material-icons">monitor_weight</i>
-            <i class="material-icons">monitor_weight</i>
-            <i class="material-icons">monitor_weight</i>
-          </div>
-					<h3>毎日の体重の変化をわかりやすくチェックすることが可能です。<br>グラフでチェックすることで毎日の変化がわかりやすくなります。</h3>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-          <div class="icon">
-            <i class="material-icons">dinner_dining</i>
-            <i class="material-icons">dinner_dining</i>
-            <i class="material-icons">dinner_dining</i>
-          </div>
-					<h2 class="text-left ">PFCバランスベースで食事管理</h2>
-					<div class="icon">
-            <i class="material-icons">dinner_dining</i>
-            <i class="material-icons">dinner_dining</i>
-            <i class="material-icons">dinner_dining</i>
-          </div>
-					<h3 class="text-left">PFCバランスの面倒な計算は一切しなくて大丈夫です。<br>いくつか質問に答えるだけで導き出してくれます。</h3>
-				</div>
-				<div class="col-md-6">
-					<%= image_tag "pfc_index.png", class: "img-responsive img-rounded" %>
+				<div class="col-md-10 ml-auto mr-auto pb-5">
+					<%= image_tag "pr_t", class: "", width: "100%;" %>
+					<h3 class="text-center">余計な機能がなくシンプルな設計</h3>
+					<p class="text-muted text-center">無駄な機能がないため入力から閲覧までスムーズに行うことが可能です。<br>日々の煩わしいトレーニング記録をスムーズに実現させてくれます。</p>
+					<%= image_tag "pr_f", class: "", width: "100%;" %>
+					<h3 class="text-center">体重の変化を記録し可視化する</h3>
+					<p class="text-muted text-center pb-5">毎日の体重の変化をわかりやすくチェックすることが可能です。<br>グラフでチェックすることで毎日の変化がわかりやすくなります。</p>
+					<%= image_tag "pr_w", class: "", width: "100%;" %>
+					<h3 class="text-center">PFCバランスベースで食事管理</h3>
+					<p class="text-muted text-center">PFCバランスの面倒な計算は一切しなくて大丈夫です。<br>いくつか質問に答えるだけで導き出してくれます。</p>
 				</div>
 			</div>
 			<div class="pricing-header text-center my-5">
@@ -164,51 +118,5 @@
 			</div>
 		</div>
 	</section>
-	</div>
+
 	
-	<!--スマホ・タブレット対応-->
-	<div class="d-lg-none">
-	<section class="wowow">
-		<div class="container">
-			<div class="col-md-6 ml-auto mr-auto pt-5">
-				<h2 class="pt-5 text-center">フリープラン詳しい機能</h2>
-				<hr >
-			</div>
-			<div class="row text-center">
-				<div class="col-md-6 ">
-					<h3 class="">余計な機能がなくシンプルな設計</h3>
-					<h5 class="text-muted">無駄な機能がないため入力から閲覧までスムーズに行うことが可能です。<br>日々の煩わしいトレーニング記録をスムーズに実現させてくれます。</h5>
-				</div>
-				<div class="col-md-6 ">
-					<%= image_tag "training_index.png", class: "img-responsive img-rounded", width: "100%;" %>
-				</div>
-			</div>
-			<div class="row text-center">
-				<div class="col-md-6">
-					<h3 class="">体重の変化を記録し可視化する</h3>
-					<h5 class="text-muted">毎日の体重の変化をわかりやすくチェックすることが可能です。<br>グラフでチェックすることで毎日の変化がわかりやすくなります。</h5>
-				</div>
-				<div class="col-md-6">
-					<%= image_tag "weight_index.png", class: "img-responsive img-rounded", width: "100%;" %>
-				</div>
-			</div>
-			<div class="row text-center">
-				<div class="col-md-6">
-					<h3 class="">PFCバランスベースで食事管理</h3>
-					<h5 class="text-muted">PFCバランスの面倒な計算は一切しなくて大丈夫です。<br>いくつか質問に答えるだけで導き出してくれます。</h5>
-				</div>
-				<div class="col-md-6">
-					<%= image_tag "pfc_index.png", class: "img-responsive img-rounded", width: "100%;" %>
-				</div>
-			</div>
-			<div class="pricing-header text-center my-5">
-				<div class="display-4 pb-5">
-					<%= link_to new_user_registration_path, class: "btn btn-lg btn-primary" do %>
-            <i class="material-icons">how_to_reg</i>
-            無料で新規登録
-          <% end %>
-				</div>
-			</div>
-		</div>
-	</section>
-	</div>

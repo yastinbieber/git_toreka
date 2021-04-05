@@ -64,7 +64,11 @@
               <i class="material-icons">monitor_weight</i>
             </div>
             <p class="card-category">直近体重 / 目標体重</p>
+            <% if @weight_last.present? %>
             <h3 class="card-title"><%= @weight_last.todayweight %> / <%= current_user.idealweight.targetweight %> <small>Kg</small></h3>
+            <% else %>
+            <h3 class="card-title">  / <%= current_user.idealweight.targetweight %> <small>Kg</small></h3>
+            <% end %>
             <% if current_user.idealweight.targetweight < current_user.idealweight.weight %>
               <small class="card-title"><%= current_user.idealweight.period %> 日で<%= current_user.idealweight.weight - current_user.idealweight.targetweight %> Kg落とす</small>
               <br><small class="text-danger">1日あたり<%= current_user.idealweight.minusweight_day.ceil(2).to_f %> Kg調整する</small>
@@ -113,7 +117,11 @@
               <i class="material-icons">monitor_weight</i>
             </div>
             <p class="card-category">直近体重 / 目標体重</p>
+            <% if @weight_last.present? %>
             <h3 class="card-title"><%= @weight_last.todayweight %> / <%= current_user.idealweight.targetweight %> <small>Kg</small></h3>
+            <% else %>
+            <h3 class="card-title">  / <%= current_user.idealweight.targetweight %> <small>Kg</small></h3>
+            <% end %>
           </div>
           <div class="card-footer">
             <div class="stats">

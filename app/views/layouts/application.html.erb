@@ -155,6 +155,14 @@
                 <p>体重管理・記録</p>
               <% end %>
             </li>
+            <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
+            <li class="nav-item ">
+              <%= link_to "/contacts", class: "nav-link" do %>
+                <i class="material-icons">sms</i>
+                <p>LINEで相談</p>
+              <% end %>
+            </li>
+            <% end %>
             <li class="nav-item ">
               <%= link_to "/settings", class: 'nav-link' do %>
                 <i class="material-icons">settings</i>

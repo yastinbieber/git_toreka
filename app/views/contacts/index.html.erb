@@ -1,0 +1,68 @@
+<div class="container">
+<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+  <div class="container-fluid">
+    <div class="navbar-wrapper">
+      <a class="navbar-brand" href="javascript:;">LINE CONTACT</a>
+    </div>
+    <%= render 'users/users' %>
+  </div>
+</nav>
+
+<p>この機能ではLINEを使ってボディメイクに関する相談を無制限にすることができます。<br>ダイエットや筋トレ・体重に関してなどボディメイクに関する相談であれば何でもしていただいてOKです。<br>LINE相談を利用する場合は下記追加ボタンより『友達追加』をしていただきチャットください。</p>
+<p class="text-danger">※LINE相談はプレミアムプラン限定のコンテンツになります</p>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-primary card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">chat</i>
+        </div>
+        <h4 class="card-title">LINE相談でできること</h4>
+      </div>
+      <div class="card-body">
+		    <p class="card-text">✅食事の相談・確認<br>✅トレーニング内容・フォームの確認<br>✅その他ボディメイクに関する質問全般</p>
+		    <!--<a href="#0" class="card-link">Card link</a>-->
+		    <%= link_to "https://line.me/ti/p/GISS7O8iSj", class: "btn btn-success", target: "_blank" do %>
+				  <i class="material-icons">forum</i>LINEで相談する
+				<% end %>
+		    <!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary btn-link" data-toggle="modal" data-target="#exampleModal">
+				  注意事項を確認する場合はこちらをクリック
+				</button>
+				<!-- Modal -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">※注意事項</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        <small>✅通常24時間以内には返信させていただきます。状況に応じて遅くなることもございますのでご了承ください。
+								<br>✅LINE追加後も本画面は『LINE追加』という形で表記されます。LINE友達追加後はご自身のLINEから直接ご連絡ください。
+								<br>✅LINEをお送りいただく際は結論からご記載いただけると非常に助かります。その際画面のスクショなども添付いただけるとわかりやすいです。
+								<br>✅現在の仕様ですとLINE機能を用いて相談対応していきますが今後別のやり方に変わる可能性もございます。ご了承ください。</small>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+				      </div>
+				    </div>
+				  </div>
+				</div>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<small class="text-muted">LINE相談をする場合はスマホ推奨です。<br>
+上記ボタンをクリックするとPCの場合はQRコード画面に遷移します。<br>
+スマホの場合はLINEに遷移し友だち追加画面へ遷移します。<br>
+※既に友達登録されている場合はチャット画面へ遷移します。<br>
+一度上記ボタンより友だち追加された場合は基本的にご自身のLINEアプリより起動していただければよりスムーズです。</small>
+
+
+</div>

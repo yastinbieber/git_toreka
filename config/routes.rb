@@ -105,8 +105,8 @@ Rails.application.routes.draw do
   end
   
   resources :dashboards, only: [:index]
-  
   resources :settings, only: [:index]
+  resources :contacts, only: [:index]
   
   resources :withdrawals, only: [:new, :create]
     get  'inquiry' => 'inquiry#index'              # 入力画面
@@ -114,3 +114,4 @@ Rails.application.routes.draw do
     post 'inquiry/thanks' => 'inquiry#thanks'     # 送信完了画面
   end
 
+  
