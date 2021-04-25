@@ -48,5 +48,4 @@ class User < ApplicationRecord
     (today - idealweight.start_day).to_i+1
   end
   
-  
 end

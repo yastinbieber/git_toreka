@@ -26,7 +26,7 @@
     </div>
     <div class="col-md-8">
       <!--プレミアムプランの場合-->
-      <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
+      <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' || current_user.demo == 'torekadekawaro' %>
       <div class="card">
         <div class="card-header card-header-primary card-header-icon">
           <div class="card-icon">
@@ -85,7 +85,7 @@
       </div>
     </div>
     <!--無料プランの場合-->
-    <% elsif current_user.plan == 'free' %>
+    <% else %>
     <div class="card">
       <div class="card-header card-header-primary card-header-icon">
         <div class="card-icon">

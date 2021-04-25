@@ -67,6 +67,10 @@
                   <%= f.label :パスワードをもう一度入力, class: "bmd-label-floating" %><br />
                   <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
                 </div>
+                <div class="form-group has-primary">
+                  <%= f.label :デモIDがありましたらご入力ください %><br />
+                  <%= f.text_field :demo, autofocus: true, class: "form-control"%>
+                </div>
                 <small><%= link_to '利用規約', termsofservice_mainpages_path, target: "_blank" %>、及び<%= link_to '個人情報の取り扱い', personalinformation_mainpages_path, target: "_blank" %>に関する要項をご確認のうえ同意いただける場合は「同意して登録」ボタンをクリックしてください。</small><br><br>
                   <%= f.submit "同意して登録する", class: "btn btn-primary btn-raised" %>
               <% end %>

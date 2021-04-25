@@ -4,27 +4,38 @@ class IdealweightsController < ApplicationController
   end
   
  	def new
- 	  # if current_user.plan == 'free'
- 	  #   redirect_to controller: :dashboards, action: :index
- 	  # else
-   	  idealweight = Idealweight.where(user_id: current_user.id).first
-   	  if idealweight.blank?
-        @idealweight = Idealweight.new
-      else
-        redirect_to controller: :dashboards, action: :index
-      end
-    # end
+ 	  idealweight = Idealweight.where(user_id: current_user.id).first
+ 	  if idealweight.blank?
+      @idealweight = Idealweight.new
+    else
+      redirect_to controller: :dashboards, action: :index
+    end
   end
+  
+  # def create
+  #   idealweight = Idealweight.where(user_id: current_user.id).first
+  #   if idealweight.blank?
+  #     @idealweight = Idealweight.create(idealweight_params)
+  #     if current_user.plan == 'free'
+  #       TargetMailer.input_information(@idealweight).deliver_now
+  #       redirect_to controller: :advicediaries, action: :content # freeプランの場合
+  #     elsif current_user.plan == 'pln_572790307dd04b525bdd0a155347'
+  #       redirect_to controller: :useradvices, action: :new # premiumプランの場合
+  #     end
+  #   else
+  #     redirect_to controller: :idealweights, action: :warning
+  #   end
+  # end
   
   def create
     idealweight = Idealweight.where(user_id: current_user.id).first
     if idealweight.blank?
       @idealweight = Idealweight.create(idealweight_params)
-      if current_user.plan == 'free'
+      if current_user.plan == 'pln_572790307dd04b525bdd0a155347' || current_user.demo == 'torekadekawaro'
+        redirect_to controller: :useradvices, action: :new # premiumプランの場合
+      else
         TargetMailer.input_information(@idealweight).deliver_now
         redirect_to controller: :advicediaries, action: :content # freeプランの場合
-      elsif current_user.plan == 'pln_572790307dd04b525bdd0a155347'
-        redirect_to controller: :useradvices, action: :new # premiumプランの場合
       end
     else
       redirect_to controller: :idealweights, action: :warning

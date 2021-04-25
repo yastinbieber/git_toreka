@@ -95,7 +95,7 @@
               </a>
               <div class="collapse" id="pagesExamples">
                 <ul class="nav">
-                  <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
+                  <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' || current_user.demo == "torekadekawaro" %>
                   <li class="nav-item ">
                     <%= link_to "/advicediaries/", class: "nav-link" do %>
                       <span class="sidebar-mini"> TA </span>
@@ -155,7 +155,7 @@
                 <p>体重管理・記録</p>
               <% end %>
             </li>
-            <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' %>
+            <% if current_user.plan == 'pln_572790307dd04b525bdd0a155347' || current_user.demo == "torekadekawaro" %>
             <li class="nav-item ">
               <%= link_to "/contacts", class: "nav-link" do %>
                 <i class="material-icons">sms</i>

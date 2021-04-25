@@ -1,15 +1,28 @@
 class UseradvicesController < ApplicationController
   
-	def new
-	  if current_user.plan == 'free'
-	    redirect_to controller: :dashboards, action: :index
- 	  else
-  	  useradvice = Useradvice.where(user_id: current_user.id).first
+# 	def new
+# 	  if current_user.plan == 'free'
+# 	    redirect_to controller: :dashboards, action: :index
+# 	  else
+#   	  useradvice = Useradvice.where(user_id: current_user.id).first
+#       if useradvice.blank?
+#         @useradvice = Useradvice.new
+#       else
+#         redirect_to controller: :dashboards, action: :index
+#       end
+#     end
+#   end
+  
+  def new
+    if current_user.plan == 'pln_572790307dd04b525bdd0a155347' || current_user.demo == 'torekadekawaro'
+      useradvice = Useradvice.where(user_id: current_user.id).first
       if useradvice.blank?
         @useradvice = Useradvice.new
       else
         redirect_to controller: :dashboards, action: :index
       end
+    else
+      redirect_to controller: :dashboards, action: :index
     end
   end
   

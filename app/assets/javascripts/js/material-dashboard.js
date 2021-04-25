@@ -79,6 +79,7 @@ $(document).ready(function() {
   // Multilevel Dropdown menu
 
   $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+    
     var $el = $(this);
     var $parent = $(this).offsetParent(".dropdown-menu");
     if (!$(this).next().hasClass('show')) {
@@ -179,9 +180,11 @@ $(document).ready(function() {
 });
 
 $(document).on('click', '.navbar-toggler', function() {
+  
   $toggle = $(this);
 
   if (mobile_menu_visible == 1) {
+    console.log("とおった");
     $('html').removeClass('nav-open');
 
     $('.close-layer').remove();
@@ -191,16 +194,19 @@ $(document).on('click', '.navbar-toggler', function() {
 
     mobile_menu_visible = 0;
   } else {
+    console.log("とおった2");
     setTimeout(function() {
       $toggle.addClass('toggled');
     }, 430);
 
-    var $layer = $('<div class="close-layer"></div>');
+    var $layer = $('<div class="close-layer">aaa</div>');
 
     if ($('body').find('.main-panel').length != 0) {
+      console.log("とおった3");
       $layer.appendTo(".main-panel");
 
     } else if (($('body').hasClass('off-canvas-sidebar'))) {
+      console.log("とおった4");
       $layer.appendTo(".wrapper-full-page");
     }
 
@@ -209,7 +215,7 @@ $(document).on('click', '.navbar-toggler', function() {
     }, 100);
 
     $layer.click(function() {
-      $('html').removeClass('nav-open');
+      $('body').removeClass('nav-open');
       mobile_menu_visible = 0;
 
       $layer.removeClass('visible');
@@ -220,8 +226,9 @@ $(document).on('click', '.navbar-toggler', function() {
 
       }, 400);
     });
-
-    $('html').addClass('nav-open');
+    console.log("とおった5");
+    $('body').addClass('nav-open');
+    console.log("とおった6");
     mobile_menu_visible = 1;
 
   }
