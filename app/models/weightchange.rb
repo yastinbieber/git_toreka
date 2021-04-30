@@ -23,7 +23,7 @@ class Weightchange < ApplicationRecord
   end
   scope :date_from, -> (from) { where('? <= date', from) if from.present? }
   scope :date_to, -> (to) { where('date <= ?', to) if to.present? }
-  
+
   before_save do
     self.expected_weight = (idealweight.weight)-((idealweight.minusweight_day)*(user.what_day))
   end

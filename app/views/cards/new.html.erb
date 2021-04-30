@@ -7,22 +7,23 @@
       <%= render 'users/users' %>
     </div>
   </nav>
-  <div class="col-md-6 col-md-offset-6 mx-auto text-center">
+  <div class="col-md-8 col-md-offset-2 mx-auto text-center">
+    <div class="text-left">
+      <h3>カード情報入力</h3>
+      <small>クレジットカード決済については、Pay.jpを利用しております。<br>このクレジットカード情報は当社では保持せず、決済代行会社であるBase社で安全に管理されます。</small><br>
+    </div>
     <div class="card mx-auto text-left">
       <div class="container">
-      
-        <h3>カード情報入力</h3>
-        <hr>
+        
         <%= form_tag(pay_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do %>
           <div class="form-group">
-            <label class="text-left">カード番号</label>
-            <span class="required">必須</span>
+            <label class="text-left">カード番号 ※必須</label>
             <br/>
             <%= text_field_tag "number", "", class: "form-control", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number" %>
           </div>
           <div class="form-group">
-            <label>有効期限</label>
-            <span class="required">必須</span>
+            <label>有効期限 ※必須</label>
+            <!--<span class="required text-muted">※必須</span>-->
             <br/>
             <select class="card-valid col-4 text-center" id="exp_month" name="exp_month" type="text">
               <option>--</option>
@@ -58,7 +59,7 @@
           </div>
           <div class="form-group text-left">
             <label>セキュリティコード</label>
-            <span class="required">必須</span>
+            <span class="required">※必須</span>
             <br/>
             <%= text_field_tag "cvc", "", class: "form-control", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc" %>
           </div>

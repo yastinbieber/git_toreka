@@ -10,14 +10,17 @@
   </nav>
   <div class="row">
     <div class="col-md-4">
-      <div class="card card-profile ml-auto mr-auto" style="max-width: 360px">
-        <div class="card-header card-header-image">
-          <% if current_user.image.attached? %>
-            <%= image_tag current_user.image, class: "img" %>
-          <% else %>
-            <img class="img" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
-          <% end %>
+      <div class="card card-profile text-center card-hidden">
+        <div class="card-header ">
+          <div class="card-avatar">
+            <% if current_user.image.attached? %>
+              <%= image_tag current_user.image, class: "img" %>
+            <% else %>
+              <img class="img" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg" alt="User picture">
+            <% end %>
+          </div>
         </div>
+        
         <div class="card-body ">
           <h4 class="card-title"><%= current_user.username %></h4>
           <h6 class="card-category text-gray"><%= current_user.text %></h6>
@@ -163,4 +166,3 @@
     <% end %>
   <% end %>
 </div>
-

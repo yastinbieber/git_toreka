@@ -63,12 +63,10 @@ class CardsController < ApplicationController
       card.delete
     end
     redirect_to action: "new"
-    # idealweightが存在したら（つまりベーシックプランorプレミアムプラン）
     if current_user.idealweight.present?
       idealweight = Idealweight.where(user_id: current_user.id).first
       idealweight.destroy
     end
-    # useradviceが存在したら（つまりプレミアムプラン）
     if current_user.useradvice.present?
       useradvice = Useradvice.where(user_id: current_user.id).first
       useradvice.destroy
