@@ -41,44 +41,48 @@
     </div>
   </nav>
 
-  <div class="wrapper wrapper-full-page">
-    <!--<div class="page-header register-page header-filter" filter-color="black" style="background-image: url('../../assets/img/register.jpg')">-->
-    <div class="register">
+    <div class="register py-5">
       <div class="container py-5">
-        <div class="row py-5">
-          <div class="col-md-6 ml-auto mr-auto">
-            <div class="card mx-auto text-left">
-              <h4 class="card-header">アカウントを作成</h4>
+        <div class="row ">
+          <div class="col-md-10 ml-auto mr-auto">
+            <div class="card card-signup">
+              <h2 class="card-title text-center pt-3">アカウント登録</h2>
               <div class="card-body">
-              <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                <%= render "devise/shared/error_messages", resource: resource %>
-                <div class="form-group has-primary">
-                  <%= f.label :email, class: "bmd-label-floating" %><br />
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                <div class="row">
+                  <div class="col-md-5 ml-auto">
+          					<%= image_tag "loginpic.png", class: "img-responsive img-rounded", width: "100%;" %>
+                  </div>
+                  <div class="col-md-5 ml-auto mr-auto py-5">
+                    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                      <%= render "devise/shared/error_messages", resource: resource %>
+                      <div class="form-group has-primary">
+                        <%= f.label :email, class: "bmd-label-floating" %><br />
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                      </div>
+                      <div class="form-group has-primary">
+                        <%= f.label :password, class: "bmd-label-floating" %>
+                        <% if @minimum_password_length %>
+                        <br><em>(<%= @minimum_password_length %> 文字以上)</em>
+                        <% end %><br />
+                        <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+                      </div>
+                      <div class="form-group has-primary">
+                        <%= f.label :パスワードをもう一度入力, class: "bmd-label-floating" %><br />
+                        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+                      </div>
+                      <div class="form-group has-primary">
+                        <%= f.label :デモIDがありましたらご入力ください %><br />
+                        <%= f.text_field :demo, autofocus: true, class: "form-control"%>
+                      </div>
+                      <small><%= link_to '利用規約', termsofservice_mainpages_path, target: "_blank" %>、及び<%= link_to '個人情報の取り扱い', personalinformation_mainpages_path, target: "_blank" %>に関する要項をご確認のうえ同意いただける場合は「同意して登録」ボタンをクリックしてください。</small><br><br>
+                        <%= f.submit "同意して登録する", class: "btn btn-primary btn-raised" %>
+                    <% end %>
+                    <%= render "devise/shared/links" %>
+                  </div>
                 </div>
-                <div class="form-group has-primary">
-                  <%= f.label :password, class: "bmd-label-floating" %>
-                  <% if @minimum_password_length %>
-                  <br><em>(<%= @minimum_password_length %> 文字以上)</em>
-                  <% end %><br />
-                  <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-                </div>
-                <div class="form-group has-primary">
-                  <%= f.label :パスワードをもう一度入力, class: "bmd-label-floating" %><br />
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-                </div>
-                <div class="form-group has-primary">
-                  <%= f.label :デモIDがありましたらご入力ください %><br />
-                  <%= f.text_field :demo, autofocus: true, class: "form-control"%>
-                </div>
-                <small><%= link_to '利用規約', termsofservice_mainpages_path, target: "_blank" %>、及び<%= link_to '個人情報の取り扱い', personalinformation_mainpages_path, target: "_blank" %>に関する要項をご確認のうえ同意いただける場合は「同意して登録」ボタンをクリックしてください。</small><br><br>
-                  <%= f.submit "同意して登録する", class: "btn btn-primary btn-raised" %>
-              <% end %>
-              <%= render "devise/shared/links" %>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
