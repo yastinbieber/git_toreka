@@ -73,6 +73,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  min-height: 100vh;
 }
 .firsts {
   background: url('Toreka_mainpic.png') fixed;
@@ -363,6 +364,7 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  min-height: 100vh;
 }
 
 .register {
@@ -371,6 +373,7 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  min-height: 100vh;
 }
 
 .login-view {
@@ -379,6 +382,7 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  min-height: 100vh;
 }
 
 .img-border {
@@ -386,4 +390,10 @@ html {
   border-radius: 50%;
   width:  180px;
   height: 180px;
+}
+
+.full-page {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.3);
 }

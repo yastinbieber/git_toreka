@@ -3,11 +3,39 @@
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
     <div class="container-fluid">
       <div class="navbar-wrapper">
-        <a class="navbar-brand" href="javascript:;"><%= current_user.username %> のページ</a>
+        <a class="navbar-brand" href="javascript:;">プロフィール</a>
       </div>
       <%= render 'users/users' %>
     </div>
   </nav>
+  <div class="row">
+    <div class="d-none d-lg-block">
+      <div class="col-md-12 pb-3">
+        <ul class="nav nav-pills">
+          <li class="nav-item ">
+            <%= link_to user_path(current_user), class: "nav-link active" do %>
+              プロフィール
+            <% end %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to plancheck_users_path, class: "nav-link" do %>
+              プラン確認
+            <% end %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to card_path(current_user), class: "nav-link" do %>
+              お支払いカード
+            <% end %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to content_advicediaries_path, class: "nav-link" do %>
+              Bodymake目標
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-4">
       <div class="card card-profile text-center card-hidden">
@@ -92,23 +120,6 @@
                 <% end %>
               </span>
             <% end %>
-            <% if current_user.idealweight.present? %>
-              <span>
-                <%= link_to content_advicediaries_path, class: "btn btn-info" do %>
-                  <i class="material-icons">sports_score</i>
-                  Bodymake目標を確認する
-                <% end %>
-              </span>
-            <% end %>
-            <% if current_user.id == current_user.id %>
-              <span>
-                <%= link_to plancheck_users_path(current_user), class: "btn btn-success" do %>
-                  <i class="material-icons">how_to_reg</i>
-                  プランを確認・変更する
-                <% end %>
-              </span>
-            <% end %>
-            <div class="clearfix"></div>
           </form>
         </div>
       </div>

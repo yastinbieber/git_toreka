@@ -1,4 +1,4 @@
-<!--未ログイン用navbar-->
+
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
     <div class="container">
       <div class="navbar-wrapper">
@@ -41,62 +41,25 @@
     </div>
   </nav>
   
-  <div class="wrapper wrapper-full-page">
-    <div class="page-header login-page header-filter" filter-color="black" style="background-image: url('../../assets/img/login.jpg'); background-size: cover; background-position: top center;">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 ml-auto mr-auto">
-            <div class="card mx-auto text-left">
-              <h4 class="card-header">パスワードお忘れの場合</h4>
-              <div class="card-body">
-              <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-                <%= render "devise/shared/error_messages", resource: resource %>
-                <div class="form-group">
-                  <%= f.label :email, class: "bmd-label-floating" %><br />
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-                </div>
-                  <%= f.submit "送信する", class: "btn btn-primary btn-raised" %>
-              <% end %>
-              <%= render "devise/shared/links" %>
+  <div class="login-view py-5">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-4 ml-auto mr-auto py-5">
+          <div class="card mx-auto text-left">
+            <h4 class="card-header">パスワードお忘れの場合</h4>
+            <div class="card-body">
+            <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+              <div class="form-group">
+                <%= f.label :email, class: "bmd-label-floating" %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
               </div>
+                <%= f.submit "送信する", class: "btn btn-primary btn-raised" %>
+            <% end %>
+            <%= render "devise/shared/links" %>
             </div>
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class="container">
-          <nav class="float-left">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com/">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/presentation">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/blog">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/license">
-                  Licenses
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright float-right">
-            &copy;
-            <script>
-              document.write(new Date().getFullYear())
-            </script>, made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a> for a better web.
-          </div>
-        </div>
-      </footer>
     </div>
   </div>

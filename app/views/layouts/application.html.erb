@@ -70,9 +70,21 @@
                     <% end %>
                   </li>
                   <li class="nav-item ">
-                    <%= link_to edit_user_path(current_user), class: "nav-link" do %>
-                      <span class="sidebar-mini"> EP </span>
-                      <span class="sidebar-normal"> Edit Profile </span>
+                    <%= link_to plancheck_users_path, class: "nav-link" do %>
+                      <span class="sidebar-mini"> PC </span>
+                      <span class="sidebar-normal"> プラン確認 </span>
+                    <% end %>
+                  </li>
+                  <li class="nav-item ">
+                    <%= link_to card_path(current_user), class: "nav-link" do %>
+                      <span class="sidebar-mini"> CC </span>
+                      <span class="sidebar-normal"> お支払いカード </span>
+                    <% end %>
+                  </li>
+                  <li class="nav-item ">
+                    <%= link_to content_advicediaries_path, class: "nav-link" do %>
+                      <span class="sidebar-mini"> BI </span>
+                      <span class="sidebar-normal"> ボディメイク目標 </span>
                     <% end %>
                   </li>
                 </ul>

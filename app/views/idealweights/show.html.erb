@@ -8,6 +8,34 @@
     </div>
   </nav>
   <div class="row">
+    <div class="d-none d-lg-block">
+      <div class="col-md-12 pb-3">
+        <ul class="nav nav-pills">
+          <li class="nav-item ">
+            <%= link_to user_path(current_user), class: "nav-link " do %>
+              プロフィール
+            <% end %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to plancheck_users_path, class: "nav-link" do %>
+              プラン確認
+            <% end %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to card_path, class: "nav-link " do %>
+              お支払いカード
+            <% end %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to content_advicediaries_path, class: "nav-link active" do %>
+              Bodymake目標
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-md-4">
       <div class="card card-profile text-center card-hidden">
         <div class="card-header ">

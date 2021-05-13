@@ -3,32 +3,54 @@
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
     <div class="container-fluid">
       <div class="navbar-wrapper">
-        <a class="navbar-brand" href="javascript:;">CardRegistration</a>
+        <a class="navbar-brand" href="javascript:;">クレジットカード情報</a>
       </div>
       <%= render 'users/users' %>
     </div>
   </nav>
+
   <div class="row">
-    <div class="col-md-6 ml-auto mr-auto">
-      <div class="card card-blog">
-        <div class="card-header card-header-image">
-          <a href="#pablo">
-            <img class="img" src="https://images.unsplash.com/photo-1511439817358-bee8e21790b5?auto=format&fit=crop&w=750&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D" rel="nofollow">
-            <div class="card-title">
-                クレジットカード情報
-            </div>
-          </a>
-        </div>
+    <div class="d-none d-lg-block">
+      <div class="col-md-12 pb-3">
+        <ul class="nav nav-pills">
+          <li class="nav-item ">
+            <%= link_to user_path(current_user), class: "nav-link " do %>
+              プロフィール
+            <% end %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to plancheck_users_path, class: "nav-link" do %>
+              プラン確認
+            <% end %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to card_path(current_user), class: "nav-link active" do %>
+              お支払いカード
+            <% end %>
+          </li>
+          <li class="nav-item ">
+            <%= link_to content_advicediaries_path, class: "nav-link" do %>
+              Bodymake目標
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>お支払いカード情報</h3>
+      <div class="card">
         <div class="card-body text-left">
-          <form>
+          <p class="text-muted">クレジットカード決済については、Pay.jpを利用しております。<br>このクレジットカード情報は当社では保持せず、決済代行会社であるBase社で安全に管理されます。</p>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
               <div class="form-group">
                 <label class="bmd-label-floating">クレジットカード番号</label>
                 <h5 class="form-control"><%= "**** **** **** " + @default_card_information.last4 %></h5>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
               <div class="form-group">
                 <label class="bmd-label-floating">カード有効期限</label>
                 <% exp_month = @default_card_information.exp_month.to_s %>
@@ -37,18 +59,39 @@
               </div>
             </div>
           </div>
-          <%= form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm", data: {confirm: "削除が完了しました"}) do %>
+          <div class="clearfix"></div>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            登録カードを変更する
+          </button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">下記ご確認ください</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <small class="modal-body">
+                  登録できるクレジットカードは1枚のみとなります。カードの更新期限などが近づいている場合は新しいカード情報を登録ください。新しいカードの登録ができましたら過去のカード情報は削除されます。カード変更後も顧客情報は継続されます。
+                </small>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <%= link_to new_card_path, class: "btn btn-raised btn-primary" do %>
+                    <i class="material-icons">edit</i>
+                    登録カードを変更する
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%= form_tag(delete_cards_path(current_user), method: :post, id: 'charge-form',  name: "inputForm", data: {confirm: "削除が完了しました"}) do %>
             <input name="card_id" type="hidden">
             <button class="btn btn-outline-danger">登録カードを削除する</button>
           <% end %>
-          </form>
-          <%= link_to "プランを確認・変更する", plancheck_users_path(current_user), class: "btn btn-success" %>
-          <%= link_to "マイページへ戻る", user_path(current_user), class: "btn btn-primary" %>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
 

@@ -41,29 +41,24 @@
   </div>
 </nav>
 
-  <div class="wrapper wrapper-full-page">
-    <div class="login-view">
-      <div class="container py-5">
-        <div class="row py-5">
-          <div class="col-md-8 ml-auto mr-auto py-5 text-white">
-						<!--<div class="text-center">-->
-						  <h3>ご登録いただいたメールアドレス宛にサイト登録に関するメールを送付致しました。</h3>
+		
+	<div class="login-view py-5">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-4 ml-auto mr-auto py-5">
+          <div class="card mx-auto text-left">
+            <div class="card-body">
+            	<h3>ご登録いただいたメールアドレス宛にサイト登録に関するメールを送付致しました。</h3>
 						  <p>通常30秒から1分程度で届きます。<br>
 							届きましたら内容確認の上添付URLより登録を完了してください。</p>
-							<br>
-							<p>※数分待っても届かない場合はお手数ですが再度新規登録画面からお手続きください。</p>
-						<!--</div>-->
-						<div class="row ">
-						  <div class="col-md-4 ml-auto mr-auto text-center">
-						    <%= image_tag "oji_1.png", class: "card-img-top", width: "100%;" %>
-						    <%= link_to plan_comparison_mainpages_path, class: "btn btn-primary btn-md" do %>
-						      <i class="material-icons">how_to_reg</i>
-						      無料で新規登録
-						    <% end %>
-						  </div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+							<p class="text-danger">※数分待っても届かない場合はお手数ですが再度新規登録画面からお手続きください。</p>
+            	<%= link_to new_user_registration_path, class: "btn btn-primary btn-md" do %>
+					      <i class="material-icons">how_to_reg</i>
+					      無料で新規登録
+					    <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 	</div>
